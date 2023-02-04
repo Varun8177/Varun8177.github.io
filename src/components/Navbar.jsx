@@ -58,7 +58,6 @@ function Navbar() {
             <Button
               id="about"
               class="about section"
-              _hover={{ bgColor: "red", cursor: "pointer" }}
               onClick={() => {
                 window.scroll({
                   top: 100,
