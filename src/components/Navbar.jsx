@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Text, useColorMode } from "@chakra-ui/react";
+import { Box, Flex, Image, Button, useColorMode } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import ColorModeToggle from "./Darkmode";
 import myLogo from "../images/protfolio-icon.png";
@@ -48,16 +48,16 @@ function Navbar() {
           w={"70px"}
         />
         <Flex justifyContent={"space-evenly"} w={"60%"} alignItems={"center"}>
-          <NavLink to={"#"}>
-            <Text id="home" _hover={{ color: "red" }}>
+          <NavLink to={"#"} class="nav-link home">
+            <Button id="home" _hover={{ color: "red" }}>
               Home
-            </Text>
+            </Button>
           </NavLink>
-          <NavLink to={"#"}>
-            <Text
+          <NavLink to={"#"} class="nav-link about">
+            <Button
               id="about"
               class="about section"
-              _hover={{ color: "red", cursor: "pointer" }}
+              _hover={{ bgColor: "red", cursor: "pointer" }}
               onClick={() => {
                 window.scroll({
                   top: 100,
@@ -66,22 +66,27 @@ function Navbar() {
               }}
             >
               about
-            </Text>
+            </Button>
           </NavLink>
-          <NavLink to={"#"}>
-            <Text id="skills" _hover={{ color: "red", cursor: "pointer" }}>
+          <NavLink to={"#"} class="nav-link skills">
+            <Button id="skills" _hover={{ color: "red", cursor: "pointer" }}>
               skills
-            </Text>
+            </Button>
           </NavLink>
-          <NavLink to={"#"}>
-            <Text id="projects" _hover={{ color: "red", cursor: "pointer" }}>
+          <NavLink to={"#"} class="nav-link projects">
+            <Button id="projects" _hover={{ color: "red", cursor: "pointer" }}>
               projects
-            </Text>
+            </Button>
           </NavLink>
-          <NavLink to={"#"}>
-            <Text id="contact" _hover={{ color: "red", cursor: "pointer" }}>
+          <NavLink to={"#"} class="nav-link contact">
+            <Button id="contact" _hover={{ color: "red", cursor: "pointer" }}>
               contact
-            </Text>
+            </Button>
+          </NavLink>
+          <NavLink to={"#"} class="nav-link contact">
+            <Button id="contact" _hover={{ color: "red", cursor: "pointer" }}>
+              Resume
+            </Button>
           </NavLink>
           <ColorModeToggle />
         </Flex>
