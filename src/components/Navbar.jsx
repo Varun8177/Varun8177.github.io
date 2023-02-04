@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import ColorModeToggle from "./Darkmode";
 import myLogo from "../images/protfolio-icon.png";
 import { NavLink } from "react-router-dom";
+import { TfiDownload } from "react-icons/tfi";
 
 function Navbar() {
   const { colorMode } = useColorMode();
@@ -85,7 +86,10 @@ function Navbar() {
           </NavLink>
           <NavLink to={"#"} class="nav-link contact">
             <Button id="contact" _hover={{ color: "red", cursor: "pointer" }}>
-              Resume
+              Resume{" "}
+              <Box as={"span"} ml={"2"}>
+                {<TfiDownload />}
+              </Box>
             </Button>
           </NavLink>
           <ColorModeToggle />
