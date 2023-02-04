@@ -1,20 +1,16 @@
 import React from "react";
+import { Box, Heading, Text, Link } from "@chakra-ui/react";
 
-function Home() {
-  return (
-    <div class="content">
-      <div class="content__container">
-        <p class="content__container__text">Hello</p>
-
-        <ul class="content__container__list">
-          <li>world !</li>
-          <li class="content__container__list__item">bob !</li>
-          <li class="content__container__list__item">users !</li>
-          <li class="content__container__list__item">everybody !</li>
-        </ul>
-      </div>
-    </div>
-  );
-}
+const Home = () => (
+  <Box p={5}>
+    <Heading as="h1" size="xl">
+      My Portfolio
+    </Heading>
+    <Text mt={4}>Hi, I'm a software developer. Check out my work below:</Text>
+    <Box mt={4}>
+      <Link href="#projects">Projects</Link>
+    </Box>
+  </Box>
+);
 
 export default Home;
