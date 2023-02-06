@@ -7,22 +7,6 @@ function App() {
     <div className="App">
       <Navbar />
       <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
     </div>
   );
 }

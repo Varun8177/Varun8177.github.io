@@ -49,42 +49,33 @@ function Navbar() {
           w={"70px"}
         />
         <Flex justifyContent={"space-evenly"} w={"60%"} alignItems={"center"}>
-          <NavLink to={"#"} class="nav-link home">
-            <Button id="home" _hover={{ color: "red" }}>
-              Home
-            </Button>
+          {/* Home */}
+          <NavLink to={"#"} id="home" class="nav-link home">
+            <Button _hover={{ color: "red" }}>Home</Button>
           </NavLink>
-          <NavLink to={"#"} class="nav-link about">
-            <Button
-              id="about"
-              class="about section"
-              onClick={() => {
-                window.scroll({
-                  top: 100,
-                  left: 0,
-                });
-              }}
-            >
-              about
-            </Button>
+          {/* About */}
+          <NavLink to={"#"} id="about" class="about section">
+            <Button _hover={{ color: "red" }}>about</Button>
           </NavLink>
-          <NavLink to={"#"} class="nav-link skills">
-            <Button id="skills" _hover={{ color: "red", cursor: "pointer" }}>
-              skills
-            </Button>
+          {/* Skills */}
+          <NavLink to={"#"} id="skills" class="nav-link skills">
+            <Button _hover={{ color: "red", cursor: "pointer" }}>skills</Button>
           </NavLink>
-          <NavLink to={"#"} class="nav-link projects">
-            <Button id="projects" _hover={{ color: "red", cursor: "pointer" }}>
+          {/* Projects */}
+          <NavLink to={"#"} id="projects" class="nav-link projects">
+            <Button _hover={{ color: "red", cursor: "pointer" }}>
               projects
             </Button>
           </NavLink>
-          <NavLink to={"#"} class="nav-link contact">
-            <Button id="contact" _hover={{ color: "red", cursor: "pointer" }}>
+          {/* Contact */}
+          <NavLink to={"#"} id="contact" class="nav-link contact">
+            <Button _hover={{ color: "red", cursor: "pointer" }}>
               contact
             </Button>
           </NavLink>
-          <NavLink to={"#"} class="nav-link contact">
-            <Button id="contact" _hover={{ color: "red", cursor: "pointer" }}>
+          {/* Resume */}
+          <NavLink to={"#"} id="contact" class="nav-link contact">
+            <Button _hover={{ color: "red", cursor: "pointer" }}>
               Resume{" "}
               <Box as={"span"} ml={"2"}>
                 {<TfiDownload />}
