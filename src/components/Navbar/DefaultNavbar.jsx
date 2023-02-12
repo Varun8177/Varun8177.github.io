@@ -16,7 +16,7 @@ function DefaultNavbar() {
           xl: "68em",
           "2xl": "60%",
         }}
-        border={"1px solid blue"}
+        // border={"1px solid blue"}
       >
         {/* Home */}
         <NavLink to={"#"} id="home" class="nav-link home">
