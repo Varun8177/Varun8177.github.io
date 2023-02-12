@@ -1,32 +1,14 @@
-import {
-  Box,
-  Button,
-  Center,
-  Flex,
-  Heading,
-  Image,
-  ScaleFade,
-  Text,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Box, Button, Center, Flex, Heading, Text } from "@chakra-ui/react";
 import React from "react";
 
 const About = () => {
-  const { isOpen, onToggle } = useDisclosure();
   return (
-    <Box h={"100vh"}>
+    <Box h={"80vh"}>
       <Center mb={"40px"}>
         <Heading>About me</Heading>
       </Center>
       <Box pl={20} pr={20}>
         <Flex justifyContent={"space-evenly"} w="100%">
-          <Box>
-            <Image
-              class="home-img"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRr0YlatAy-hrNCQjzZ7fqDzNiXt7HGmzVaA&usqp=CAU"
-              w={"400px"}
-            />
-          </Box>
           <Box w={"50%"}>
             <Heading id="user-detail-name" mb={"20px"}>
               Hello, my name is Varun Ergurala
