@@ -18,23 +18,13 @@ const About = () => {
       <Center mb={"40px"}>
         <Heading>About me</Heading>
       </Center>
-      <Box
-        pl={20}
-        pr={20}
-        // onWheel={() => {
-        //   window.scrollTo({
-        //     top: 900,
-        //     left: 100,
-        //     behavior: "auto",
-        //   });
-        // }}
-      >
+      <Box pl={20} pr={20}>
         <Flex justifyContent={"space-evenly"} w="100%">
-          <Box w={"fit-content"}>
+          <Box>
             <Image
               class="home-img"
-              src="https://img.freepik.com/free-vector/version-control-concept-illustration_114360-2451.jpg?w=740&t=st=1676154109~exp=1676154709~hmac=4d15f87c71916d242ad59bc74a52dbcf1294ea47388c9146fb296b33230197b7"
-              w={"60%"}
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRr0YlatAy-hrNCQjzZ7fqDzNiXt7HGmzVaA&usqp=CAU"
+              w={"400px"}
             />
           </Box>
           <Box w={"50%"}>
