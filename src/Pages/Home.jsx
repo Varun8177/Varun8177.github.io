@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Button,
@@ -14,22 +14,29 @@ import { TfiEmail } from "react-icons/tfi";
 import { FiPhoneCall } from "react-icons/fi";
 
 function Home() {
+  let name = "my name is Varun Ergurala";
+  let [content, setContent] = useState("");
+  function Name() {
+    let i = 0;
+    let interval = setInterval(() => {
+      if (i === name.length) {
+        clearInterval(interval);
+      } else {
+        setContent((content += name[i]));
+      }
+
+      i = i + 1;
+    }, 300);
+  }
+  useEffect(() => {
+    Name();
+  }, []);
   return (
-    <Center
-      pl={20}
-      pr={20}
-      h={"100vh"}
-      onWheel={() => {
-        window.scrollTo({
-          top: 700,
-          behavior: "auto",
-        });
-      }}
-    >
+    <Center pl={20} pr={20} h={"100vh"}>
       <Flex justifyContent={"space-evenly"} w="100%">
         <Box>
-          <Heading id="user-detail-name" mb={"20px"}>
-            Hello, my name is Varun Ergurala
+          <Heading id="user-detail-name" mb={"20px"} fontSize={"72px"}>
+            Hello, {content}
           </Heading>
           <Heading mb={"20px"}>I'm a Full Stack Web Developer</Heading>
           <Text id="user-detail-intro" w={"55%"}>
@@ -68,14 +75,16 @@ function Home() {
             Contact me
           </Button>
         </Box>
-        <Box>
-          <Image
-            class="home-img"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRr0YlatAy-hrNCQjzZ7fqDzNiXt7HGmzVaA&usqp=CAU"
-            w={"500px"}
-          />
-        </Box>
       </Flex>
+      {/* <Box
+        h={"200px"}
+        w={"100px"}
+        position={"absolute"}
+        bgColor={"#def6ff"}
+        alignSelf={"baseline"}
+        top={"500"}
+        left={"80%"}
+      ></Box> */}
     </Center>
   );
 }
