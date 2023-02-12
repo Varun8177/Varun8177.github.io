@@ -9,12 +9,14 @@ const Skills = () => {
       <Center mb={"40px"}>
         <Heading>Skills</Heading>
       </Center>
-      <Box pl={20} pr={20} h={"100vh"}>
-        <Grid templateColumns="repeat(3, 1fr)" gap={6}>
-          {arr.map((item) => {
-            return <SkillItem />;
-          })}
-        </Grid>
+      <Box h={"80vh"}>
+        <Center>
+          <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+            {arr.map((_) => {
+              return <SkillItem />;
+            })}
+          </Grid>
+        </Center>
       </Box>
     </Box>
   );
