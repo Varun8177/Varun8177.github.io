@@ -6,19 +6,22 @@ import { TfiEmail } from "react-icons/tfi";
 import { Link } from "react-router-dom";
 
 import React from "react";
+import CaptionCarousel from "../Carousal/Carousal";
 
 const ProjectCards = ({ direction }) => {
   return (
     <Flex
+      boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px;"}
       direction={direction}
       w={"100%"}
       m={"auto"}
-      justifyContent={"space-between"}
+      justifyContent={"space-evenly"}
       h={"80vh"}
       mb={"30px"}
-      border={"1px solid black"}
+      //   border={"1px solid black"}
+      p={"5"}
     >
-      <Box w={"45%"}>
+      <Box w={"40%"}>
         <Heading fontSize={"64px"}>Shoperz</Heading>
         <Heading fontSize={"64px"} mb={"20px"}>
           — Meesho Clone
@@ -72,7 +75,9 @@ const ProjectCards = ({ direction }) => {
           <Image src={image1} w={"350px"} h={"250px"} />
           <Image src={image1} w={"350px"} h={"250px"} />
         </Grid> */}
-      {/* <CaptionCarousel /> */}
+      <Box w={"45%"}>
+        <CaptionCarousel />
+      </Box>
     </Flex>
   );
 };

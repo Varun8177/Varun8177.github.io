@@ -13,7 +13,6 @@ const Projects = () => {
       <ProjectCards direction={"row"} />
       <ProjectCards direction={"row-reverse"} />
       <ProjectCards direction={"row"} />
-      <ProjectCards direction={"row-reverse"} />
     </Box>
   );
 };

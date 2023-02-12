@@ -1,4 +1,11 @@
-import { Box, Button, Flex, Hide, useColorMode } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Hide,
+  Tooltip,
+  useColorMode,
+} from "@chakra-ui/react";
 import { TfiDownload } from "react-icons/tfi";
 import { NavLink } from "react-router-dom";
 import ColorModeToggle from "../Darkmode";

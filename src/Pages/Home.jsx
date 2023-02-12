@@ -7,6 +7,7 @@ import {
   Heading,
   Image,
   Text,
+  Tooltip,
 } from "@chakra-ui/react";
 import { RxGithubLogo } from "react-icons/rx";
 import { BsLinkedin } from "react-icons/bs";
@@ -51,18 +52,26 @@ function Home() {
             mt={"10px"}
             mb={"20px"}
           >
-            <Box id="contact-github">
-              <RxGithubLogo size="50px" border-radius="50%" />
-            </Box>
-            <Box id="contact-linkedin">
-              <BsLinkedin size="50px" />
-            </Box>
-            <Box id="contact-phone">
-              <FiPhoneCall size="50px" />
-            </Box>
-            <Box id="contact-email">
-              <TfiEmail size="50px" />
-            </Box>
+            <Tooltip hasArrow label="Github" bg="gray.300" color="black">
+              <Box id="contact-github">
+                <RxGithubLogo size="50px" border-radius="50%" />
+              </Box>
+            </Tooltip>
+            <Tooltip hasArrow label="LinkedIn" bg="gray.300" color="black">
+              <Box id="contact-linkedin">
+                <BsLinkedin size="50px" />
+              </Box>
+            </Tooltip>
+            <Tooltip hasArrow label="Phone" bg="gray.300" color="black">
+              <Box id="contact-phone">
+                <FiPhoneCall size="50px" />
+              </Box>
+            </Tooltip>
+            <Tooltip hasArrow label="Email" bg="gray.300" color="black">
+              <Box id="contact-email">
+                <TfiEmail size="50px" />
+              </Box>
+            </Tooltip>
           </Flex>
           <Button
             w={"200px"}
