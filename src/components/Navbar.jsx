@@ -1,25 +1,16 @@
-import { Box, Flex, Heading, Image, useColorMode } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import { Box, Flex, Image, useColorMode } from "@chakra-ui/react";
+import React from "react";
 import DefaultNavbar from "./Navbar/DefaultNavbar";
 import MobileNavbar from "./Navbar/MobileNavbar";
-import "@fontsource/poppins/800.css";
+import PortfolioLogo from "../images/protfolio-icon.png";
 
 function Navbar() {
   const { colorMode } = useColorMode();
 
-  const [logo, setLogo] = useState(false);
-  const handleLogo = () => {
-    setInterval(() => {
-      setLogo(true);
-    }, 2000);
-  };
-  useEffect(() => {
-    handleLogo();
-  }, []);
-
   return (
     <Box
-      border={"1px solid black"}
+      zIndex={2}
+      // border={"1px solid black"}
       position={"sticky"}
       top={0}
       bgColor={colorMode === "light" ? "white" : "black"}
@@ -29,25 +20,11 @@ function Navbar() {
         id="nav-menu"
         justifyContent={"space-between"}
         pl={["2", "2", "10"]}
-        border={"1px solid red"}
+        // border={"1px solid red"}
         alignItems={"center"}
       >
-        {logo ? (
-          <Box>
-            <Heading fontFamily={"Clicker Script"}>
-              V
-              <Box as="span" fontSize={"md"} fontWeight={"normal"}>
-                arun
-              </Box>
-            </Heading>
-          </Box>
-        ) : (
-          <Image
-            src="https://cliply.co/wp-content/uploads/2021/08/472108440_HELLO_STICKER_400px.gif"
-            w={["50px", "70px", "70px"]}
-            h={["50px", "70px", "70px"]}
-          />
-        )}
+        <Image src={PortfolioLogo} w={"150px"} />
+
         <DefaultNavbar />
         <MobileNavbar />
       </Flex>
