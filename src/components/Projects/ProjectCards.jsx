@@ -18,7 +18,7 @@ const ProjectCards = ({ direction }) => {
       w={"100%"}
       m={"auto"}
       justifyContent={"space-evenly"}
-      h={"80vh"}
+      h={"90vh"}
       mb={"30px"}
       p={"5"}
     >
