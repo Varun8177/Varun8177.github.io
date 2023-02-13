@@ -9,6 +9,7 @@ import {
 import { TfiDownload } from "react-icons/tfi";
 import { NavLink } from "react-router-dom";
 import ColorModeToggle from "../Darkmode";
+import portfolio from "../../images/Varun_Ergurala_Resume.pdf";
 
 function DefaultNavbar() {
   const { colorMode } = useColorMode();
@@ -76,7 +77,13 @@ function DefaultNavbar() {
           </Button>
         </NavLink>
         {/* Resume */}
-        <NavLink to={"#"} id="contact" class="nav-link contact">
+        <a
+          href="../../images/Varun_Ergurala_Resume.pdf"
+          id="contact"
+          class="nav-link resume"
+          // target={"_blank"}
+          download
+        >
           <Button
             _hover={{ color: "red", cursor: "pointer" }}
             bgGradient="linear(to-l,#3CAED7 100%, #40BAB6 100%)"
@@ -88,7 +95,7 @@ function DefaultNavbar() {
               {<TfiDownload />}
             </Box>
           </Button>
-        </NavLink>
+        </a>
 
         <ColorModeToggle />
       </Flex>
