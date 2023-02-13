@@ -11,9 +11,8 @@ import {
 } from "@chakra-ui/react";
 import { RxGithubLogo } from "react-icons/rx";
 import { BsLinkedin } from "react-icons/bs";
-import { TfiEmail } from "react-icons/tfi";
+import { TfiDownload, TfiEmail } from "react-icons/tfi";
 import { FiPhoneCall } from "react-icons/fi";
-import { Link } from "react-router-dom";
 
 function Home() {
   let name = "my name is Varun Ergurala";
@@ -79,17 +78,34 @@ function Home() {
               </Box>
             </Tooltip>
           </Flex>
-          <Button
-            w={"200px"}
-            p={"8"}
-            _hover={{ color: "red", cursor: "pointer" }}
-            bgGradient="linear(to-l,#3CAED7 100%, #40BAB6 100%)"
-            borderRadius={"10px"}
-            fontSize={["xs", "sm", "lg", "xl"]}
+          <a
+            href="../images/Varun_Ergurala_Resume.pdf"
+            id="resume-link-2"
+            download
+            onClick={() => {
+              window.open(
+                "https://drive.google.com/file/d/17cTzx5JO8LVlbzWnptj6L2Xp4sPyyx8_/view?usp=share_link"
+              );
+            }}
           >
-            Contact me
-          </Button>
+            <Button
+              id="resume-button-2"
+              _hover={{ color: "red", cursor: "pointer" }}
+              bgGradient="linear(to-l,#3CAED7 100%, #40BAB6 100%)"
+              borderRadius={"10px"}
+              fontSize={["xs", "sm", "lg", "xl"]}
+            >
+              Resume
+              <Box as={"span"} ml={"1"} fontSize={["xs", "sm", "lg", "xl"]}>
+                {<TfiDownload />}
+              </Box>
+            </Button>
+          </a>
         </Box>
+        <Image
+          class="home-img"
+          src="https://png.pngtree.com/png-vector/20200329/ourlarge/pngtree-character-avatar-of-businessman-with-beard-png-image_2166772.jpg"
+        />
       </Flex>
       {/* <Box
         h={"200px"}

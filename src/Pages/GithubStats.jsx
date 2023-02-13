@@ -22,16 +22,11 @@ const GithubStats = () => {
           <Tooltip delayShow={20} html />
         </GitHubCalendar>
         {/* Stats */}
-        <Flex
-          w={"100%"}
-          //   border={"1px solid red"}
-          justifyContent={"space-evenly"}
-          alignItems={"center"}
-        >
+        <Flex w={"100%"} justifyContent={"space-evenly"} alignItems={"center"}>
           <Link
             m={"auto"}
             to={
-              "https://github-readme-streak-stats.herokuapp.com/?user=Varun8177&hide_border=true"
+              "https://github-readme-streak-stats.herokuapp.com/?user=Varun8177"
             }
           >
             <Image

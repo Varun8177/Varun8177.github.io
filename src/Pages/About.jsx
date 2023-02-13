@@ -15,14 +15,11 @@ const About = () => {
             </Heading>
             <Heading mb={"20px"}>I'm a Full Stack Web Developer</Heading>
             <Text id="user-detail-intro">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quibusdam, ipsum accusantium eligendi minus aliquid pariatur
-              expedita reprehenderit sunt repudiandae accusamus repellendus iure
-              perspiciatis qui nemo nesciunt exercitationem hic tempora omnis
-              unde esse quia praesentium saepe? Esse perferendis exercitationem
-              magni eum, ducimus accusamus! Animi, aspernatur deserunt?
-              Provident ut consequatur eveniet vero, nostrum asperiores.
-              Dolores, fugit sequi!
+              An enthusiastic Full-stack Developer, skilled in NEM. Developing
+              websites using JavaScript, Node.js, Express.js, MongoDB. An
+              optimistic man, always ready to take a critical decision, ready to
+              work under pressure. Always ready to try some new things for
+              optimization.
             </Text>
 
             <Button

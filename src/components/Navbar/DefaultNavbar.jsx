@@ -72,9 +72,16 @@ function DefaultNavbar() {
         <a
           href="../../images/Varun_Ergurala_Resume.pdf"
           class="nav-link resume"
+          id="resume-link-1"
           download
+          onClick={() => {
+            window.open(
+              "https://drive.google.com/file/d/17cTzx5JO8LVlbzWnptj6L2Xp4sPyyx8_/view?usp=share_link"
+            );
+          }}
         >
           <Button
+            id="resume-button-1"
             _hover={{ color: "red", cursor: "pointer" }}
             bgGradient="linear(to-l,#3CAED7 100%, #40BAB6 100%)"
             borderRadius={"10px"}

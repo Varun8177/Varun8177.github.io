@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import { BsLinkedin } from "react-icons/bs";
 import { FiPhoneCall } from "react-icons/fi";
 import { RxGithubLogo } from "react-icons/rx";
@@ -20,17 +20,20 @@ const ProjectCards = ({ direction }) => {
       justifyContent={"space-evenly"}
       h={"80vh"}
       mb={"30px"}
-      class="project-card"
       p={"5"}
     >
-      <Box w={"40%"}>
-        <Heading fontSize={"64px"} class="project-title">
+      <Box w={"40%"} className="project-card">
+        <Heading fontSize={"64px"} className="project-title">
           Shoperz
         </Heading>
         <Heading fontSize={"64px"} mb={"20px"}>
           — Meesho Clone
         </Heading>
-        <Text mb={"30px"} class="project-description">
+        <Image
+          w={"10px"}
+          src="https://png.pngtree.com/png-vector/20200329/ourlarge/pngtree-character-avatar-of-businessman-with-beard-png-image_2166772.jpg"
+        />
+        <Text mb={"30px"} className="project-description">
           Online Shopping site to buy best quality Fashion, Electronics, Home &
           Kitchen products at lowest prices. I was given meesho.com as a project
           and I was able to succesfully to clone it in a period of 5 days
