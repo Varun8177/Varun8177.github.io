@@ -3,6 +3,7 @@ import { BsLinkedin } from "react-icons/bs";
 import { FiPhoneCall } from "react-icons/fi";
 import { RxGithubLogo } from "react-icons/rx";
 import { TfiEmail } from "react-icons/tfi";
+import { HiExternalLink } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
 import React from "react";
@@ -11,6 +12,8 @@ import CaptionCarousel from "../Carousal/Carousal";
 const ProjectCards = ({ direction }) => {
   return (
     <Flex
+      borderRadius={"10px"}
+      class="project-card"
       boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px;"}
       direction={direction}
       w={"100%"}
@@ -26,7 +29,7 @@ const ProjectCards = ({ direction }) => {
         <Heading fontSize={"64px"} mb={"20px"}>
           — Meesho Clone
         </Heading>
-        <Text mb={"30px"}>
+        <Text mb={"30px"} class="project-description">
           Online Shopping site to buy best quality Fashion, Electronics, Home &
           Kitchen products at lowest prices. I was given meesho.com as a project
           and I was able to succesfully to clone it in a period of 5 days
@@ -44,28 +47,39 @@ const ProjectCards = ({ direction }) => {
           mb={"20px"}
         >
           <Text>Teck Stack —</Text>
-          <Box id="contact-github">
+          <Box class="project-tech-stack">
             <RxGithubLogo size="30px" border-radius="50%" />
           </Box>
-          <Box id="contact-linkedin">
+          <Box class="project-tech-stack">
             <BsLinkedin size="30px" />
           </Box>
-          <Box id="contact-phone">
+          <Box class="project-tech-stack">
             <FiPhoneCall size="30px" />
           </Box>
-          <Box id="contact-email">
+          <Box class="project-tech-stack">
             <TfiEmail size="30px" />
           </Box>
         </Flex>
-        <Link to={"https://shoperz-co.netlify.app/"}>
+        <Link
+          to={"https://shoperz-co.netlify.app/"}
+          class="project-deployed-link"
+          target="_blank"
+        >
           <Text as="b" textDecorationLine={"underline"}>
             Website
           </Text>
+        </Link>
+        <Link
+          to={"https://github.com/Varun8177/hollow-idea-9446.git"}
+          class="project-github-link"
+          target="_blank"
+        >
           <Button ml={"20px"}>
             <RxGithubLogo />
             <Box as="span" ml={"10px"}>
               Github
             </Box>
+            <HiExternalLink />
           </Button>
         </Link>
       </Box>
