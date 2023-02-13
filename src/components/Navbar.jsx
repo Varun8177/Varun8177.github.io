@@ -9,7 +9,7 @@ function Navbar() {
 
   return (
     <Box
-      zIndex={2}
+      zIndex={5}
       // border={"1px solid black"}
       position={"sticky"}
       top={0}
