@@ -8,6 +8,7 @@ import {
   Image,
   Text,
   Tooltip,
+  useColorMode,
 } from "@chakra-ui/react";
 import { RxGithubLogo } from "react-icons/rx";
 import { BsLinkedin } from "react-icons/bs";
@@ -16,6 +17,7 @@ import { FiPhoneCall } from "react-icons/fi";
 
 function Home() {
   let name = "my name is Varun Ergurala";
+  const { colorMode } = useColorMode();
   let [content, setContent] = useState("");
   function Name() {
     let i = 0;
@@ -91,7 +93,12 @@ function Home() {
             <Button
               id="resume-button-2"
               _hover={{ color: "red", cursor: "pointer" }}
-              bgGradient="linear(to-l,#3CAED7 100%, #40BAB6 100%)"
+              bgGradient={
+                colorMode === "light"
+                  ? "linear(to-l,#3CAED7 100%, #40BAB6 100%)"
+                  : "none"
+              }
+              bgColor={colorMode === "dark" ? "red" : "none"}
               borderRadius={"10px"}
               fontSize={["xs", "sm", "lg", "xl"]}
             >
@@ -103,7 +110,8 @@ function Home() {
           </a>
         </Box>
         <Image
-          class="home-img"
+          className="home-img"
+          w={"70vh"}
           src="https://png.pngtree.com/png-vector/20200329/ourlarge/pngtree-character-avatar-of-businessman-with-beard-png-image_2166772.jpg"
         />
       </Flex>

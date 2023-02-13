@@ -1,7 +1,17 @@
-import { Box, Button, Center, Flex, Heading, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Center,
+  Flex,
+  Heading,
+  Text,
+  useColorMode,
+} from "@chakra-ui/react";
 import React from "react";
 
 const About = () => {
+  const { colorMode } = useColorMode();
+
   return (
     <Box h={"80vh"} id="about" className="about section">
       <Center mb={"40px"}>
@@ -27,7 +37,12 @@ const About = () => {
               p={"8"}
               mt={"20px"}
               _hover={{ color: "red", cursor: "pointer" }}
-              bgGradient="linear(to-l,#3CAED7 100%, #40BAB6 100%)"
+              bgGradient={
+                colorMode === "light"
+                  ? "linear(to-l,#3CAED7 100%, #40BAB6 100%)"
+                  : "none"
+              }
+              bgColor={colorMode === "dark" ? "red" : "none"}
               borderRadius={"10px"}
               fontSize={["xs", "sm", "lg", "xl"]}
             >

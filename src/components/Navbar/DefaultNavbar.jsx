@@ -21,7 +21,7 @@ function DefaultNavbar() {
         {/* Home */}
         <a href={"#home"} class="nav-link home">
           <Button
-            _hover={{ color: "red" }}
+            _hover={{ color: colorMode === "light" ? "blue" : "red" }}
             bgColor={colorMode === "light" ? "white" : "black"}
             fontSize={["xs", "sm", "lg", "xl"]}
           >
@@ -31,7 +31,7 @@ function DefaultNavbar() {
         {/* About */}
         <a href={"#about"} class="nav-link about">
           <Button
-            _hover={{ color: "red" }}
+            _hover={{ color: colorMode === "light" ? "blue" : "red" }}
             bgColor={colorMode === "light" ? "white" : "black"}
             fontSize={["xs", "sm", "lg", "xl"]}
           >
@@ -41,7 +41,10 @@ function DefaultNavbar() {
         {/* Skills */}
         <a href="#skills" class="nav-link skills">
           <Button
-            _hover={{ color: "red", cursor: "pointer" }}
+            _hover={{
+              color: colorMode === "light" ? "blue" : "red",
+              cursor: "pointer",
+            }}
             bgColor={colorMode === "light" ? "white" : "black"}
             fontSize={["xs", "sm", "lg", "xl"]}
           >
@@ -51,7 +54,10 @@ function DefaultNavbar() {
         {/* Projects */}
         <a href={"#projects"} class="nav-link projects">
           <Button
-            _hover={{ color: "red", cursor: "pointer" }}
+            _hover={{
+              color: colorMode === "light" ? "blue" : "red",
+              cursor: "pointer",
+            }}
             bgColor={colorMode === "light" ? "white" : "black"}
             fontSize={["xs", "sm", "lg", "xl"]}
           >
@@ -61,7 +67,10 @@ function DefaultNavbar() {
         {/* Contact */}
         <a href={"#contact"} class="nav-link contact">
           <Button
-            _hover={{ color: "red", cursor: "pointer" }}
+            _hover={{
+              color: colorMode === "light" ? "blue" : "red",
+              cursor: "pointer",
+            }}
             bgColor={colorMode === "light" ? "white" : "black"}
             fontSize={["xs", "sm", "lg", "xl"]}
           >
@@ -83,7 +92,12 @@ function DefaultNavbar() {
           <Button
             id="resume-button-1"
             _hover={{ color: "red", cursor: "pointer" }}
-            bgGradient="linear(to-l,#3CAED7 100%, #40BAB6 100%)"
+            bgGradient={
+              colorMode === "light"
+                ? "linear(to-l,#3CAED7 100%, #40BAB6 100%)"
+                : "none"
+            }
+            bgColor={colorMode === "dark" ? "red" : "none"}
             borderRadius={"10px"}
             fontSize={["xs", "sm", "lg", "xl"]}
           >
