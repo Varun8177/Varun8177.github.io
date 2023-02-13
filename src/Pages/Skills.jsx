@@ -5,7 +5,7 @@ import SkillItem from "../components/Skills/SkillItem";
 const Skills = () => {
   let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   return (
-    <Box>
+    <Box id="skills">
       <Center mb={"40px"}>
         <Heading>Skills</Heading>
       </Center>

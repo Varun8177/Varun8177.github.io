@@ -13,7 +13,6 @@ const ProjectCards = ({ direction }) => {
   return (
     <Flex
       borderRadius={"10px"}
-      class="project-card"
       boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px;"}
       direction={direction}
       w={"100%"}
@@ -21,11 +20,13 @@ const ProjectCards = ({ direction }) => {
       justifyContent={"space-evenly"}
       h={"80vh"}
       mb={"30px"}
-      //   border={"1px solid black"}
+      class="project-card"
       p={"5"}
     >
       <Box w={"40%"}>
-        <Heading fontSize={"64px"}>Shoperz</Heading>
+        <Heading fontSize={"64px"} class="project-title">
+          Shoperz
+        </Heading>
         <Heading fontSize={"64px"} mb={"20px"}>
           — Meesho Clone
         </Heading>

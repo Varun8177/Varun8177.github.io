@@ -4,7 +4,7 @@ import ProjectCards from "../components/Projects/ProjectCards";
 
 const Projects = () => {
   return (
-    <Box pl={20} pr={20}>
+    <Box pl={20} pr={20} id="projects">
       <Center>
         <Heading mb={"40px"} fontSize={"62px"}>
           Projects
@@ -13,6 +13,7 @@ const Projects = () => {
       <ProjectCards direction={"row"} />
       <ProjectCards direction={"row-reverse"} />
       <ProjectCards direction={"row"} />
+      <ProjectCards direction={"row-reverse"} />
     </Box>
   );
 };

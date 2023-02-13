@@ -3,7 +3,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <Box h={"80vh"}>
+    <Box h={"80vh"} id="about" className="about section">
       <Center mb={"40px"}>
         <Heading>About me</Heading>
       </Center>

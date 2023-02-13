@@ -1,15 +1,6 @@
-import {
-  Box,
-  Button,
-  Flex,
-  Hide,
-  Tooltip,
-  useColorMode,
-} from "@chakra-ui/react";
+import { Box, Button, Flex, Hide, useColorMode } from "@chakra-ui/react";
 import { TfiDownload } from "react-icons/tfi";
-import { NavLink } from "react-router-dom";
 import ColorModeToggle from "../Darkmode";
-import portfolio from "../../images/Varun_Ergurala_Resume.pdf";
 
 function DefaultNavbar() {
   const { colorMode } = useColorMode();
@@ -24,10 +15,11 @@ function DefaultNavbar() {
           xl: "68em",
           "2xl": "60%",
         }}
+        id="nav-menu"
         // border={"1px solid blue"}
       >
         {/* Home */}
-        <NavLink to={"#"} id="home" class="nav-link home">
+        <a href={"#home"} class="nav-link home">
           <Button
             _hover={{ color: "red" }}
             bgColor={colorMode === "light" ? "white" : "black"}
@@ -35,9 +27,9 @@ function DefaultNavbar() {
           >
             Home
           </Button>
-        </NavLink>
+        </a>
         {/* About */}
-        <NavLink to={"#"} id="about" class="about section">
+        <a href={"#about"} class="nav-link about">
           <Button
             _hover={{ color: "red" }}
             bgColor={colorMode === "light" ? "white" : "black"}
@@ -45,9 +37,9 @@ function DefaultNavbar() {
           >
             about
           </Button>
-        </NavLink>
+        </a>
         {/* Skills */}
-        <NavLink to={"#"} id="skills" class="nav-link skills">
+        <a href="#skills" class="nav-link skills">
           <Button
             _hover={{ color: "red", cursor: "pointer" }}
             bgColor={colorMode === "light" ? "white" : "black"}
@@ -55,9 +47,9 @@ function DefaultNavbar() {
           >
             skills
           </Button>
-        </NavLink>
+        </a>
         {/* Projects */}
-        <NavLink to={"#"} id="projects" class="nav-link projects">
+        <a href={"#projects"} class="nav-link projects">
           <Button
             _hover={{ color: "red", cursor: "pointer" }}
             bgColor={colorMode === "light" ? "white" : "black"}
@@ -65,9 +57,9 @@ function DefaultNavbar() {
           >
             projects
           </Button>
-        </NavLink>
+        </a>
         {/* Contact */}
-        <NavLink to={"#"} id="contact" class="nav-link contact">
+        <a href={"#contact"} class="nav-link contact">
           <Button
             _hover={{ color: "red", cursor: "pointer" }}
             bgColor={colorMode === "light" ? "white" : "black"}
@@ -75,13 +67,11 @@ function DefaultNavbar() {
           >
             contact
           </Button>
-        </NavLink>
+        </a>
         {/* Resume */}
         <a
           href="../../images/Varun_Ergurala_Resume.pdf"
-          id="contact"
           class="nav-link resume"
-          // target={"_blank"}
           download
         >
           <Button
@@ -90,7 +80,7 @@ function DefaultNavbar() {
             borderRadius={"10px"}
             fontSize={["xs", "sm", "lg", "xl"]}
           >
-            Resume{" "}
+            Resume
             <Box as={"span"} ml={"1"} fontSize={["xs", "sm", "lg", "xl"]}>
               {<TfiDownload />}
             </Box>

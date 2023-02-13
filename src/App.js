@@ -6,6 +6,7 @@ import Skills from './Pages/Skills';
 import Projects from './Pages/Projects';
 import Contact from './Pages/Contact';
 import { Box, useColorMode } from '@chakra-ui/react';
+import GithubStats from './Pages/GithubStats';
 
 function App() {
   const { colorMode } = useColorMode();
@@ -16,6 +17,7 @@ function App() {
       <About />
       <Skills />
       <Projects />
+      <GithubStats />
       <Contact />
 
     </Box>

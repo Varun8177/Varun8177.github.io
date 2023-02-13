@@ -17,7 +17,6 @@ function Navbar() {
     >
       <Flex
         h={"70px"}
-        id="nav-menu"
         justifyContent={"space-between"}
         pl={["2", "2", "10"]}
         // border={"1px solid red"}

@@ -13,6 +13,7 @@ import { RxGithubLogo } from "react-icons/rx";
 import { BsLinkedin } from "react-icons/bs";
 import { TfiEmail } from "react-icons/tfi";
 import { FiPhoneCall } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 function Home() {
   let name = "my name is Varun Ergurala";
@@ -33,7 +34,7 @@ function Home() {
     Name();
   }, []);
   return (
-    <Center pl={20} pr={20} h={"100vh"}>
+    <Center pl={20} pr={20} h={"100vh"} id="home">
       <Flex justifyContent={"space-evenly"} w="100%">
         <Box>
           <Heading id="user-detail-name" mb={"20px"} fontSize={"72px"}>
@@ -68,7 +69,12 @@ function Home() {
               </Box>
             </Tooltip>
             <Tooltip hasArrow label="Email" bg="gray.300" color="black">
-              <Box id="contact-email">
+              <Box
+                id="contact-email"
+                onClick={() => {
+                  window.location.href = "mailto:varunergurala9999@gmail.com";
+                }}
+              >
                 <TfiEmail size="50px" />
               </Box>
             </Tooltip>
