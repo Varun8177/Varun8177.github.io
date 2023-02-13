@@ -14,11 +14,13 @@ import { RxGithubLogo } from "react-icons/rx";
 import { BsLinkedin } from "react-icons/bs";
 import { TfiDownload, TfiEmail } from "react-icons/tfi";
 import { FiPhoneCall } from "react-icons/fi";
+import { NavLink } from "react-router-dom";
 
 function Home() {
   let name = "my name is Varun Ergurala";
   const { colorMode } = useColorMode();
   let [content, setContent] = useState("");
+
   function Name() {
     let i = 0;
     let interval = setInterval(() => {
@@ -55,14 +57,21 @@ function Home() {
             mb={"20px"}
           >
             <Tooltip hasArrow label="Github" bg="gray.300" color="black">
-              <Box id="contact-github">
-                <RxGithubLogo size="50px" border-radius="50%" />
-              </Box>
+              <NavLink to={"https://github.com/Varun8177"} target={"_blank"}>
+                <Box id="contact-github">
+                  <RxGithubLogo size="50px" border-radius="50%" />
+                </Box>
+              </NavLink>
             </Tooltip>
             <Tooltip hasArrow label="LinkedIn" bg="gray.300" color="black">
-              <Box id="contact-linkedin">
-                <BsLinkedin size="50px" />
-              </Box>
+              <NavLink
+                to={"https://www.linkedin.com/in/varun8177"}
+                target={"_blank"}
+              >
+                <Box id="contact-linkedin">
+                  <BsLinkedin size="50px" />
+                </Box>
+              </NavLink>
             </Tooltip>
             <Tooltip hasArrow label="Phone" bg="gray.300" color="black">
               <Box id="contact-phone">
