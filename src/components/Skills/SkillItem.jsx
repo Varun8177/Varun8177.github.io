@@ -1,10 +1,12 @@
-import { Box, Center, Image, Text } from "@chakra-ui/react";
+import { Box, Center, Image, Text, useColorMode } from "@chakra-ui/react";
 import React from "react";
 
 const SkillItem = () => {
+  const { colorMode } = useColorMode();
+
   return (
     <Box
-      bgColor={"white"}
+      bgColor={colorMode === "light" ? "white" : "#151414"}
       h={"150px"}
       w={"300px"}
       boxShadow="lg"
@@ -19,7 +21,12 @@ const SkillItem = () => {
         className="skills-card-img"
       />
       <Center>
-        <Text className="skills-card-name">Javascript</Text>
+        <Text
+          className="skills-card-name"
+          color={colorMode === "light" ? "black" : "white"}
+        >
+          Javascript
+        </Text>
       </Center>
     </Box>
   );

@@ -1,4 +1,12 @@
-import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  Image,
+  Text,
+  useColorMode,
+} from "@chakra-ui/react";
 import { BsLinkedin } from "react-icons/bs";
 import { FiPhoneCall } from "react-icons/fi";
 import { RxGithubLogo } from "react-icons/rx";
@@ -10,9 +18,12 @@ import React from "react";
 import CaptionCarousel from "../Carousal/Carousal";
 
 const ProjectCards = ({ direction }) => {
+  const { colorMode } = useColorMode();
+
   return (
     <Flex
       borderRadius={"10px"}
+      background={colorMode === "light" ? "white" : "black"}
       boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px;"}
       direction={direction}
       w={"100%"}
@@ -78,7 +89,11 @@ const ProjectCards = ({ direction }) => {
           class="project-github-link"
           target="_blank"
         >
-          <Button ml={"20px"}>
+          <Button
+            ml={"20px"}
+            bgColor={colorMode === "light" ? "black" : "red"}
+            color={colorMode === "light" ? "white" : "black"}
+          >
             <RxGithubLogo />
             <Box as="span" ml={"10px"}>
               Github

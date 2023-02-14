@@ -93,8 +93,9 @@ function Home() {
             </Tooltip>
           </Flex>
           <a
-            href="../images/Varun_Ergurala_Resume.pdf"
-            id="resume-link-2"
+            href="../../images/Varun_Ergurala_Resume.pdf"
+            // id="resume-link-1"
+            id="resume-button-2"
             download
             onClick={() => {
               window.open(
@@ -103,13 +104,17 @@ function Home() {
             }}
           >
             <Button
-              id="resume-button-2"
-              _hover={{ color: "red", cursor: "pointer" }}
+              // id="resume-button-1"
+              _hover={{
+                color: colorMode === "light" ? "black" : "white",
+                cursor: "pointer",
+              }}
               bgGradient={
                 colorMode === "light"
                   ? "linear(to-l,#3CAED7 100%, #40BAB6 100%)"
                   : "none"
               }
+              color={colorMode === "light" ? "white" : "black"}
               bgColor={colorMode === "dark" ? "red" : "none"}
               borderRadius={"10px"}
               fontSize={["xs", "sm", "lg", "xl"]}
@@ -121,12 +126,6 @@ function Home() {
             </Button>
           </a>
         </Box>
-        <Image
-          className="home-img"
-          w={"70vh"}
-          borderRadius={"10px"}
-          src="https://png.pngtree.com/png-vector/20200329/ourlarge/pngtree-character-avatar-of-businessman-with-beard-png-image_2166772.jpg"
-        />
       </Flex>
       {/* <Box
         h={"200px"}

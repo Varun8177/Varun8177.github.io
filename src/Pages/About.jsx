@@ -25,11 +25,11 @@ const About = () => {
             </Heading>
             <Heading mb={"20px"}>I'm a Full Stack Web Developer</Heading>
             <Text id="user-detail-intro">
-              An enthusiastic Full-stack Developer, skilled in NEM. Developing
-              websites using JavaScript, Node.js, Express.js, MongoDB. An
-              optimistic man, always ready to take a critical decision, ready to
-              work under pressure. Always ready to try some new things for
-              optimization.
+              An enthusiastic Full-stack Developer, skilled in React.js .
+              Developing websites using JavaScript, Node.js, Express.js,
+              MongoDB. An optimistic man, always ready to take a critical
+              decision, ready to work under pressure. Always ready to try some
+              new things for optimization.
             </Text>
 
             <Button

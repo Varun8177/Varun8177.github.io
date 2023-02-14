@@ -1,4 +1,4 @@
-import { Box, Center, Heading } from "@chakra-ui/react";
+import { Box, Center, Heading, useColorMode } from "@chakra-ui/react";
 import React from "react";
 import ProjectCards from "../components/Projects/ProjectCards";
 

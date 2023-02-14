@@ -12,6 +12,7 @@ const Skills = () => {
       <Box h={"80vh"}>
         <Center>
           <Grid
+            // color={"red"}
             templateColumns={{
               md: "repeat(1, 1fr)",
               lg: "repeat(2, 1fr)",
@@ -20,7 +21,7 @@ const Skills = () => {
             }}
             gap={6}
           >
-            {arr.map((_) => {
+            {arr.map(() => {
               return <SkillItem />;
             })}
           </Grid>

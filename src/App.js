@@ -5,14 +5,31 @@ import About from './Pages/About';
 import Skills from './Pages/Skills';
 import Projects from './Pages/Projects';
 import Contact from './Pages/Contact';
-import { Box, useColorMode } from '@chakra-ui/react';
+import { Box, StatUpArrow, useColorMode } from '@chakra-ui/react';
 import GithubStats from './Pages/GithubStats';
+import { BiUpArrow } from 'react-icons/bi';
+import { BsArrowUpCircleFill } from 'react-icons/bs';
 
 function App() {
   const { colorMode } = useColorMode();
   return (
-    <Box className="App" bgColor={colorMode === "light" ? "#f2f2fc" : "black"}>
+    <Box className="App" background={
+      colorMode === "light"
+        ? "linear-gradient(to left, #2980b9, #6dd5fa, #ffffff)"
+        : "linear-gradient(to left, #000000, #434343)"
+    }>
       <Navbar />
+      <Box top='90vh' position='fixed' left='95%' color={colorMode === "light"
+        ? "black"
+        : "red"} onClick={() => {
+          window.scroll({
+            top: 0,
+            left: 100,
+            behavior: 'smooth'
+          });
+        }}>
+        <BsArrowUpCircleFill size={'40px'} />
+      </Box>
       <Home />
       <About />
       <Skills />

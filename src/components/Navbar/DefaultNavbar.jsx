@@ -85,7 +85,8 @@ function DefaultNavbar() {
         <a
           href="../../images/Varun_Ergurala_Resume.pdf"
           class="nav-link resume"
-          id="resume-link-1"
+          // id="resume-link-1"
+          id="resume-button-1"
           download
           onClick={() => {
             window.open(
@@ -94,13 +95,17 @@ function DefaultNavbar() {
           }}
         >
           <Button
-            id="resume-button-1"
-            _hover={{ color: "red", cursor: "pointer" }}
+            // id="resume-button-1"
+            _hover={{
+              color: colorMode === "light" ? "black" : "white",
+              cursor: "pointer",
+            }}
             bgGradient={
               colorMode === "light"
                 ? "linear(to-l,#3CAED7 100%, #40BAB6 100%)"
                 : "none"
             }
+            color={colorMode === "light" ? "white" : "black"}
             bgColor={colorMode === "dark" ? "red" : "none"}
             borderRadius={"10px"}
             fontSize={["xs", "sm", "lg", "xl"]}

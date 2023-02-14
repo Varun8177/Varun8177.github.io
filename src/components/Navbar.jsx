@@ -4,6 +4,7 @@ import DefaultNavbar from "./Navbar/DefaultNavbar";
 import MobileNavbar from "./Navbar/MobileNavbar";
 import darkLogo from "../images/protfolio-icon2.png";
 import lightLogo from "../images/protfolio-icon.png";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
   const { colorMode } = useColorMode();
@@ -23,7 +24,12 @@ function Navbar() {
         // border={"1px solid red"}
         alignItems={"center"}
       >
-        <Image src={colorMode === "light" ? lightLogo : darkLogo} w={"250px"} />
+        <NavLink to={"https://varun8177.github.io/"}>
+          <Image
+            src={colorMode === "light" ? lightLogo : darkLogo}
+            w={"250px"}
+          />
+        </NavLink>
 
         <DefaultNavbar />
         <MobileNavbar />
