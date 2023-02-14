@@ -1,17 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.468f386e.css",
-    "main.js": "/static/js/main.fe764981.js",
+    "main.css": "/static/css/main.c39f01c4.css",
+    "main.js": "/static/js/main.39067b6e.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
     "static/media/Shoperz_banner_1.png": "/static/media/Shoperz_banner_1.df34e7c48c8d54ff82e9.png",
     "static/media/Shoperz_banner_2.png": "/static/media/Shoperz_banner_2.14065a2942b9d24a1b57.png",
+    "static/media/protfolio-icon.png": "/static/media/protfolio-icon.1ac4c2f7172d4984f8ab.png",
+    "static/media/protfolio-icon2.png": "/static/media/protfolio-icon2.5d5bc96d3f4dc66dd2d3.png",
     "index.html": "/index.html",
-    "main.468f386e.css.map": "/static/css/main.468f386e.css.map",
-    "main.fe764981.js.map": "/static/js/main.fe764981.js.map",
+    "main.c39f01c4.css.map": "/static/css/main.c39f01c4.css.map",
+    "main.39067b6e.js.map": "/static/js/main.39067b6e.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.468f386e.css",
-    "static/js/main.fe764981.js"
+    "static/css/main.c39f01c4.css",
+    "static/js/main.39067b6e.js"
   ]
 }
