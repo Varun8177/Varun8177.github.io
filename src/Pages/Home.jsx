@@ -35,6 +35,9 @@ function Home() {
   }
   useEffect(() => {
     Name();
+    return () => {
+      setContent("");
+    };
   }, []);
   return (
     <Center pl={20} pr={20} h={"100vh"} id="home">
@@ -121,6 +124,7 @@ function Home() {
         <Image
           className="home-img"
           w={"70vh"}
+          borderRadius={"10px"}
           src="https://png.pngtree.com/png-vector/20200329/ourlarge/pngtree-character-avatar-of-businessman-with-beard-png-image_2166772.jpg"
         />
       </Flex>

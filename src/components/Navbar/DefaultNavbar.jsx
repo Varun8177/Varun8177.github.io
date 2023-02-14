@@ -1,6 +1,7 @@
 import { Box, Button, Flex, Hide, useColorMode } from "@chakra-ui/react";
 import { TfiDownload } from "react-icons/tfi";
 import ColorModeToggle from "../Darkmode";
+import styes from "./Navbar.css";
 
 function DefaultNavbar() {
   const { colorMode } = useColorMode();
@@ -19,7 +20,7 @@ function DefaultNavbar() {
         // border={"1px solid blue"}
       >
         {/* Home */}
-        <a href={"#home"} class="nav-link home">
+        <a href={"#home"} class="nav-link home hover-underline-animation">
           <Button
             _hover={{ color: colorMode === "light" ? "blue" : "red" }}
             bgColor={colorMode === "light" ? "white" : "black"}
@@ -29,7 +30,7 @@ function DefaultNavbar() {
           </Button>
         </a>
         {/* About */}
-        <a href={"#about"} class="nav-link about">
+        <a href={"#about"} class="nav-link about hover-underline-animation">
           <Button
             _hover={{ color: colorMode === "light" ? "blue" : "red" }}
             bgColor={colorMode === "light" ? "white" : "black"}
@@ -39,7 +40,7 @@ function DefaultNavbar() {
           </Button>
         </a>
         {/* Skills */}
-        <a href="#skills" class="nav-link skills">
+        <a href="#skills" class="nav-link skills hover-underline-animation">
           <Button
             _hover={{
               color: colorMode === "light" ? "blue" : "red",
@@ -52,7 +53,10 @@ function DefaultNavbar() {
           </Button>
         </a>
         {/* Projects */}
-        <a href={"#projects"} class="nav-link projects">
+        <a
+          href={"#projects"}
+          class="nav-link projects hover-underline-animation"
+        >
           <Button
             _hover={{
               color: colorMode === "light" ? "blue" : "red",
@@ -65,7 +69,7 @@ function DefaultNavbar() {
           </Button>
         </a>
         {/* Contact */}
-        <a href={"#contact"} class="nav-link contact">
+        <a href={"#contact"} class="nav-link contact hover-underline-animation">
           <Button
             _hover={{
               color: colorMode === "light" ? "blue" : "red",

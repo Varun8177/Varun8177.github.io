@@ -2,7 +2,8 @@ import { Box, Flex, Image, useColorMode } from "@chakra-ui/react";
 import React from "react";
 import DefaultNavbar from "./Navbar/DefaultNavbar";
 import MobileNavbar from "./Navbar/MobileNavbar";
-import PortfolioLogo from "../images/protfolio-icon.png";
+import darkLogo from "../images/protfolio-icon2.png";
+import lightLogo from "../images/protfolio-icon.png";
 
 function Navbar() {
   const { colorMode } = useColorMode();
@@ -22,7 +23,7 @@ function Navbar() {
         // border={"1px solid red"}
         alignItems={"center"}
       >
-        <Image src={PortfolioLogo} w={"150px"} />
+        <Image src={colorMode === "light" ? lightLogo : darkLogo} w={"250px"} />
 
         <DefaultNavbar />
         <MobileNavbar />
