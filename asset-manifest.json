@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.4e77eaae.css",
-    "main.js": "/static/js/main.ee4d14f4.js",
+    "main.js": "/static/js/main.428ff965.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
     "static/media/Shoperz_banner_1.png": "/static/media/Shoperz_banner_1.df34e7c48c8d54ff82e9.png",
     "static/media/Shoperz_banner_2.png": "/static/media/Shoperz_banner_2.14065a2942b9d24a1b57.png",
@@ -9,11 +9,11 @@
     "static/media/protfolio-icon2.png": "/static/media/protfolio-icon2.5d5bc96d3f4dc66dd2d3.png",
     "index.html": "/index.html",
     "main.4e77eaae.css.map": "/static/css/main.4e77eaae.css.map",
-    "main.ee4d14f4.js.map": "/static/js/main.ee4d14f4.js.map",
+    "main.428ff965.js.map": "/static/js/main.428ff965.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4e77eaae.css",
-    "static/js/main.ee4d14f4.js"
+    "static/js/main.428ff965.js"
   ]
 }
