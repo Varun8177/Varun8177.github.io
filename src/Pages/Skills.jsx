@@ -1,4 +1,4 @@
-import { Box, Center, Grid, Heading, Image, Text } from "@chakra-ui/react";
+import { Box, Center, Grid, Heading } from "@chakra-ui/react";
 import React from "react";
 import SkillItem from "../components/Skills/SkillItem";
 

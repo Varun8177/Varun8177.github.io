@@ -73,8 +73,8 @@ const Contact = () => {
         </Stack>
         <Image
           className="home-img"
-          w={"400px"}
-          h={"490px"}
+          w={"300px"}
+          h={"300px"}
           alignSelf={"center"}
           borderRadius={"15%"}
           // border={"1px solid teal"}
