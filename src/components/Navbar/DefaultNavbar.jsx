@@ -85,9 +85,9 @@ function DefaultNavbar() {
         <a
           href="../../images/Varun_Ergurala_Resume.pdf"
           class="nav-link resume"
-          // id="resume-link-1"
-          id="resume-button-1"
-          download
+          id="resume-link-1"
+          // id="resume-button-1"
+          download="../../images/Varun_Ergurala_Resume.pdf"
           onClick={() => {
             window.open(
               "https://drive.google.com/file/d/17cTzx5JO8LVlbzWnptj6L2Xp4sPyyx8_/view?usp=share_link"
@@ -95,7 +95,8 @@ function DefaultNavbar() {
           }}
         >
           <Button
-            // id="resume-button-1"
+            id="resume-button-1"
+            download="../../images/Varun_Ergurala_Resume.pdf"
             _hover={{
               color: colorMode === "light" ? "black" : "white",
               cursor: "pointer",
