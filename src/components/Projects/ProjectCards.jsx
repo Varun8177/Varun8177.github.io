@@ -56,6 +56,14 @@ const ProjectCards = ({ direction }) => {
           xl: "5",
           "2xl": "5",
         }}
+        pb={{
+          base: "0",
+          sm: "0",
+          md: "0",
+          lg: "5",
+          xl: "5",
+          "2xl": "5",
+        }}
       >
         <Box w={"40%"} className="project-card">
           <Heading
@@ -317,9 +325,10 @@ function MediumProjectCard() {
             xl: "54px",
             "2xl": "64px",
           }}
+          mb={"20px"}
           className="project-title"
         >
-          Shoperz — Meesho Clone mid
+          Shoperz — Meesho Clone
         </Heading>
         <Box w={"100%"} mb={"10px"}>
           {/* Carousal */}
@@ -336,16 +345,30 @@ function MediumProjectCard() {
             // border={"1px solid red"}
           >
             {/* Left Icon */}
-            <IconButton
-              aria-label="left-arrow"
-              transform={"translate(0%, -50%)"}
-              // size={{ base: "xs", md: "lg" }}
-              onClick={() => {
-                i === 0 ? setI(cards.length - 1) : setI(i - 1);
-              }}
-            >
-              <BiLeftArrowAlt size="40px" />
-            </IconButton>
+            <Show above="md">
+              <IconButton
+                aria-label="left-arrow"
+                transform={"translate(0%, -50%)"}
+                // size={{ base: "xs", md: "lg" }}
+                onClick={() => {
+                  i === 0 ? setI(cards.length - 1) : setI(i - 1);
+                }}
+              >
+                <BiLeftArrowAlt size="40px" />
+              </IconButton>
+            </Show>
+            <Show below="md">
+              <IconButton
+                aria-label="left-arrow"
+                transform={"translate(0%, -50%)"}
+                // size={{ base: "xs", md: "lg" }}
+                onClick={() => {
+                  i === 0 ? setI(cards.length - 1) : setI(i - 1);
+                }}
+              >
+                <BiLeftArrowAlt size="20px" />
+              </IconButton>
+            </Show>
             <Image
               transform={"transform .6s"}
               _hover={{ transform: "scale(1.4)", zIndex: "4" }}
@@ -367,15 +390,28 @@ function MediumProjectCard() {
               boxShadow={"lg"}
             />
             {/* Right Icon */}
-            <IconButton
-              aria-label="right-arrow"
-              transform={"translate(0%, -50%)"}
-              onClick={() => {
-                i === cards.length - 1 ? setI(0) : setI(i + 1);
-              }}
-            >
-              <BiRightArrowAlt size="40px" />
-            </IconButton>
+            <Show above="md">
+              <IconButton
+                aria-label="right-arrow"
+                transform={"translate(0%, -50%)"}
+                onClick={() => {
+                  i === cards.length - 1 ? setI(0) : setI(i + 1);
+                }}
+              >
+                <BiRightArrowAlt size="40px" />
+              </IconButton>
+            </Show>
+            <Show below="md">
+              <IconButton
+                aria-label="right-arrow"
+                transform={"translate(0%, -50%)"}
+                onClick={() => {
+                  i === cards.length - 1 ? setI(0) : setI(i + 1);
+                }}
+              >
+                <BiRightArrowAlt size="20px" />
+              </IconButton>
+            </Show>
           </Flex>
         </Box>
         <Grid
@@ -385,7 +421,15 @@ function MediumProjectCard() {
           }}
           // border={"1px solid black"}
         >
-          <Box>
+          <Box
+            pr={{
+              base: "0",
+              sm: "0",
+              md: "9",
+              lg: "9",
+            }}
+          >
+            <Text as="b">Description</Text>
             <Text mb={"30px"} className="project-description">
               Online Shopping site to buy best quality Fashion, Electronics,
               Home & Kitchen products at lowest prices. I was given meesho.com

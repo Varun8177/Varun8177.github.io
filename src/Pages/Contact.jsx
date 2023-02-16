@@ -3,14 +3,16 @@ import {
   Center,
   Flex,
   Heading,
+  Hide,
   Image,
+  Show,
   Stack,
   Text,
   Tooltip,
   useColorMode,
 } from "@chakra-ui/react";
 import React from "react";
-import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
+import { BsLinkedin } from "react-icons/bs";
 import { FiPhoneCall } from "react-icons/fi";
 import { RxGithubLogo } from "react-icons/rx";
 import { TfiEmail } from "react-icons/tfi";
@@ -20,109 +22,244 @@ import profile from "../images/new_profile.png";
 const Contact = () => {
   const { colorMode } = useColorMode();
   return (
-    <Box
+    <Center
+      pl={{
+        base: "10",
+        sm: "15",
+        md: "20",
+        lg: "20",
+        xl: "20",
+        "2xl": "20",
+      }}
+      pr={{
+        base: "10",
+        sm: "15",
+        md: "20",
+        lg: "20",
+        xl: "20",
+        "2xl": "20",
+      }}
+      h={{
+        base: "100vh",
+        sm: "100vh",
+        md: "100vh",
+        lg: "100vh",
+        xl: "100vh",
+        "2xl": "100vh",
+      }}
       id="contact"
-      h={"90vh"}
-      mt={"30px"}
-      background={
-        colorMode === "light"
-          ? "linear-gradient(to left, #2980b9, #6dd5fa, #ffffff)"
-          : "black"
-      }
     >
-      <Center>{/* <Heading>Contact</Heading> */}</Center>
-      <Flex justifyContent={"space-evenly"}>
-        <Stack>
-          <Heading
-            id="user-detail-name"
-            mb={"20px"}
-            fontSize={{
-              sm: "50px",
-              md: "52px",
-              lg: "74px",
-              xl: "74px",
-              "2xl": "72px",
-            }}
-            alignSelf={"flex-start"}
-          >
-            Connect with me
-          </Heading>
-          <Box p={"3"}>
-            <Flex
-              // pl={"20%"}
-              alignItems={"center"}
-              onClick={() => {
-                window.location.href = "mailto:varunergurala9999@gmail.com";
+      <Flex>
+        <Flex justifyContent={"space-evenly"} w="100%">
+          <Box>
+            <Heading
+              id="user-detail-name"
+              mb={"20px"}
+              fontSize={{
+                base: "30px",
+                sm: "30px",
+                md: "40px",
+                lg: "60px",
+                xl: "64px",
+                "2xl": "72px",
               }}
             >
-              <TfiEmail size="40px" />
-              <Text ml={30} id="contact-email">
-                <b> varunergurala9999@gmail.com</b>
-              </Text>
-            </Flex>
-          </Box>
-          <Box p={"3"}>
-            <Flex
-              pl={"150px"}
-              alignItems={"center"}
-              onClick={() => {
-                window.location.href = "mailto:varunergurala9999@gmail.com";
+              Connect with me
+            </Heading>
+            <Heading
+              mb={"20px"}
+              fontSize={{
+                sm: "20px",
+                md: "25px",
+                lg: "30px",
               }}
             >
-              <FiPhoneCall size="40px" />
-              <Text ml={30} id="contact-phone">
-                <b>+91 8177836651</b>
-              </Text>
-            </Flex>
-          </Box>
-        </Stack>
-        {/* <Image
-          className="home-img"
-          w={"300px"}
-          h={"300px"}
-          alignSelf={"center"}
-          borderRadius={"15%"}
-          // border={"1px solid teal"}
-          boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px;"}
-          // src={profile}
-          background={
-            colorMode === "light"
-              ? "#44B0D7"
-              : "linear-gradient(to left, #40BAB6, #3CAED7)"
-          }
-          borderWidth={5}
-          src="https://png.pngtree.com/png-vector/20200329/ourlarge/pngtree-character-avatar-of-businessman-with-beard-png-image_2166772.jpg"
-        /> */}
-      </Flex>
-      <Center>
-        <Flex justifyContent={"space-evenly"} p={"10"} w={"300px"} h={"100%"}>
-          <Tooltip hasArrow label="LinkedIn" bg="gray.300" color="black">
-            <NavLink
-              to={"https://www.linkedin.com/in/varun8177"}
-              target={"_blank"}
+              Lorem ipsum dolor sit amet consectetur.
+            </Heading>
+            {/* <Text
+              w={{
+                base: "80%",
+                sm: "80%",
+                md: "55%",
+                lg: "55%",
+                xl: "55%",
+                "2xl": "55%",
+              }}
             >
-              <Box>
-                <BsLinkedin size="30px" />
-              </Box>
-            </NavLink>
-          </Tooltip>
-          <Tooltip hasArrow label="Instagram" bg="gray.300" color="black">
-            <NavLink to={""} target={"_blank"}>
-              <Box>
-                <BsInstagram size="30px" />
-              </Box>
-            </NavLink>
-          </Tooltip>
-          <Tooltip hasArrow label="Github" bg="gray.300" color="black">
-            <NavLink to={"https://github.com/Varun8177"} target={"_blank"}>
-              <Box>
-                <BsGithub size="30px" />
-              </Box>
-            </NavLink>
-          </Tooltip>
+              I approach each project with a sense of resourcefulness, always
+              seeking to find clever and practical solutions to the challenges
+              at hand. Through careful planning and strategic thinking, I am
+              able to deliver results that exceed expectations. Let's work
+              together to make something truly extraordinary - contact me today
+              to begin the journey!"
+            </Text> */}
+            <Hide below="md">
+              <Stack
+                w={"300px"}
+                justifyContent={"space-around"}
+                mt={"10px"}
+                mb={"20px"}
+              >
+                <Tooltip hasArrow label="Github" bg="gray.300" color="black">
+                  <NavLink
+                    to={"https://github.com/Varun8177"}
+                    target={"_blank"}
+                  >
+                    <Flex id="contact-github">
+                      <RxGithubLogo size="50px" border-radius="50%" />
+                      <Heading
+                        fontSize={{
+                          sm: "20px",
+                          md: "20px",
+                          lg: "20px",
+                          xl: "20px",
+                          "2xl": "20px",
+                        }}
+                        alignSelf={"center"}
+                        ml={"20px"}
+                      >
+                        Varun8177
+                      </Heading>
+                    </Flex>
+                  </NavLink>
+                </Tooltip>
+                <Tooltip hasArrow label="LinkedIn" bg="gray.300" color="black">
+                  <NavLink
+                    to={"https://www.linkedin.com/in/varun8177"}
+                    target={"_blank"}
+                  >
+                    <Flex id="contact-linkedin">
+                      <BsLinkedin size="50px" />
+                      <Heading
+                        fontSize={{
+                          sm: "20px",
+                          md: "20px",
+                          lg: "20px",
+                          xl: "20px",
+                          "2xl": "20px",
+                        }}
+                        alignSelf={"center"}
+                        ml={"20px"}
+                      >
+                        varun-ergurala
+                      </Heading>
+                    </Flex>
+                  </NavLink>
+                </Tooltip>
+                <Tooltip hasArrow label="Phone" bg="gray.300" color="black">
+                  <Flex id="contact-phone">
+                    <FiPhoneCall size="50px" />
+                    <Heading
+                      fontSize={{
+                        sm: "20px",
+                        md: "20px",
+                        lg: "20px",
+                        xl: "20px",
+                        "2xl": "20px",
+                      }}
+                      alignSelf={"center"}
+                      ml={"20px"}
+                    >
+                      +91 8177836651
+                    </Heading>
+                  </Flex>
+                </Tooltip>
+                <Tooltip hasArrow label="Email" bg="gray.300" color="black">
+                  <Flex
+                    id="contact-email"
+                    onClick={() => {
+                      window.location.href =
+                        "mailto:varunergurala9999@gmail.com";
+                    }}
+                  >
+                    <TfiEmail size="50px" />
+                    <Heading
+                      fontSize={{
+                        sm: "20px",
+                        md: "20px",
+                        lg: "20px",
+                        xl: "20px",
+                        "2xl": "20px",
+                      }}
+                      alignSelf={"center"}
+                      ml={"20px"}
+                    >
+                      varun
+                    </Heading>
+                  </Flex>
+                </Tooltip>
+              </Stack>
+            </Hide>
+            <Show below="md">
+              <Flex
+                w={"150px"}
+                justifyContent={"space-around"}
+                mt={"10px"}
+                mb={"20px"}
+              >
+                <Tooltip hasArrow label="Github" bg="gray.300" color="black">
+                  <NavLink
+                    to={"https://github.com/Varun8177"}
+                    target={"_blank"}
+                  >
+                    <Box id="contact-github">
+                      <RxGithubLogo size="20px" border-radius="50%" />
+                    </Box>
+                  </NavLink>
+                </Tooltip>
+                <Tooltip hasArrow label="LinkedIn" bg="gray.300" color="black">
+                  <NavLink
+                    to={"https://www.linkedin.com/in/varun8177"}
+                    target={"_blank"}
+                  >
+                    <Box id="contact-linkedin">
+                      <BsLinkedin size="20px" />
+                    </Box>
+                  </NavLink>
+                </Tooltip>
+                <Tooltip hasArrow label="Phone" bg="gray.300" color="black">
+                  <Box id="contact-phone">
+                    <FiPhoneCall size="20px" />
+                  </Box>
+                </Tooltip>
+                <Tooltip hasArrow label="Email" bg="gray.300" color="black">
+                  <Box
+                    id="contact-email"
+                    onClick={() => {
+                      window.location.href =
+                        "mailto:varunergurala9999@gmail.com";
+                    }}
+                  >
+                    <TfiEmail size="20px" />
+                  </Box>
+                </Tooltip>
+              </Flex>
+            </Show>
+          </Box>
         </Flex>
-      </Center>
-    </Box>
+        {/* Profile photo */}
+        <Image
+          className="home-img"
+          bgColor={"white"}
+          borderRadius={"50%"}
+          h={{
+            base: "100px",
+            sm: "100px",
+            md: "100px",
+            lg: "300px",
+          }}
+          w={{
+            base: "100px",
+            sm: "100px",
+            md: "100px",
+            lg: "300px",
+          }}
+          src={
+            "https://cdn.icon-icons.com/icons2/2643/PNG/512/male_boy_person_people_avatar_icon_159358.png"
+          }
+        />
+      </Flex>
+    </Center>
   );
 };
 
@@ -130,5 +267,5 @@ export default Contact;
 
 // {/* <Box>
 //           <FiPhoneCall size="50px" />
-//           <Text id="contact-phone">8177836651</Text>
+//           <Heading id="contact-phone">8177836651</Heading>
 //         </Box> */}

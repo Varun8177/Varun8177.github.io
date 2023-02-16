@@ -42,6 +42,7 @@ const GithubStats = () => {
             }
           >
             <Image
+              m={"auto"}
               w={{
                 base: "50%",
                 sm: "50%",
@@ -50,7 +51,12 @@ const GithubStats = () => {
                 xl: "80%",
                 "2xl": "100%",
               }}
-              m={"auto"}
+              mb={{
+                base: "20px",
+                sm: "20px",
+                md: "20px",
+                lg: "20px",
+              }}
               id="github-streak-stats"
               src="https://github-readme-streak-stats.herokuapp.com?user=Varun8177"
             />
@@ -71,6 +77,12 @@ const GithubStats = () => {
                 "2xl": "100%",
               }}
               m={"auto"}
+              mb={{
+                base: "20px",
+                sm: "20px",
+                md: "20px",
+                lg: "20px",
+              }}
               id="github-top-langs"
               src="https://github-readme-stats.vercel.app/api/top-langs/?username=Varun8177&layout=compact"
             />
@@ -91,6 +103,12 @@ const GithubStats = () => {
                 "2xl": "100%",
               }}
               m={"auto"}
+              mb={{
+                base: "20px",
+                sm: "20px",
+                md: "20px",
+                lg: "20px",
+              }}
               id="github-stats-card"
               src="https://github-readme-stats.vercel.app/api?username=Varun8177&count_private=true&show_icons=true"
             />

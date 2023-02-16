@@ -15,12 +15,12 @@ const About = () => {
   return (
     <Box
       h={{
-        base: "100vh",
-        sm: "100vh",
-        md: "100vh",
-        lg: "100vh",
-        xl: "100vh",
-        "2xl": "100vh",
+        base: "80vh",
+        sm: "80vh",
+        md: "80vh",
+        lg: "80vh",
+        xl: "80vh",
+        "2xl": "80vh",
       }}
       id="about"
       className="about section"

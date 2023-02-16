@@ -9,13 +9,13 @@ const Skills = () => {
       <Center mb={{ base: "20px", md: "40px" }}>
         <Heading>Skills</Heading>
       </Center>
-      <Box minHeight={{ base: "auto", md: "80vh" }}>
+      <Box minHeight={{ base: "70vh", md: "100vh" }}>
         <Center>
           <Grid
             templateColumns={{
-              base: "repeat(2, 1fr)",
-              sm: "repeat(2, 1fr)",
-              md: "repeat(2, 1fr)",
+              base: "repeat(3, 1fr)",
+              sm: "repeat(3, 1fr)",
+              md: "repeat(3, 1fr)",
               lg: "repeat(3, 1fr)",
               xl: "repeat(3, 1fr)",
             }}

@@ -28,9 +28,7 @@ const Projects = () => {
       id="projects"
     >
       <Center>
-        <Heading mb={"40px"} fontSize={"62px"}>
-          Projects
-        </Heading>
+        <Heading mb={"40px"}>Projects</Heading>
       </Center>
       <ProjectCards direction={"row"} />
       <ProjectCards direction={"row-reverse"} />
