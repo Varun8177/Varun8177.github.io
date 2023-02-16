@@ -7,15 +7,33 @@ const SkillItem = () => {
   return (
     <Box
       bgColor={colorMode === "light" ? "white" : "#151414"}
-      h={"150px"}
-      w={"300px"}
+      h={{
+        base: "auto",
+        md: "120px",
+        lg: "120px",
+        xl: "150px",
+        "2xl": "150px",
+      }}
+      w={{
+        base: "100px",
+        md: "120px",
+        lg: "150px",
+        xl: "300px",
+        "2xl": "300px",
+      }}
       boxShadow="lg"
       borderRadius={"10px"}
       className="skills-card"
     >
       <Image
         src="https://cdn-icons-png.flaticon.com/512/541/541509.png?w=740&t=st=1676155556~exp=1676156156~hmac=eee2a2e05b8ea296fa8a73deda68dcda1fbd902992a704338f4a394d27508090"
-        w={"100px"}
+        w={{
+          base: "80px",
+          md: "80px",
+          lg: "80px",
+          xl: "100px",
+          "2xl": "100px",
+        }}
         m={"auto"}
         p={"5"}
         className="skills-card-img"
