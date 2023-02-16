@@ -15,15 +15,55 @@ const About = () => {
   return (
     <Box h={"80vh"} id="about" className="about section">
       <Center mb={"40px"}>
-        <Heading>About me</Heading>
+        <Heading
+          fontSize={{
+            sm: "20px",
+            md: "25px",
+            lg: "30px",
+          }}
+        >
+          About me
+        </Heading>
       </Center>
-      <Box pl={20} pr={20}>
+      <Box
+        pl={{
+          sm: "5",
+          md: "5",
+          lg: "5",
+          xl: 20,
+          "2xl": 20,
+        }}
+        pr={{
+          sm: "5",
+          md: "5",
+          lg: "5",
+          xl: 20,
+          "2xl": 20,
+        }}
+      >
         <Flex justifyContent={"space-evenly"} w="100%">
           <Box w={"50%"}>
-            <Heading id="user-detail-name" mb={"20px"}>
+            <Heading
+              id="user-detail-name"
+              mb={"20px"}
+              fontSize={{
+                sm: "20px",
+                md: "25px",
+                lg: "30px",
+              }}
+            >
               Hello, my name is Varun Ergurala
             </Heading>
-            <Heading mb={"20px"}>I'm a Full Stack Web Developer</Heading>
+            <Heading
+              mb={"20px"}
+              fontSize={{
+                sm: "20px",
+                md: "25px",
+                lg: "30px",
+              }}
+            >
+              I'm a Full Stack Web Developer
+            </Heading>
             <Text id="user-detail-intro">
               An enthusiastic Full-stack Developer, skilled in React.js .
               Developing websites using JavaScript, Node.js, Express.js,
