@@ -32,7 +32,7 @@ const Contact = () => {
     >
       <Center>{/* <Heading>Contact</Heading> */}</Center>
       <Flex justifyContent={"space-evenly"}>
-        <Stack p={20}>
+        <Stack>
           <Heading
             id="user-detail-name"
             mb={"20px"}
@@ -49,7 +49,7 @@ const Contact = () => {
           </Heading>
           <Box p={"3"}>
             <Flex
-              pl={"20%"}
+              // pl={"20%"}
               alignItems={"center"}
               onClick={() => {
                 window.location.href = "mailto:varunergurala9999@gmail.com";

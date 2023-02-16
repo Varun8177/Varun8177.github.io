@@ -40,7 +40,22 @@ const ProjectCards = ({ direction }) => {
         justifyContent={"space-evenly"}
         h={"auto"}
         mb={"30px"}
-        p={"5"}
+        pl={{
+          base: "0",
+          sm: "0",
+          md: "0",
+          lg: "5",
+          xl: "5",
+          "2xl": "5",
+        }}
+        pr={{
+          base: "0",
+          sm: "0",
+          md: "0",
+          lg: "5",
+          xl: "5",
+          "2xl": "5",
+        }}
       >
         <Box w={"40%"} className="project-card">
           <Heading
@@ -157,7 +172,6 @@ function MobileProjectCard() {
       h={{
         sm: "100vh",
         md: "60vh",
-        lg: "500px",
       }}
       mb={"30px"}
       p={"5"}
@@ -175,18 +189,17 @@ function MobileProjectCard() {
         >
           Shoperz — Meesho Clone
         </Heading>
-        <Image
-          w={"10px"}
-          src="https://png.pngtree.com/png-vector/20200329/ourlarge/pngtree-character-avatar-of-businessman-with-beard-png-image_2166772.jpg"
-        />
+        <Box w={"100%"} h={"50px"}>
+          <CaptionCarousel />
+        </Box>
         <Grid
           templateColumns={{
             sm: "repeat(1,1fr)",
             md: "repeat(2,1fr)",
           }}
-          border={"1px solid black"}
+          // border={"1px solid black"}
         >
-          <Box border={"1px solid black"}>
+          <Box>
             <Text mb={"30px"} className="project-description">
               Online Shopping site to buy best quality Fashion, Electronics,
               Home & Kitchen products at lowest prices. I was given meesho.com
@@ -194,7 +207,7 @@ function MobileProjectCard() {
               of 5 days
             </Text>
           </Box>
-          <Box border={"1px solid red"}>
+          <Box>
             <Text as="b">Features in this project</Text>
             <Text>— Sign in and Sign-up using API.</Text>
             <Text>— Filter by category and Sort by price</Text>
@@ -204,8 +217,197 @@ function MobileProjectCard() {
           </Box>
         </Grid>
         <Grid
-          templateColumns={"repeat(2,1fr)"}
-          border={"1px solid black"}
+          templateColumns={"repeat(1,1fr)"}
+          // border={"1px solid black"}
+          alignItems={"baseline"}
+        >
+          <Flex
+            w={{
+              sm: "70%",
+              md: "50%",
+            }}
+            justifyContent={"space-around"}
+            mt={"20px"}
+            mb={"20px"}
+          >
+            <Text>Teck Stack —</Text>
+            <Box class="project-tech-stack">
+              <RxGithubLogo size="30px" border-radius="50%" />
+            </Box>
+            <Box class="project-tech-stack">
+              <BsLinkedin size="30px" />
+            </Box>
+            <Box class="project-tech-stack">
+              <FiPhoneCall size="30px" />
+            </Box>
+            <Box class="project-tech-stack">
+              <TfiEmail size="30px" />
+            </Box>
+          </Flex>
+          <Grid
+            templateColumns={{
+              sm: "repeat(1,1fr)",
+              md: "repeat(2,1fr)",
+            }}
+          >
+            <Link
+              to={"https://shoperz-co.netlify.app/"}
+              class="project-deployed-link"
+              target="_blank"
+            >
+              <Text as="b" textDecorationLine={"underline"}>
+                Website
+              </Text>
+            </Link>
+            <Link
+              to={"https://github.com/Varun8177/hollow-idea-9446.git"}
+              class="project-github-link"
+              target="_blank"
+            >
+              <Button
+                size={{ base: "xs", sm: "xs", md: "lg" }}
+                ml={"20px"}
+                bgColor={colorMode === "light" ? "black" : "red"}
+                color={colorMode === "light" ? "white" : "black"}
+              >
+                <RxGithubLogo />
+                <Box as="span" ml={"10px"}>
+                  Github
+                </Box>
+                <HiExternalLink />
+              </Button>
+            </Link>
+          </Grid>
+        </Grid>
+      </Box>
+      {/* <Grid templateColumns={"repeat(2,1fr)"} gap={"10px"}>
+      <Image src={image1} w={"350px"} h={"250px"} />
+      <Image src={image2} w={"350px"} h={"250px"} />
+      <Image src={image1} w={"350px"} h={"250px"} />
+      <Image src={image1} w={"350px"} h={"250px"} />
+    </Grid> */}
+    </Stack>
+  );
+}
+
+function MediumProjectCard() {
+  const { colorMode } = useColorMode();
+  const [i, setI] = useState(0);
+
+  const cards = [image1, image2];
+
+  return (
+    // <Hide breakpoint="(max-width: 761px)">
+    <Stack
+      borderRadius={"10px"}
+      background={colorMode === "light" ? "white" : "black"}
+      boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px;"}
+      w={"100%"}
+      // m={"auto"}
+      h={"700px"}
+      mb={"30px"}
+      p={"5"}
+    >
+      <Box w={"100%"} className="project-card">
+        <Heading
+          fontSize={{
+            sm: "20px",
+            md: "30px",
+            lg: "40px",
+            xl: "54px",
+            "2xl": "64px",
+          }}
+          className="project-title"
+        >
+          Shoperz — Meesho Clone mid
+        </Heading>
+        <Box w={"100%"} mb={"10px"}>
+          {/* Carousal */}
+          <Flex
+            height={{
+              sm: "180px",
+              md: "380px",
+              lg: "530px",
+              xl: "570px",
+              "2xl": "570px",
+            }}
+            width={"100%"}
+            alignItems={"center"}
+            // border={"1px solid red"}
+          >
+            {/* Left Icon */}
+            <IconButton
+              aria-label="left-arrow"
+              transform={"translate(0%, -50%)"}
+              // size={{ base: "xs", md: "lg" }}
+              onClick={() => {
+                i === 0 ? setI(cards.length - 1) : setI(i - 1);
+              }}
+            >
+              <BiLeftArrowAlt size="40px" />
+            </IconButton>
+            <Image
+              transform={"transform .6s"}
+              _hover={{ transform: "scale(1.4)", zIndex: "4" }}
+              overflow={"hidden"}
+              h={{
+                sm: "150px",
+                md: "250px",
+              }}
+              m={{
+                sm: "auto",
+                md: "auto",
+              }}
+              w={{
+                sm: "70%",
+                md: "70%",
+                lg: "70%",
+              }}
+              src={cards[i]}
+              boxShadow={"lg"}
+            />
+            {/* Right Icon */}
+            <IconButton
+              aria-label="right-arrow"
+              transform={"translate(0%, -50%)"}
+              onClick={() => {
+                i === cards.length - 1 ? setI(0) : setI(i + 1);
+              }}
+            >
+              <BiRightArrowAlt size="40px" />
+            </IconButton>
+          </Flex>
+        </Box>
+        <Grid
+          templateColumns={{
+            sm: "repeat(1,1fr)",
+            md: "repeat(2,1fr)",
+          }}
+          // border={"1px solid black"}
+        >
+          <Box>
+            <Text mb={"30px"} className="project-description">
+              Online Shopping site to buy best quality Fashion, Electronics,
+              Home & Kitchen products at lowest prices. I was given meesho.com
+              as a project and I was able to succesfully to clone it in a period
+              of 5 days
+            </Text>
+          </Box>
+          <Box>
+            <Text as="b">Features in this project</Text>
+            <Text>— Sign in and Sign-up using API.</Text>
+            <Text>— Filter by category and Sort by price</Text>
+            <Text>— User Dashboard</Text>
+            <Text>— Admin panel to perform CRUD operations.</Text>
+            <Text>— User feedback system</Text>
+          </Box>
+        </Grid>
+        <Grid
+          templateColumns={{
+            sm: "repeat(1,1fr)",
+            md: "repeat(2,1fr)",
+          }}
+          // border={"1px solid black"}
           alignItems={"baseline"}
         >
           <Flex
@@ -228,7 +430,12 @@ function MobileProjectCard() {
               <TfiEmail size="30px" />
             </Box>
           </Flex>
-          <Box>
+          <Box
+            templateColumns={{
+              sm: "repeat(1,1fr)",
+              md: "repeat(2,1fr)",
+            }}
+          >
             <Link
               to={"https://shoperz-co.netlify.app/"}
               class="project-deployed-link"
@@ -257,9 +464,6 @@ function MobileProjectCard() {
             </Link>
           </Box>
         </Grid>
-        <Box w={"100%"} h={"50px"}>
-          <CaptionCarousel />
-        </Box>
       </Box>
       {/* <Grid templateColumns={"repeat(2,1fr)"} gap={"10px"}>
       <Image src={image1} w={"350px"} h={"250px"} />
@@ -268,189 +472,7 @@ function MobileProjectCard() {
       <Image src={image1} w={"350px"} h={"250px"} />
     </Grid> */}
     </Stack>
-  );
-}
-
-function MediumProjectCard() {
-  const { colorMode } = useColorMode();
-  const [i, setI] = useState(0);
-
-  const cards = [image1, image2];
-
-  return (
-    <Hide breakpoint="(max-width: 761px)">
-      <Stack
-        borderRadius={"10px"}
-        background={colorMode === "light" ? "white" : "black"}
-        boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px;"}
-        w={"100%"}
-        // m={"auto"}
-        h={"700px"}
-        mb={"30px"}
-        p={"5"}
-      >
-        <Box w={"100%"} className="project-card">
-          <Heading
-            fontSize={{
-              sm: "20px",
-              md: "30px",
-              lg: "40px",
-              xl: "54px",
-              "2xl": "64px",
-            }}
-            className="project-title"
-          >
-            Shoperz — Meesho Clone mid
-          </Heading>
-          <Image
-            w={"10px"}
-            src="https://png.pngtree.com/png-vector/20200329/ourlarge/pngtree-character-avatar-of-businessman-with-beard-png-image_2166772.jpg"
-          />
-          <Grid
-            templateColumns={{
-              sm: "repeat(1,1fr)",
-              md: "repeat(2,1fr)",
-            }}
-            border={"1px solid black"}
-          >
-            <Box border={"1px solid black"}>
-              <Text mb={"30px"} className="project-description">
-                Online Shopping site to buy best quality Fashion, Electronics,
-                Home & Kitchen products at lowest prices. I was given meesho.com
-                as a project and I was able to succesfully to clone it in a
-                period of 5 days
-              </Text>
-            </Box>
-            <Box border={"1px solid red"}>
-              <Text as="b">Features in this project</Text>
-              <Text>— Sign in and Sign-up using API.</Text>
-              <Text>— Filter by category and Sort by price</Text>
-              <Text>— User Dashboard</Text>
-              <Text>— Admin panel to perform CRUD operations.</Text>
-              <Text>— User feedback system</Text>
-            </Box>
-          </Grid>
-          <Grid
-            templateColumns={"repeat(2,1fr)"}
-            border={"1px solid black"}
-            alignItems={"baseline"}
-          >
-            <Flex
-              w={"250px"}
-              justifyContent={"space-around"}
-              mt={"20px"}
-              mb={"20px"}
-            >
-              <Text>Teck Stack —</Text>
-              <Box class="project-tech-stack">
-                <RxGithubLogo size="30px" border-radius="50%" />
-              </Box>
-              <Box class="project-tech-stack">
-                <BsLinkedin size="30px" />
-              </Box>
-              <Box class="project-tech-stack">
-                <FiPhoneCall size="30px" />
-              </Box>
-              <Box class="project-tech-stack">
-                <TfiEmail size="30px" />
-              </Box>
-            </Flex>
-            <Box>
-              <Link
-                to={"https://shoperz-co.netlify.app/"}
-                class="project-deployed-link"
-                target="_blank"
-              >
-                <Text as="b" textDecorationLine={"underline"}>
-                  Website
-                </Text>
-              </Link>
-              <Link
-                to={"https://github.com/Varun8177/hollow-idea-9446.git"}
-                class="project-github-link"
-                target="_blank"
-              >
-                <Button
-                  ml={"20px"}
-                  bgColor={colorMode === "light" ? "black" : "red"}
-                  color={colorMode === "light" ? "white" : "black"}
-                >
-                  <RxGithubLogo />
-                  <Box as="span" ml={"10px"}>
-                    Github
-                  </Box>
-                  <HiExternalLink />
-                </Button>
-              </Link>
-            </Box>
-          </Grid>
-          <Box w={"100%"} h={"50px"}>
-            {/* Carousal */}
-            <Flex
-              height={{
-                sm: "180px",
-                md: "380px",
-                lg: "530px",
-                xl: "570px",
-                "2xl": "570px",
-              }}
-              width={"100%"}
-              alignItems={"center"}
-              border={"1px solid red"}
-            >
-              {/* Left Icon */}
-              <IconButton
-                aria-label="left-arrow"
-                transform={"translate(0%, -50%)"}
-                // zIndex={2}
-                onClick={() => {
-                  i === 0 ? setI(cards.length - 1) : setI(i - 1);
-                }}
-              >
-                <BiLeftArrowAlt size="40px" />
-              </IconButton>
-              <Image
-                transform={"transform .6s"}
-                _hover={{ transform: "scale(1.4)", zIndex: "4" }}
-                overflow={"hidden"}
-                h={{
-                  sm: "150px",
-                  md: "250px",
-                }}
-                m={{
-                  sm: "auto",
-                  md: "auto",
-                }}
-                w={{
-                  sm: "70%",
-                  md: "70%",
-                  lg: "70%",
-                }}
-                src={cards[i]}
-                boxShadow={"lg"}
-              />
-              {/* Right Icon */}
-              <IconButton
-                aria-label="right-arrow"
-                transform={"translate(0%, -50%)"}
-                // zIndex={2}
-                onClick={() => {
-                  i === cards.length - 1 ? setI(0) : setI(i + 1);
-                }}
-              >
-                <BiRightArrowAlt size="40px" />
-              </IconButton>
-            </Flex>
-          </Box>
-        </Box>
-        {/* <Grid templateColumns={"repeat(2,1fr)"} gap={"10px"}>
-      <Image src={image1} w={"350px"} h={"250px"} />
-      <Image src={image2} w={"350px"} h={"250px"} />
-      <Image src={image1} w={"350px"} h={"250px"} />
-      <Image src={image1} w={"350px"} h={"250px"} />
-    </Grid> */}
-      </Stack>
-    </Hide>
+    // </Hide>
   );
 }
 export { ProjectCards, MobileProjectCard, MediumProjectCard };

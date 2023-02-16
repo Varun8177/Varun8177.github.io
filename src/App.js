@@ -19,7 +19,14 @@ function App() {
         : "linear-gradient(to left, #000000, #434343)"
     }>
       <Navbar />
-      <Box top='90vh' position='fixed' left='95%' color={colorMode === "light"
+      <Box top='90vh' position='fixed' left={{
+        base: '90%',
+        sm: "90%",
+        md: "90%",
+        lg: "95%",
+        xl: "95%",
+        "2xl": "95%",
+      }} color={colorMode === "light"
         ? "black"
         : "red"} onClick={() => {
           window.scroll({

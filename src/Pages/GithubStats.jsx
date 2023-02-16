@@ -17,7 +17,7 @@ const GithubStats = () => {
           style={{ margin: "auto", width: "80%" }}
           username="Varun8177"
           blockSize={20}
-          fontSize={20}
+          hideTotalCount
         >
           <Tooltip delayShow={20} html />
         </GitHubCalendar>
@@ -27,6 +27,7 @@ const GithubStats = () => {
           justifyContent={"space-evenly"}
           alignItems={"center"}
           direction={{
+            base: "column",
             sm: "column",
             md: "column",
             lg: "column",
@@ -42,6 +43,7 @@ const GithubStats = () => {
           >
             <Image
               w={{
+                base: "50%",
                 sm: "50%",
                 md: "50%",
                 lg: "70%",
@@ -61,6 +63,7 @@ const GithubStats = () => {
           >
             <Image
               w={{
+                base: "50%",
                 sm: "50%",
                 md: "50%",
                 lg: "70%",
@@ -80,6 +83,7 @@ const GithubStats = () => {
           >
             <Image
               w={{
+                base: "50%",
                 sm: "50%",
                 md: "50%",
                 lg: "70%",

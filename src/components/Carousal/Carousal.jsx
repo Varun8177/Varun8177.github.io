@@ -11,20 +11,15 @@ export default function CaptionCarousel() {
 
   return (
     <Flex
-      height={{
-        sm: "180px",
-        md: "480px",
-        lg: "530px",
-        xl: "570px",
-        "2xl": "570px",
-      }}
+      height={"auto"}
       width={"100%"}
       alignItems={"center"}
-      border={"1px solid red"}
+      // border={"1px solid pink"}
     >
       {/* Left Icon */}
       <IconButton
         aria-label="left-arrow"
+        size={{ base: "xs", md: "lg" }}
         transform={"translate(0%, -50%)"}
         // zIndex={2}
         onClick={() => {
@@ -55,6 +50,7 @@ export default function CaptionCarousel() {
       />
       {/* Right Icon */}
       <IconButton
+        size={{ base: "xs", md: "lg" }}
         aria-label="right-arrow"
         transform={"translate(0%, -50%)"}
         // zIndex={2}
