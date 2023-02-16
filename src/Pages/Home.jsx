@@ -43,10 +43,29 @@ function Home() {
     <Center pl={20} pr={20} h={"100vh"} id="home">
       <Flex justifyContent={"space-evenly"} w="100%">
         <Box>
-          <Heading id="user-detail-name" mb={"20px"} fontSize={"72px"}>
+          <Heading
+            id="user-detail-name"
+            mb={"20px"}
+            fontSize={{
+              sm: "20px",
+              md: "30px",
+              lg: "40px",
+              xl: "64px",
+              "2xl": "72px",
+            }}
+          >
             Hello, {content}
           </Heading>
-          <Heading mb={"20px"}>I'm a Full Stack Web Developer</Heading>
+          <Heading
+            mb={"20px"}
+            fontSize={{
+              sm: "20px",
+              md: "25px",
+              lg: "30px",
+            }}
+          >
+            I'm a Full Stack Web Developer
+          </Heading>
           <Text id="user-detail-intro" w={"55%"}>
             Aspiring Full Stack Web Developer who loves solving problems and
             building projects. I am equipped with a variety of technologies and
