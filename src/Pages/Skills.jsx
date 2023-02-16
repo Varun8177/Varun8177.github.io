@@ -6,20 +6,20 @@ const Skills = () => {
   let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   return (
     <Box id="skills">
-      <Center mb={"40px"}>
+      <Center mb={{ base: "20px", md: "40px" }}>
         <Heading>Skills</Heading>
       </Center>
-      <Box h={"80vh"}>
+      <Box minHeight={{ base: "auto", md: "80vh" }}>
         <Center>
           <Grid
-            // color={"red"}
             templateColumns={{
-              md: "repeat(1, 1fr)",
-              lg: "repeat(2, 1fr)",
+              base: "repeat(1, 1fr)",
+              sm: "repeat(2, 1fr)",
+              md: "repeat(2, 1fr)",
+              lg: "repeat(3, 1fr)",
               xl: "repeat(3, 1fr)",
-              "2xl": "repeat(3, 1fr)",
             }}
-            gap={6}
+            gap={{ base: 4, md: 6 }}
           >
             {arr.map(() => {
               return <SkillItem />;
@@ -32,6 +32,3 @@ const Skills = () => {
 };
 
 export default Skills;
-// Each skills card in the Skills section should have class="skills-card" and the following:
-// Image : class="skills-card-img"
-// Name : class="skills-card-name"
