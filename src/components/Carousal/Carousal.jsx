@@ -11,10 +11,16 @@ export default function CaptionCarousel() {
 
   return (
     <Flex
-      height={"570px"}
+      height={{
+        sm: "180px",
+        md: "480px",
+        lg: "530px",
+        xl: "570px",
+        "2xl": "570px",
+      }}
       width={"100%"}
       alignItems={"center"}
-      //   border={"1px solid red"}
+      border={"1px solid red"}
     >
       {/* Left Icon */}
       <IconButton
@@ -31,6 +37,19 @@ export default function CaptionCarousel() {
         transform={"transform .6s"}
         _hover={{ transform: "scale(1.4)", zIndex: "4" }}
         overflow={"hidden"}
+        h={{
+          sm: "150px",
+          md: "250px",
+        }}
+        m={{
+          sm: "auto",
+          md: "auto",
+        }}
+        w={{
+          sm: "70%",
+          md: "70%",
+          lg: "70%",
+        }}
         src={cards[i]}
         boxShadow={"lg"}
       />
