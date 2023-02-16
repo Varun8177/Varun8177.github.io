@@ -24,7 +24,6 @@ const Contact = () => {
       id="contact"
       h={"90vh"}
       mt={"30px"}
-      p={"20"}
       background={
         colorMode === "light"
           ? "linear-gradient(to left, #2980b9, #6dd5fa, #ffffff)"
@@ -37,14 +36,20 @@ const Contact = () => {
           <Heading
             id="user-detail-name"
             mb={"20px"}
-            fontSize={"72px"}
+            fontSize={{
+              sm: "50px",
+              md: "52px",
+              lg: "74px",
+              xl: "74px",
+              "2xl": "72px",
+            }}
             alignSelf={"flex-start"}
           >
             Connect with me
           </Heading>
           <Box p={"3"}>
             <Flex
-              pl={"150px"}
+              pl={"20%"}
               alignItems={"center"}
               onClick={() => {
                 window.location.href = "mailto:varunergurala9999@gmail.com";
@@ -65,13 +70,13 @@ const Contact = () => {
               }}
             >
               <FiPhoneCall size="40px" />
-              <Text ml={30} id="contact-email">
+              <Text ml={30} id="contact-phone">
                 <b>+91 8177836651</b>
               </Text>
             </Flex>
           </Box>
         </Stack>
-        <Image
+        {/* <Image
           className="home-img"
           w={"300px"}
           h={"300px"}
@@ -87,7 +92,7 @@ const Contact = () => {
           }
           borderWidth={5}
           src="https://png.pngtree.com/png-vector/20200329/ourlarge/pngtree-character-avatar-of-businessman-with-beard-png-image_2166772.jpg"
-        />
+        /> */}
       </Flex>
       <Center>
         <Flex justifyContent={"space-evenly"} p={"10"} w={"300px"} h={"100%"}>
