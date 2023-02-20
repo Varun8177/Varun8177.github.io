@@ -6,12 +6,13 @@ import {
   Flex,
   Heading,
   Hide,
-  Image,
   Show,
   Text,
   Tooltip,
   useColorMode,
 } from "@chakra-ui/react";
+import resume from "../images/Varun_Ergurala_Resume.pdf";
+
 import { RxGithubLogo } from "react-icons/rx";
 import { BsLinkedin } from "react-icons/bs";
 import { TfiDownload, TfiEmail } from "react-icons/tfi";
@@ -193,7 +194,7 @@ function Home() {
             </Flex>
           </Show>
           <a
-            href="../../images/Varun_Ergurala_Resume.pdf"
+            href={resume}
             // id="resume-link-1"
             id="resume-button-2"
             download

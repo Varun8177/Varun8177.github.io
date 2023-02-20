@@ -3,7 +3,7 @@ import { TfiDownload } from "react-icons/tfi";
 import ColorModeToggle from "../Darkmode";
 import styes from "./Navbar.css";
 import * as Scroll from "react-scroll";
-
+import resume from "../../images/Varun_Ergurala_Resume.pdf";
 function DefaultNavbar() {
   const { colorMode } = useColorMode();
   return (
@@ -121,7 +121,7 @@ function DefaultNavbar() {
         </Scroll.Link>
         {/* Resume */}
         <a
-          href="../../images/Varun_Ergurala_Resume.pdf"
+          href={resume}
           className="nav-link resume"
           id="resume-link-1"
           // id="resume-button-1"

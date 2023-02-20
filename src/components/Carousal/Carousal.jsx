@@ -1,68 +1,107 @@
-import { Flex, IconButton, Image } from "@chakra-ui/react";
-import { useState } from "react";
+import React from "react";
+import { Box, IconButton, useBreakpointValue } from "@chakra-ui/react";
+// Here we have used react-icons package for the icons
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
-import image1 from "../../images/Shoperz_banner_1.png";
-import image2 from "../../images/Shoperz_banner_2.png";
+// And react-slick as our Carousel Lib
+import Slider from "react-slick";
 
-export default function CaptionCarousel() {
-  const [i, setI] = useState(0);
+// Settings for the slider
+const settings = {
+  dots: true,
+  arrows: false,
+  fade: true,
+  infinite: true,
+  autoplay: true,
+  speed: 500,
+  autoplaySpeed: 3000,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};
 
-  const cards = [image1, image2];
+export default function Carousel() {
+  // As we have used custom buttons, we need a reference variable to
+  // change the state
+  const [slider, setSlider] = React.useState(null);
 
+  // These are the breakpoints which changes the position of the
+  // buttons as the screen size changes
+  const top = useBreakpointValue({ base: "90%", md: "50%" });
+  const side = useBreakpointValue({ base: "30%", md: "10px" });
+
+  // These are the images used in the slide
+  const images = [
+    "https://images.unsplash.com/photo-1612852098516-55d01c75769a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=900&q=60",
+    "https://images.unsplash.com/photo-1627875764093-315831ac12f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=900&q=60",
+    "https://images.unsplash.com/photo-1571432248690-7fd6980a1ae2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=900&q=60",
+  ];
   return (
-    <Flex
-      height={{
-        sm: "100px",
-        md: "200px",
-        lg: "530px",
-        xl: "570px",
-        "2xl": "570px",
-      }}
-      width={"100%"}
-      alignItems={"center"}
-      // border={"1px solid red"}
-    >
-      {/* Left Icon */}
+    <Box m="auto" position={"relative"} width={"full"} overflow={"hidden"}>
+      {/* CSS files for react-slick */}
+      <link
+        rel="stylesheet"
+        type="text/css"
+        charSet="UTF-8"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+      />
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+      />
+      {/* Left Icon "rgba(199,174,146,1.00)"*/}
+
       <IconButton
         aria-label="left-arrow"
-        transform={"translate(0%, -50%)"}
-        // zIndex={2}
-        onClick={() => {
-          i === 0 ? setI(cards.length - 1) : setI(i - 1);
-        }}
+        bg="blackAlpha.400"
+        borderRadius="full"
+        position="absolute"
+        left={side}
+        top={top}
+        transform={"translate(0%, -80%)"}
+        zIndex={1}
+        onClick={() => slider?.slickPrev()}
       >
-        <BiLeftArrowAlt size="40px" />
+        <BiLeftArrowAlt />
       </IconButton>
-      <Image
-        transform={"transform .6s"}
-        _hover={{ transform: "scale(1.4)", zIndex: "4" }}
-        overflow={"hidden"}
-        h={{
-          sm: "200px",
-          md: "270px",
-        }}
-        m={{
-          sm: "auto",
-          md: "auto",
-        }}
-        w={{
-          sm: "auto",
-          md: "auto",
-        }}
-        src={cards[i]}
-        boxShadow={"lg"}
-      />
       {/* Right Icon */}
       <IconButton
         aria-label="right-arrow"
-        transform={"translate(0%, -50%)"}
-        // zIndex={2}
-        onClick={() => {
-          i === cards.length - 1 ? setI(0) : setI(i + 1);
-        }}
+        bg="blackAlpha.400"
+        borderRadius="full"
+        position="absolute"
+        right={side}
+        top={top}
+        transform={"translate(0%, -80%)"}
+        zIndex={1}
+        onClick={() => slider?.slickNext()}
       >
-        <BiRightArrowAlt size="40px" />
+        <BiRightArrowAlt />
       </IconButton>
-    </Flex>
+      {/* Slider */}
+      <Slider {...settings} ref={(slider) => setSlider(slider)}>
+        {images.map((url, index) => (
+          <Box
+            alignSelf={"center"}
+            objectFit={"cover"}
+            key={index}
+            h={{
+              base: "200px",
+              sm: "250px",
+              md: "350px",
+              lg: "500px",
+              xl: "550px",
+              "2xl": "600px",
+            }}
+            border="0px"
+            position="relative"
+            backgroundPosition="center"
+            backgroundRepeat="no-repeat"
+            backgroundSize="cover"
+            backgroundImage={`url(${url})`}
+            p="5px"
+          />
+        ))}
+      </Slider>
+    </Box>
   );
 }
