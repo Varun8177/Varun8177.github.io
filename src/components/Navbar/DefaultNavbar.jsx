@@ -2,6 +2,7 @@ import { Box, Button, Flex, Hide, useColorMode } from "@chakra-ui/react";
 import { TfiDownload } from "react-icons/tfi";
 import ColorModeToggle from "../Darkmode";
 import styes from "./Navbar.css";
+import * as Scroll from "react-scroll";
 
 function DefaultNavbar() {
   const { colorMode } = useColorMode();
@@ -20,7 +21,15 @@ function DefaultNavbar() {
         // border={"1px solid blue"}
       >
         {/* Home */}
-        <a href={"#home"} class="nav-link home hover-underline-animation">
+        <Scroll.Link
+          // activeClass="active"
+          to="home"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={500}
+          className="nav-link home hover-underline-animation"
+        >
           <Button
             _hover={{ color: colorMode === "light" ? "blue" : "red" }}
             bgColor={colorMode === "light" ? "white" : "black"}
@@ -28,9 +37,17 @@ function DefaultNavbar() {
           >
             Home
           </Button>
-        </a>
+        </Scroll.Link>
         {/* About */}
-        <a href={"#about"} class="nav-link about hover-underline-animation">
+        <Scroll.Link
+          activeClass="active"
+          to="about"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={500}
+          className="nav-link about hover-underline-animation"
+        >
           <Button
             _hover={{ color: colorMode === "light" ? "blue" : "red" }}
             bgColor={colorMode === "light" ? "white" : "black"}
@@ -38,9 +55,17 @@ function DefaultNavbar() {
           >
             about
           </Button>
-        </a>
+        </Scroll.Link>
         {/* Skills */}
-        <a href="#skills" class="nav-link skills hover-underline-animation">
+        <Scroll.Link
+          activeClass="active"
+          to="skills"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={500}
+          className="nav-link skills hover-underline-animation"
+        >
           <Button
             _hover={{
               color: colorMode === "light" ? "blue" : "red",
@@ -51,11 +76,16 @@ function DefaultNavbar() {
           >
             skills
           </Button>
-        </a>
+        </Scroll.Link>
         {/* Projects */}
-        <a
-          href={"#projects"}
-          class="nav-link projects hover-underline-animation"
+        <Scroll.Link
+          activeClass="active"
+          to="projects"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={500}
+          className="nav-link projects hover-underline-animation"
         >
           <Button
             _hover={{
@@ -67,9 +97,17 @@ function DefaultNavbar() {
           >
             projects
           </Button>
-        </a>
+        </Scroll.Link>
         {/* Contact */}
-        <a href={"#contact"} class="nav-link contact hover-underline-animation">
+        <Scroll.Link
+          activeClass="active"
+          to="contact"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={500}
+          className="nav-link contact hover-underline-animation"
+        >
           <Button
             _hover={{
               color: colorMode === "light" ? "blue" : "red",
@@ -80,11 +118,11 @@ function DefaultNavbar() {
           >
             contact
           </Button>
-        </a>
+        </Scroll.Link>
         {/* Resume */}
         <a
           href="../../images/Varun_Ergurala_Resume.pdf"
-          class="nav-link resume"
+          className="nav-link resume"
           id="resume-link-1"
           // id="resume-button-1"
           download="../../images/Varun_Ergurala_Resume.pdf"
