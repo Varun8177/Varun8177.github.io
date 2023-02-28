@@ -1,21 +1,27 @@
 {
   "files": {
     "main.css": "/static/css/main.5903ddb4.css",
-    "main.js": "/static/js/main.0c5932fd.js",
+    "main.js": "/static/js/main.80b41f8a.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
     "static/media/Shoperz_banner_1.png": "/static/media/Shoperz_banner_1.df34e7c48c8d54ff82e9.png",
     "static/media/Shoperz_banner_2.png": "/static/media/Shoperz_banner_2.14065a2942b9d24a1b57.png",
     "static/media/new_profile.png": "/static/media/new_profile.583a54b09491f7adfba9.png",
     "static/media/Varun_Ergurala_Resume.pdf": "/static/media/Varun_Ergurala_Resume.bde9f93b0586b7aee341.pdf",
+    "static/media/mongobd_logo.png": "/static/media/mongobd_logo.911d600323e9c405d0db.png",
+    "static/media/react_logo.png": "/static/media/react_logo.f3e576ba08e6be927148.png",
+    "static/media/html_logo.png": "/static/media/html_logo.66d92c286ced98e2d26e.png",
+    "static/media/redux_logo.png": "/static/media/redux_logo.492ed7d54dd2352c5786.png",
+    "static/media/node_logo.png": "/static/media/node_logo.749b8af67e60d6b0dcab.png",
     "static/media/protfolio-icon.png": "/static/media/protfolio-icon.1ac4c2f7172d4984f8ab.png",
     "static/media/protfolio-icon2.png": "/static/media/protfolio-icon2.5d5bc96d3f4dc66dd2d3.png",
+    "static/media/javascript_logo.png": "/static/media/javascript_logo.b593320c32e34a23f324.png",
     "index.html": "/index.html",
     "main.5903ddb4.css.map": "/static/css/main.5903ddb4.css.map",
-    "main.0c5932fd.js.map": "/static/js/main.0c5932fd.js.map",
+    "main.80b41f8a.js.map": "/static/js/main.80b41f8a.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5903ddb4.css",
-    "static/js/main.0c5932fd.js"
+    "static/js/main.80b41f8a.js"
   ]
 }
