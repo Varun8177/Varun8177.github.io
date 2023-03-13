@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.5903ddb4.css",
-    "main.js": "/static/js/main.05318a17.js",
+    "main.js": "/static/js/main.b0f69aad.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
     "static/media/inside_fashion_1.png": "/static/media/inside_fashion_1.4aed2d43f745f5a22590.png",
     "static/media/healthPrime_1.png": "/static/media/healthPrime_1.0bcdd8f3365620f5fd90.png",
@@ -12,15 +12,14 @@
     "static/media/healthPrime_3.png": "/static/media/healthPrime_3.7885c8b60da14ebcfe3d.png",
     "static/media/chargify_1.png": "/static/media/chargify_1.672f73f2ae66be1e5fcb.png",
     "static/media/chargify_3.png": "/static/media/chargify_3.3e3792e5cea2521f95ff.png",
-    "static/media/new_profile.png": "/static/media/new_profile.583a54b09491f7adfba9.png",
     "static/media/inside_fashion_3.png": "/static/media/inside_fashion_3.008c76846d38b7325cc1.png",
     "static/media/chargify_4.png": "/static/media/chargify_4.845d33911b99d98585da.png",
     "static/media/inside_fashion_4.png": "/static/media/inside_fashion_4.44847ce35204b5673101.png",
     "static/media/chargify_2.png": "/static/media/chargify_2.a868f6e3cdace03b57ce.png",
     "static/media/healthPrime_6.png": "/static/media/healthPrime_6.cd8e8a748bf5d3eceb96.png",
     "static/media/healthPrime_5.png": "/static/media/healthPrime_5.eb775c36181d68140dc7.png",
+    "static/media/new_profile.jpg": "/static/media/new_profile.1c7a16a720235bb7ce6f.jpg",
     "static/media/healthPrime_4.png": "/static/media/healthPrime_4.a454fe0bb85b330428ab.png",
-    "static/media/Varun_Ergurala_Resume.pdf": "/static/media/Varun_Ergurala_Resume.bde9f93b0586b7aee341.pdf",
     "static/media/mongobd_logo.png": "/static/media/mongobd_logo.911d600323e9c405d0db.png",
     "static/media/react_logo.png": "/static/media/react_logo.f3e576ba08e6be927148.png",
     "static/media/html_logo.png": "/static/media/html_logo.66d92c286ced98e2d26e.png",
@@ -31,11 +30,11 @@
     "static/media/javascript_logo.png": "/static/media/javascript_logo.b593320c32e34a23f324.png",
     "index.html": "/index.html",
     "main.5903ddb4.css.map": "/static/css/main.5903ddb4.css.map",
-    "main.05318a17.js.map": "/static/js/main.05318a17.js.map",
+    "main.b0f69aad.js.map": "/static/js/main.b0f69aad.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5903ddb4.css",
-    "static/js/main.05318a17.js"
+    "static/js/main.b0f69aad.js"
   ]
 }
