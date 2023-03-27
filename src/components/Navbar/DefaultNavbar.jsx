@@ -3,7 +3,6 @@ import { TfiDownload } from "react-icons/tfi";
 import ColorModeToggle from "../Darkmode";
 import styes from "./Navbar.css";
 import * as Scroll from "react-scroll";
-import resume from "../../images/Varun_Ergurala_Resume.pdf";
 function DefaultNavbar() {
   const { colorMode } = useColorMode();
   return (
@@ -121,11 +120,11 @@ function DefaultNavbar() {
         </Scroll.Link>
         {/* Resume */}
         <a
-          href={resume}
+          href={"Varun_Ergurala_Resume.pdf"}
           className="nav-link resume"
           id="resume-link-1"
           // id="resume-button-1"
-          download="../../images/Varun_Ergurala_Resume.pdf"
+          download="Varun_Ergurala_Resume.pdf"
           onClick={() => {
             window.open(
               "https://drive.google.com/file/d/17cTzx5JO8LVlbzWnptj6L2Xp4sPyyx8_/view?usp=share_link"
@@ -134,7 +133,7 @@ function DefaultNavbar() {
         >
           <Button
             id="resume-button-1"
-            download="../../images/Varun_Ergurala_Resume.pdf"
+            download="Varun_Ergurala_Resume.pdf"
             _hover={{
               color: colorMode === "light" ? "black" : "white",
               cursor: "pointer",

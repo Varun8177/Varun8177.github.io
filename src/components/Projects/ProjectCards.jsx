@@ -10,19 +10,27 @@ import {
   Text,
   useColorMode,
 } from "@chakra-ui/react";
-import image1 from "../../images/Shoperz_banner_1.png";
-import image2 from "../../images/Shoperz_banner_2.png";
 import { BsLinkedin } from "react-icons/bs";
 import { FiPhoneCall } from "react-icons/fi";
 import { RxGithubLogo } from "react-icons/rx";
 import { TfiEmail } from "react-icons/tfi";
 import { HiExternalLink } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { AiFillHtml5 } from "react-icons/ai";
+import { IoLogoCss3 } from "react-icons/io";
+import { SiReact } from "react-icons/si";
 
 import React from "react";
 import Carousel from "../Carousal/Carousal";
 
-const ProjectCards = ({ direction }) => {
+const ProjectCards = ({
+  direction,
+  deployedLink,
+  image,
+  title,
+  subTitle,
+  GithubLink,
+}) => {
   const { colorMode } = useColorMode();
 
   return (
@@ -81,7 +89,7 @@ const ProjectCards = ({ direction }) => {
             }}
             className="project-title"
           >
-            Shoperz
+            {title}
           </Heading>
           <Heading
             fontSize={{
@@ -89,11 +97,11 @@ const ProjectCards = ({ direction }) => {
               md: "25px",
               lg: "30px",
               xl: "54px",
-              "2xl": "64px",
+              "2xl": "54px",
             }}
             mb={"20px"}
           >
-            — Meesho Clone
+            — {subTitle}
           </Heading>
           <Image
             w={"10px"}
@@ -119,32 +127,24 @@ const ProjectCards = ({ direction }) => {
           >
             <Text>Teck Stack —</Text>
             <Box class="project-tech-stack">
-              <RxGithubLogo size="30px" border-radius="50%" />
+              <AiFillHtml5 size="30px" border-radius="50%" />
             </Box>
             <Box class="project-tech-stack">
-              <BsLinkedin size="30px" />
+              <IoLogoCss3 size="30px" />
             </Box>
             <Box class="project-tech-stack">
-              <FiPhoneCall size="30px" />
+              <SiReact size="30px" />
             </Box>
-            <Box class="project-tech-stack">
+            {/* <Box class="project-tech-stack">
               <TfiEmail size="30px" />
-            </Box>
+            </Box> */}
           </Flex>
-          <Link
-            to={"https://shoperz-co.netlify.app/"}
-            class="project-deployed-link"
-            target="_blank"
-          >
+          <Link to={deployedLink} class="project-deployed-link" target="_blank">
             <Text as="b" textDecorationLine={"underline"}>
               Website
             </Text>
           </Link>
-          <Link
-            to={"https://github.com/Varun8177/hollow-idea-9446.git"}
-            class="project-github-link"
-            target="_blank"
-          >
+          <Link to={GithubLink} class="project-github-link" target="_blank">
             <Button
               ml={"20px"}
               bgColor={colorMode === "light" ? "black" : "red"}
@@ -159,14 +159,14 @@ const ProjectCards = ({ direction }) => {
           </Link>
         </Box>
         <Box w={"45%"}>
-          <Carousel />
+          <Carousel image={image} />
         </Box>
       </Flex>
     </Hide>
   );
 };
 
-function MediumProjectCard() {
+function MediumProjectCard({ image, deployedLink, GithubLink }) {
   const { colorMode } = useColorMode();
 
   return (
@@ -195,7 +195,7 @@ function MediumProjectCard() {
           Shoperz — Meesho Clone
         </Heading>
         <Box w={"100%"} mb={"10px"}>
-          <Carousel />
+          <Carousel image={image} />
         </Box>
         <Grid
           templateColumns={{
@@ -262,7 +262,7 @@ function MediumProjectCard() {
             }}
           >
             <Link
-              to={"https://shoperz-co.netlify.app/"}
+              to={deployedLink}
               class="project-deployed-link"
               target="_blank"
             >
@@ -270,11 +270,7 @@ function MediumProjectCard() {
                 Website
               </Text>
             </Link>
-            <Link
-              to={"https://github.com/Varun8177/hollow-idea-9446.git"}
-              class="project-github-link"
-              target="_blank"
-            >
+            <Link to={GithubLink} class="project-github-link" target="_blank">
               <Button
                 ml={"20px"}
                 bgColor={colorMode === "light" ? "black" : "red"}

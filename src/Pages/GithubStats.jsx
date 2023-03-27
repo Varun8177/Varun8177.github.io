@@ -1,4 +1,4 @@
-import { Box, Center, Flex, Heading, Image, Stack } from "@chakra-ui/react";
+import { Box, Flex, Image, Stack } from "@chakra-ui/react";
 import React from "react";
 import GitHubCalendar from "react-github-calendar";
 import { Link } from "react-router-dom";
@@ -7,9 +7,6 @@ import Tooltip from "react-tooltip";
 const GithubStats = () => {
   return (
     <Box>
-      <Center>
-        <Heading>GithubStats</Heading>
-      </Center>
       <Stack>
         {/* Calender */}
         <GitHubCalendar

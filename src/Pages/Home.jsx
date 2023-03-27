@@ -11,7 +11,6 @@ import {
   Tooltip,
   useColorMode,
 } from "@chakra-ui/react";
-import resume from "../images/Varun_Ergurala_Resume.pdf";
 
 import { RxGithubLogo } from "react-icons/rx";
 import { BsLinkedin } from "react-icons/bs";
@@ -41,6 +40,7 @@ function Home() {
     return () => {
       setContent("");
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <Center
@@ -194,10 +194,9 @@ function Home() {
             </Flex>
           </Show>
           <a
-            href={resume}
-            // id="resume-link-1"
-            id="resume-button-2"
-            download
+            href={"Varun_Ergurala_Resume.pdf"}
+            id="resume-link-2"
+            download="Varun_Ergurala_Resume.pdf"
             onClick={() => {
               window.open(
                 "https://drive.google.com/file/d/17cTzx5JO8LVlbzWnptj6L2Xp4sPyyx8_/view?usp=share_link"
@@ -205,7 +204,8 @@ function Home() {
             }}
           >
             <Button
-              // id="resume-button-1"
+              id="resume-button-2"
+              download="Varun_Ergurala_Resume.pdf"
               _hover={{
                 color: colorMode === "light" ? "black" : "white",
                 cursor: "pointer",
