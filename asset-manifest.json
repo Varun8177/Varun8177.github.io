@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.d1be3cec.css",
-    "main.js": "/static/js/main.ced02589.js",
+    "main.js": "/static/js/main.dd9b23cd.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
     "static/media/inside_fashion_1.png": "/static/media/inside_fashion_1.4aed2d43f745f5a22590.png",
     "static/media/healthPrime_1.png": "/static/media/healthPrime_1.0bcdd8f3365620f5fd90.png",
@@ -30,11 +30,11 @@
     "static/media/javascript_logo.png": "/static/media/javascript_logo.b593320c32e34a23f324.png",
     "index.html": "/index.html",
     "main.d1be3cec.css.map": "/static/css/main.d1be3cec.css.map",
-    "main.ced02589.js.map": "/static/js/main.ced02589.js.map",
+    "main.dd9b23cd.js.map": "/static/js/main.dd9b23cd.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d1be3cec.css",
-    "static/js/main.ced02589.js"
+    "static/js/main.dd9b23cd.js"
   ]
 }
