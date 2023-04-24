@@ -32,7 +32,7 @@ const Skills = () => {
         <Center>
           <Grid
             templateColumns={{
-              base: "repeat(3, 1fr)",
+              base: "repeat(2, 1fr)",
               sm: "repeat(3, 1fr)",
               md: "repeat(3, 1fr)",
               lg: "repeat(3, 1fr)",
@@ -40,8 +40,8 @@ const Skills = () => {
             }}
             gap={{ base: 4, md: 6 }}
           >
-            {arr.map((item) => {
-              return <SkillItem logo={item} />;
+            {arr.map((item, i) => {
+              return <SkillItem key={i} logo={item} />;
             })}
           </Grid>
         </Center>

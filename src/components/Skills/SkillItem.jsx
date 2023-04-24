@@ -1,4 +1,4 @@
-import { Box, Center, Image, Text, useColorMode } from "@chakra-ui/react";
+import { Box, Image, Text, useColorMode } from "@chakra-ui/react";
 import React from "react";
 
 const SkillItem = ({ logo }) => {
@@ -24,6 +24,10 @@ const SkillItem = ({ logo }) => {
       boxShadow="lg"
       borderRadius={"10px"}
       className="skills-card"
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
     >
       <Image
         src={logo.src}
@@ -39,14 +43,17 @@ const SkillItem = ({ logo }) => {
         p={"5"}
         className="skills-card-img"
       />
-      <Center>
-        <Text
-          className="skills-card-name"
-          color={colorMode === "light" ? "black" : "white"}
-        >
-          {logo.name}
-        </Text>
-      </Center>
+      <Text
+        className="skills-card-name"
+        color={colorMode === "light" ? "black" : "white"}
+        fontWeight="semibold"
+        textAlign="center"
+        mt={2}
+        fontSize={{ base: "xs", md: "sm" }}
+        textTransform="uppercase"
+      >
+        {logo.name}
+      </Text>
     </Box>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   Box,
   Button,
@@ -17,31 +17,13 @@ import { BsLinkedin } from "react-icons/bs";
 import { TfiDownload, TfiEmail } from "react-icons/tfi";
 import { FiPhoneCall } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
+import Typical from "react-typical";
 
 function Home() {
-  let name = "my name is Varun Ergurala";
   const { colorMode } = useColorMode();
-  let [content, setContent] = useState("");
+  const AnimatedFlex = motion(Flex);
 
-  function Name() {
-    let i = 0;
-    let interval = setInterval(() => {
-      if (i === name.length) {
-        clearInterval(interval);
-      } else {
-        setContent((content += name[i]));
-      }
-
-      i = i + 1;
-    }, 300);
-  }
-  useEffect(() => {
-    Name();
-    return () => {
-      setContent("");
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
   return (
     <Center
       pl={{
@@ -72,20 +54,31 @@ function Home() {
     >
       <Flex justifyContent={"space-evenly"} w="100%">
         <Box>
-          <Heading
-            id="user-detail-name"
-            mb={"20px"}
-            fontSize={{
-              base: "30px",
-              sm: "30px",
-              md: "40px",
-              lg: "60px",
-              xl: "64px",
-              "2xl": "72px",
-            }}
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            Hello, {content}
-          </Heading>
+            <Heading
+              id="user-detail-name"
+              mb={"20px"}
+              fontSize={{
+                base: "30px",
+                sm: "30px",
+                md: "40px",
+                lg: "60px",
+                xl: "64px",
+                "2xl": "72px",
+              }}
+            >
+              <Typical
+                steps={["Hello", 1000, "My name is Varun Ergurala", 2000]}
+                loop={Infinity}
+                wrapper="p"
+              />
+            </Heading>
+          </motion.div>
+
           <Heading
             mb={"20px"}
             fontSize={{
@@ -112,45 +105,72 @@ function Home() {
             tools to help me build the best possible product.
           </Text>
           <Hide below="md">
-            <Flex
+            <AnimatedFlex
               w={"300px"}
               justifyContent={"space-around"}
               mt={"10px"}
               mb={"20px"}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
             >
               <Tooltip hasArrow label="Github" bg="gray.300" color="black">
-                <NavLink to={"https://github.com/Varun8177"} target={"_blank"}>
-                  <Box id="contact-github">
-                    <RxGithubLogo size="50px" border-radius="50%" />
-                  </Box>
-                </NavLink>
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.8 }}
+                >
+                  <NavLink
+                    to={"https://github.com/Varun8177"}
+                    target={"_blank"}
+                  >
+                    <Box id="contact-github">
+                      <RxGithubLogo size="50px" border-radius="50%" />
+                    </Box>
+                  </NavLink>
+                </motion.div>
               </Tooltip>
               <Tooltip hasArrow label="LinkedIn" bg="gray.300" color="black">
-                <NavLink
-                  to={"https://www.linkedin.com/in/varun8177"}
-                  target={"_blank"}
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.8 }}
                 >
-                  <Box id="contact-linkedin">
-                    <BsLinkedin size="50px" />
-                  </Box>
-                </NavLink>
+                  <NavLink
+                    to={"https://www.linkedin.com/in/varun8177"}
+                    target={"_blank"}
+                  >
+                    <Box id="contact-linkedin">
+                      <BsLinkedin size="50px" />
+                    </Box>
+                  </NavLink>
+                </motion.div>
               </Tooltip>
               <Tooltip hasArrow label="Phone" bg="gray.300" color="black">
-                <Box id="contact-phone">
-                  <FiPhoneCall size="50px" />
-                </Box>
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.8 }}
+                >
+                  <Box id="contact-phone">
+                    <FiPhoneCall size="50px" />
+                  </Box>
+                </motion.div>
               </Tooltip>
               <Tooltip hasArrow label="Email" bg="gray.300" color="black">
-                <Box
-                  id="contact-email"
-                  onClick={() => {
-                    window.location.href = "mailto:varunergurala9999@gmail.com";
-                  }}
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.8 }}
                 >
-                  <TfiEmail size="50px" />
-                </Box>
+                  <Box
+                    id="contact-email"
+                    onClick={() => {
+                      window.location.href =
+                        "mailto:varunergurala9999@gmail.com";
+                    }}
+                  >
+                    <TfiEmail size="50px" />
+                  </Box>
+                </motion.div>
               </Tooltip>
-            </Flex>
+            </AnimatedFlex>
           </Hide>
           <Show below="md">
             <Flex
@@ -194,18 +214,20 @@ function Home() {
             </Flex>
           </Show>
           <a
-            href={"Varun_Ergurala_Resume.pdf"}
             id="resume-link-2"
+            href={"Varun_Ergurala_Resume.pdf"}
             download="Varun_Ergurala_Resume.pdf"
-            onClick={() => {
-              window.open(
-                "https://drive.google.com/file/d/17cTzx5JO8LVlbzWnptj6L2Xp4sPyyx8_/view?usp=share_link"
-              );
-            }}
+            rel="noreferrer"
+            target="_blank"
           >
             <Button
               id="resume-button-2"
-              download="Varun_Ergurala_Resume.pdf"
+              onClick={() => {
+                window.open(
+                  "https://drive.google.com/file/d/17cTzx5JO8LVlbzWnptj6L2Xp4sPyyx8_/view?usp=share_link",
+                  "_blank"
+                );
+              }}
               _hover={{
                 color: colorMode === "light" ? "black" : "white",
                 cursor: "pointer",
@@ -228,15 +250,6 @@ function Home() {
           </a>
         </Box>
       </Flex>
-      {/* <Box
-        h={"200px"}
-        w={"100px"}
-        position={"absolute"}
-        bgColor={"#def6ff"}
-        alignSelf={"baseline"}
-        top={"500"}
-        left={"80%"}
-      ></Box> */}
     </Center>
   );
 }

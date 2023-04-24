@@ -1,124 +1,122 @@
 import {
-  Box,
-  Button,
-  Drawer,
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerContent,
-  DrawerHeader,
-  DrawerOverlay,
+  IconButton,
+  Menu,
+  MenuButton,
   Show,
-  Stack,
-  useDisclosure,
+  MenuList,
+  MenuItem,
+  VStack,
+  Button,
+  Box,
+  useColorMode,
 } from "@chakra-ui/react";
-import { useRef } from "react";
-import { RxHamburgerMenu } from "react-icons/rx";
 import { TfiDownload } from "react-icons/tfi";
-import { NavLink } from "react-router-dom";
-import ColorModeToggle from "../Darkmode";
+import { HamburgerIcon } from "@chakra-ui/icons";
+import * as Scroll from "react-scroll";
 
 function MobileNavbar() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = useRef();
+  const { colorMode } = useColorMode();
   return (
     <Show below="md">
-      {/* <MenuButton
-          as={IconButton}
-          aria-label="Options"
-          icon={<BsHammer />}
-          variant="outline"
-        /> */}
-      <Button ref={btnRef} colorScheme="blue" onClick={onOpen}>
-        <RxHamburgerMenu />
-      </Button>
-      <Drawer
-        onClose={onClose}
-        isOpen={isOpen}
-        size={{
-          base: "sm",
-          sm: "sm",
-          md: "sm",
-        }}
-      >
-        <DrawerOverlay />
-        <DrawerContent display={"block"}>
-          <DrawerCloseButton />
-          <DrawerHeader>{`drawer contents`}</DrawerHeader>
-          {/* Home */}
-          <DrawerBody>
-            {/* Resume */}
-            <NavLink to={"#"} id="contact" class="nav-link contact">
-              <Button
-                mr={"20px"}
-                _hover={{ color: "red", cursor: "pointer" }}
-                bgGradient="linear(to-l,#3CAED7 100%, #40BAB6 100%)"
-                borderRadius={"17px"}
-                fontSize={["xs", "sm", "lg", "xl"]}
+      <VStack>
+        <Menu>
+          <MenuButton
+            as={IconButton}
+            aria-label="Options"
+            icon={<HamburgerIcon />}
+            variant="outline"
+          />
+          <MenuList>
+            <MenuItem>
+              <Scroll.Link
+                to="home"
+                spy={true}
+                smooth={true}
+                offset={-100}
+                duration={500}
+                className="nav-link home hover-underline-animation"
               >
-                Resume{" "}
-                <Box as={"span"} ml={"1"} fontSize={["xs", "sm", "lg", "xl"]}>
-                  {<TfiDownload />}
-                </Box>
-              </Button>
-            </NavLink>
-
-            <ColorModeToggle />
-          </DrawerBody>
-          <DrawerBody>
-            <Stack>
-              <NavLink to={"#"} id="home" class="nav-link home">
+                Home
+              </Scroll.Link>
+            </MenuItem>
+            <MenuItem>
+              <Scroll.Link
+                activeClass="active"
+                to="about"
+                spy={true}
+                smooth={true}
+                offset={-100}
+                duration={500}
+                className="nav-link about hover-underline-animation"
+              >
+                Contact
+              </Scroll.Link>
+            </MenuItem>
+            <MenuItem>
+              <Scroll.Link
+                activeClass="active"
+                to="skills"
+                spy={true}
+                smooth={true}
+                offset={-100}
+                duration={500}
+                className="nav-link skills hover-underline-animation"
+              >
+                Skills
+              </Scroll.Link>
+            </MenuItem>
+            <MenuItem>
+              <Scroll.Link
+                activeClass="active"
+                to="projects"
+                spy={true}
+                smooth={true}
+                offset={-100}
+                duration={500}
+                className="nav-link projects hover-underline-animation"
+              >
+                Projects
+              </Scroll.Link>
+            </MenuItem>
+            <MenuItem>
+              <a
+                id="resume-link-1"
+                className="nav-link resume"
+                href={"Varun_Ergurala_Resume.pdf"}
+                download="Varun_Ergurala_Resume.pdf"
+                onClick={() => {
+                  window.open(
+                    "https://drive.google.com/file/d/17cTzx5JO8LVlbzWnptj6L2Xp4sPyyx8_/view?usp=share_link"
+                  );
+                }}
+              >
                 <Button
-                  _hover={{ color: "red" }}
-                  bgColor={"white"}
+                  id="resume-button-1"
+                  download="Varun_Ergurala_Resume.pdf"
+                  _hover={{
+                    color: colorMode === "light" ? "black" : "white",
+                    cursor: "pointer",
+                  }}
+                  bgGradient={
+                    colorMode === "light"
+                      ? "linear(to-l,#3CAED7 100%, #40BAB6 100%)"
+                      : "none"
+                  }
+                  color={colorMode === "light" ? "white" : "black"}
+                  bgColor={colorMode === "dark" ? "red" : "none"}
+                  borderRadius={"10px"}
                   fontSize={["xs", "sm", "lg", "xl"]}
                 >
-                  Home
+                  Resume
+                  <Box as={"span"} ml={"1"} fontSize={["xs", "sm", "lg", "xl"]}>
+                    {<TfiDownload />}
+                  </Box>
                 </Button>
-              </NavLink>
-              {/* About */}
-              <NavLink to={"#"} id="about" class="about section">
-                <Button
-                  _hover={{ color: "red" }}
-                  bgColor={"white"}
-                  fontSize={["xs", "sm", "lg", "xl"]}
-                >
-                  about
-                </Button>
-              </NavLink>
-              {/* Skills */}
-              <NavLink to={"#"} id="skills" class="nav-link skills">
-                <Button
-                  _hover={{ color: "red", cursor: "pointer" }}
-                  bgColor={"white"}
-                  fontSize={["xs", "sm", "lg", "xl"]}
-                >
-                  skills
-                </Button>
-              </NavLink>
-              {/* Projects */}
-              <NavLink to={"#"} id="projects" class="nav-link projects">
-                <Button
-                  _hover={{ color: "red", cursor: "pointer" }}
-                  bgColor={"white"}
-                  fontSize={["xs", "sm", "lg", "xl"]}
-                >
-                  projects
-                </Button>
-              </NavLink>
-              {/* Contact */}
-              <NavLink to={"#"} id="contact" class="nav-link contact">
-                <Button
-                  _hover={{ color: "red", cursor: "pointer" }}
-                  bgColor={"white"}
-                  fontSize={["xs", "sm", "lg", "xl"]}
-                >
-                  contact
-                </Button>
-              </NavLink>
-            </Stack>
-          </DrawerBody>
-        </DrawerContent>
-      </Drawer>
+              </a>
+            </MenuItem>
+          </MenuList>
+        </Menu>
+      </VStack>
     </Show>
   );
 }

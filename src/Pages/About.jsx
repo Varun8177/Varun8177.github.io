@@ -2,10 +2,9 @@ import {
   Box,
   Button,
   Center,
-  Flex,
   Heading,
   Image,
-  Show,
+  Stack,
   Text,
   useColorMode,
 } from "@chakra-ui/react";
@@ -17,199 +16,75 @@ const About = () => {
   const { colorMode } = useColorMode();
 
   return (
-    <Box
-      h={{
-        base: "150vh",
-        sm: "150vh",
-        md: "150vh",
-        lg: "80vh",
-        xl: "80vh",
-        "2xl": "80vh",
-      }}
-      id="about"
-      className="about section"
-    >
-      <Center mb={"40px"}>
-        <Heading fontSize={"30px"}>About me</Heading>
+    <Box id="about" className="about section" py={{ base: "10vh", md: "20vh" }}>
+      <Center mb={8}>
+        <Heading fontSize={{ base: "2xl", md: "4xl" }}>About Me</Heading>
       </Center>
-      <Box
-        pl={{
-          base: "5",
-          sm: "5",
-          md: "5",
-          lg: "10",
-          xl: "10",
-          "2xl": "10",
-        }}
-        pr={{
-          base: "5",
-          sm: "5",
-          md: "5",
-          lg: "10",
-          xl: "10",
-          "2xl": "10",
-        }}
+      <Stack
+        direction={{ base: "column", md: "row" }}
+        spacing={{ base: 8, md: 16 }}
+        justify="center"
+        align="center"
+        mb={{ base: 16, md: 32 }}
       >
-        <Flex
-          justifyContent={"space-evenly"}
-          w="100%"
-          direction={{
-            base: "column",
-            lg: "row",
-          }}
+        <Image
+          src={profile}
+          alt="profile"
+          h={{ base: "200px", md: "300px" }}
+          w={{ base: "200px", md: "300px" }}
+          objectFit="cover"
+          borderRadius="full"
+          boxShadow="2xl"
+          className="home-img"
+        />
+        <Box
+          w={{ base: "80%", md: "50%" }}
+          textAlign={{ base: "center", md: "left" }}
         >
-          <Show above="lg">
-            <Image
-              src={profile}
-              alt="profile"
-              h={"300px"}
-              w={"300px"}
-              objectFit="cover"
-              // border={"2px solid black"}
-              boxShadow="2xl"
-              borderRadius={"10px"}
-            />
-          </Show>
-          <Show below="lg">
-            <Image
-              src={profile}
-              alt="profile"
-              h={"300px"}
-              w={"300px"}
-              m="auto"
-              objectFit="cover"
-              // border={"2px solid black"}
-              boxShadow="2xl"
-              borderRadius={"10px"}
-            />
-          </Show>
-          <Show above="lg">
-            <Box
-              w={{
-                base: "80%",
-                sm: "80%",
-                md: "50%",
-                lg: "50%",
-                xl: "50%",
-                "2xl": "50%",
+          <Heading fontSize={{ base: "xl", md: "2xl" }} mb={4}>
+            Hello, my name is Varun Ergurala
+          </Heading>
+          <Text
+            fontSize={{ base: "sm", md: "lg" }}
+            mb={8}
+            id={"user-detail-intro"}
+          >
+            An enthusiastic Full-stack Developer, skilled in React.js.
+            Developing websites using JavaScript, Node.js, Express.js, MongoDB.
+            An optimistic man, always ready to take a critical decision, ready
+            to work under pressure. Always ready to try some new things for
+            optimization.
+          </Text>
+          <Scroll.Link
+            activeClass="active"
+            to="contact"
+            spy={true}
+            smooth={true}
+            offset={-100}
+            duration={500}
+          >
+            <Button
+              w={{ base: "100%", md: "auto" }}
+              size="lg"
+              p="8"
+              borderRadius="10px"
+              fontSize={{ base: "sm", md: "lg" }}
+              bgGradient={
+                colorMode === "light"
+                  ? "linear(to-l,#3CAED7 100%, #40BAB6 100%)"
+                  : "none"
+              }
+              bgColor={colorMode === "dark" ? "red" : "none"}
+              _hover={{
+                color: colorMode === "light" ? "white" : "black",
+                cursor: "pointer",
               }}
             >
-              <Heading id="user-detail-name" mb={"20px"} fontSize={"30px"}>
-                Hello, my name is Varun Ergurala
-              </Heading>
-              <Heading
-                mb={"20px"}
-                fontSize={{
-                  sm: "20px",
-                  md: "25px",
-                  lg: "30px",
-                }}
-              >
-                I'm a Full Stack Web Developer
-              </Heading>
-              <Text id="user-detail-intro" m={"auto"}>
-                An enthusiastic Full-stack Developer, skilled in React.js .
-                Developing websites using JavaScript, Node.js, Express.js,
-                MongoDB. An optimistic man, always ready to take a critical
-                decision, ready to work under pressure. Always ready to try some
-                new things for optimization.
-              </Text>
-              <Scroll.Link
-                activeClass="active"
-                to="contact"
-                spy={true}
-                smooth={true}
-                offset={-100}
-                duration={500}
-              >
-                <Button
-                  w={"200px"}
-                  p={"8"}
-                  mt={"20px"}
-                  _hover={{
-                    color: colorMode === "light" ? "white" : "black",
-                    cursor: "pointer",
-                  }}
-                  bgGradient={
-                    colorMode === "light"
-                      ? "linear(to-l,#3CAED7 100%, #40BAB6 100%)"
-                      : "none"
-                  }
-                  bgColor={colorMode === "dark" ? "red" : "none"}
-                  borderRadius={"10px"}
-                  fontSize={["xs", "sm", "lg", "xl"]}
-                >
-                  Contact me
-                </Button>
-              </Scroll.Link>
-            </Box>
-          </Show>
-
-          <Show below="lg">
-            <Box
-              w={{
-                base: "80%",
-                sm: "80%",
-                md: "50%",
-                lg: "50%",
-                xl: "50%",
-                "2xl": "50%",
-              }}
-              m="auto"
-              mt={"10px"}
-            >
-              <Heading id="user-detail-name" mb={"20px"} fontSize={"30px"}>
-                Hello, my name is Varun Ergurala
-              </Heading>
-              <Heading
-                mb={"20px"}
-                fontSize={{
-                  sm: "20px",
-                  md: "25px",
-                  lg: "30px",
-                }}
-              >
-                I'm a Full Stack Web Developer
-              </Heading>
-              <Text id="user-detail-intro" m={"auto"}>
-                An enthusiastic Full-stack Developer, skilled in React.js .
-                Developing websites using JavaScript, Node.js, Express.js,
-                MongoDB. An optimistic man, always ready to take a critical
-                decision, ready to work under pressure. Always ready to try some
-                new things for optimization.
-              </Text>
-              <Scroll.Link
-                activeClass="active"
-                to="contact"
-                spy={true}
-                smooth={true}
-                offset={-100}
-                duration={500}
-              >
-                <Button
-                  w={"200px"}
-                  p={"8"}
-                  mt={"20px"}
-                  _hover={{
-                    color: colorMode === "light" ? "white" : "black",
-                    cursor: "pointer",
-                  }}
-                  bgGradient={
-                    colorMode === "light"
-                      ? "linear(to-l,#3CAED7 100%, #40BAB6 100%)"
-                      : "none"
-                  }
-                  bgColor={colorMode === "dark" ? "red" : "none"}
-                  borderRadius={"10px"}
-                  fontSize={["xs", "sm", "lg", "xl"]}
-                >
-                  Contact me
-                </Button>
-              </Scroll.Link>
-            </Box>
-          </Show>
-        </Flex>
-      </Box>
+              Contact Me
+            </Button>
+          </Scroll.Link>
+        </Box>
+      </Stack>
     </Box>
   );
 };

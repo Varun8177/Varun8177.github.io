@@ -1,6 +1,7 @@
 import { Box, Button, Flex, Hide, useColorMode } from "@chakra-ui/react";
 import { TfiDownload } from "react-icons/tfi";
 import ColorModeToggle from "../Darkmode";
+// eslint-disable-next-line no-unused-vars
 import styes from "./Navbar.css";
 import * as Scroll from "react-scroll";
 function DefaultNavbar() {
@@ -52,7 +53,7 @@ function DefaultNavbar() {
             bgColor={colorMode === "light" ? "white" : "black"}
             fontSize={["xs", "sm", "lg", "xl"]}
           >
-            about
+            About
           </Button>
         </Scroll.Link>
         {/* Skills */}
@@ -73,7 +74,7 @@ function DefaultNavbar() {
             bgColor={colorMode === "light" ? "white" : "black"}
             fontSize={["xs", "sm", "lg", "xl"]}
           >
-            skills
+            Skills
           </Button>
         </Scroll.Link>
         {/* Projects */}
@@ -94,7 +95,7 @@ function DefaultNavbar() {
             bgColor={colorMode === "light" ? "white" : "black"}
             fontSize={["xs", "sm", "lg", "xl"]}
           >
-            projects
+            Projects
           </Button>
         </Scroll.Link>
         {/* Contact */}
@@ -115,15 +116,14 @@ function DefaultNavbar() {
             bgColor={colorMode === "light" ? "white" : "black"}
             fontSize={["xs", "sm", "lg", "xl"]}
           >
-            contact
+            Contact
           </Button>
         </Scroll.Link>
         {/* Resume */}
         <a
-          href={"Varun_Ergurala_Resume.pdf"}
-          className="nav-link resume"
           id="resume-link-1"
-          // id="resume-button-1"
+          className="nav-link resume"
+          href={"Varun_Ergurala_Resume.pdf"}
           download="Varun_Ergurala_Resume.pdf"
           onClick={() => {
             window.open(
@@ -154,7 +154,6 @@ function DefaultNavbar() {
             </Box>
           </Button>
         </a>
-
         <ColorModeToggle />
       </Flex>
     </Hide>

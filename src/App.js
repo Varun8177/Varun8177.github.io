@@ -19,9 +19,9 @@ function App() {
     }>
       <Navbar />
       <Box top='90vh' position='fixed' left={{
-        base: '90%',
-        sm: "90%",
-        md: "90%",
+        base: '80%',
+        sm: "80%",
+        md: "93%",
         lg: "95%",
         xl: "95%",
         "2xl": "95%",
