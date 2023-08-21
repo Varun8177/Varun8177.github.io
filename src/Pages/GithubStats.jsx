@@ -10,7 +10,7 @@ const GithubStats = () => {
       <Stack spacing={8}>
         {/* Title */}
         <Text fontSize="3xl" fontWeight="bold" textAlign="center">
-          My Github Stats
+          My Github Statistics
         </Text>
         {/* Calender */}
         <Box w="100%" textAlign="center">

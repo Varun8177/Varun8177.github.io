@@ -28,6 +28,7 @@ const SkillItem = ({ logo }) => {
       flexDirection="column"
       justifyContent="center"
       alignItems="center"
+      data-aos={"fade-up"}
     >
       <Image
         src={logo.src}

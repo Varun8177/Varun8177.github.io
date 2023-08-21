@@ -29,6 +29,7 @@ const ProjectCards = ({
   features,
   techStack,
   description,
+  animation,
 }) => {
   const { colorMode } = useColorMode();
   // eslint-disable-next-line no-unused-vars
@@ -43,6 +44,7 @@ const ProjectCards = ({
         whileHover={{ scale: 1.03 }}
       >
         <Flex
+          data-aos={animation}
           borderRadius={"10px"}
           background={colorMode === "light" ? "white" : "black"}
           boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px;"}
