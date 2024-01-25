@@ -1,8 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.44b06bce.css",
-    "main.js": "/static/js/main.068fbfe9.js",
-    "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
+    "main.js": "/static/js/main.5e1af2b1.js",
     "static/media/inside_fashion_1.png": "/static/media/inside_fashion_1.4aed2d43f745f5a22590.png",
     "static/media/healthPrime_1.png": "/static/media/healthPrime_1.0bcdd8f3365620f5fd90.png",
     "static/media/Shoperz_banner_1.png": "/static/media/Shoperz_banner_1.df34e7c48c8d54ff82e9.png",
@@ -30,11 +29,10 @@
     "static/media/javascript_logo.png": "/static/media/javascript_logo.b593320c32e34a23f324.png",
     "index.html": "/index.html",
     "main.44b06bce.css.map": "/static/css/main.44b06bce.css.map",
-    "main.068fbfe9.js.map": "/static/js/main.068fbfe9.js.map",
-    "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
+    "main.5e1af2b1.js.map": "/static/js/main.5e1af2b1.js.map"
   },
   "entrypoints": [
     "static/css/main.44b06bce.css",
-    "static/js/main.068fbfe9.js"
+    "static/js/main.5e1af2b1.js"
   ]
 }
