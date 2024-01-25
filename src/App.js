@@ -48,6 +48,7 @@ function App() {
             behavior: "smooth",
           });
         }}
+        cursor="pointer"
       >
         <BsArrowUpCircleFill size={"40px"} />
       </Box>

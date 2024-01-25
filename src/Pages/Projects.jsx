@@ -77,7 +77,6 @@ const Projects = () => {
         description={
           "Online Shopping site to buy best quality Fashion, Electronics, Home & Kitchen products at lowest prices. I was given meesho.com as a project and I was able to succesfully to clone it in a period of 5 days"
         }
-        animation={"fade-up"}
         techStack={["React.js", "Chakra UI", "MockApi"]}
       />
       <ProjectCards
@@ -96,7 +95,6 @@ const Projects = () => {
         description={
           "Health Prime is an online platform that offers a wide range of healthcare products and medicines to users. With its user-friendly interface and competitive pricing, Health Prime makes it easy for users to find and purchase the products they need. "
         }
-        animation={"fade-up"}
         techStack={["Next.js", "Chakra UI", "FireBase", "Redux"]}
       />
       <ProjectCards
@@ -113,7 +111,6 @@ const Projects = () => {
           "Admin panel to perform CRUD operations.",
           "User feedback system",
         ]}
-        animation={"fade-up"}
         description={
           "Online Shopping site to buy best quality Fashion, Electronics, Home & Kitchen products at lowest prices. I was given meesho.com as a project and I was able to succesfully to clone it in a period of 5 days"
         }
@@ -133,7 +130,6 @@ const Projects = () => {
           "Admin panel for performing CRUD operations on products and user information",
           "User feedback system for leaving reviews and ratings on products",
         ]}
-        animation={"fade-up"}
         description={
           "A Chargify clone is a software platform that imitates the subscription management and billing features of Chargify. It automates subscription billing processes, manages customer accounts and payments, and offers flexible pricing options. Businesses can use it to streamline billing, enhance customer experience, and scale their subscription business."
         }
