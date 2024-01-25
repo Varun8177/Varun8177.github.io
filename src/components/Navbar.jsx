@@ -2,8 +2,6 @@ import { Box, Flex, Image, useColorMode } from "@chakra-ui/react";
 import React from "react";
 import DefaultNavbar from "./Navbar/DefaultNavbar";
 import MobileNavbar from "./Navbar/MobileNavbar";
-import darkLogo from "../images/protfolio-icon2.png";
-import lightLogo from "../images/protfolio-icon.png";
 import { NavLink } from "react-router-dom";
 
 function Navbar() {
@@ -26,7 +24,11 @@ function Navbar() {
       >
         <NavLink to={"https://varun8177.github.io/"}>
           <Image
-            src={colorMode === "light" ? lightLogo : darkLogo}
+            src={
+              colorMode === "light"
+                ? "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/logos/z8nblqi6l1xfpkunbw8u"
+                : "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/logos/qrocvi4gq4ecyjazkj7q"
+            }
             w={"250px"}
           />
         </NavLink>

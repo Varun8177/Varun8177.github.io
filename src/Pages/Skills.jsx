@@ -1,27 +1,45 @@
 import { Box, Center, Grid, Heading } from "@chakra-ui/react";
 import React from "react";
 import SkillItem from "../components/Skills/SkillItem";
-import javascript_logo from "../images/javascript_logo.png";
-import html_logo from "../images/html_logo.png";
-import git_logo from "../images/git_logo.png";
-import react_logo from "../images/react_logo.png";
-import node_logo from "../images/node_logo.png";
-import next_logo from "../images/next_logo.png";
-import typescript_logo from "../images/typescript_logo.png";
-import redux_logo from "../images/redux_logo.png";
-import mongobd_logo from "../images/mongobd_logo.png";
 
 const Skills = () => {
   let arr = [
-    { src: javascript_logo, name: "Javascript" },
-    { src: html_logo, name: "HTML" },
-    { src: git_logo, name: "Git" },
-    { src: react_logo, name: "React JS" },
-    { src: node_logo, name: "Node" },
-    { src: next_logo, name: "Next JS" },
-    { src: redux_logo, name: "Redux" },
-    { src: typescript_logo, name: "TypeScript" },
-    { src: mongobd_logo, name: "Mongo DB" },
+    {
+      src: "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/logos/pylwd35ndxnwq15wecau",
+      name: "Javascript",
+    },
+    {
+      src: "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/logos/fwdpuobbtgx765g2pa7f",
+      name: "HTML",
+    },
+    {
+      src: "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/logos/pyory7i24asdmodzrw6j",
+      name: "Git",
+    },
+    {
+      src: "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/logos/gnvc6uwjuasvcb3ydldc",
+      name: "React JS",
+    },
+    {
+      src: "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/logos/pqlinzfyqxyxupnfuzqv",
+      name: "Node",
+    },
+    {
+      src: "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/logos/oexxrmnw03piv8s5uvea",
+      name: "Next JS",
+    },
+    {
+      src: "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/logos/hqkng3uohcs6sdxmqvks",
+      name: "Redux",
+    },
+    {
+      src: "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/logos/sxlrrweycrr4v0wpikdm",
+      name: "TypeScript",
+    },
+    {
+      src: "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/logos/qkcztqetisncwvrzn8zm",
+      name: "Mongo DB",
+    },
   ];
   return (
     <Box id="skills">

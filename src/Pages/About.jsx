@@ -9,7 +9,6 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import React from "react";
-import profile from "../images/new_profile.jpg";
 import * as Scroll from "react-scroll";
 
 const About = () => {
@@ -28,7 +27,9 @@ const About = () => {
         mb={{ base: 16, md: 32 }}
       >
         <Image
-          src={profile}
+          src={
+            "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/ryxovt8jst9naqwzs9ss"
+          }
           alt="profile"
           h={{ base: "200px", md: "300px" }}
           w={{ base: "200px", md: "300px" }}

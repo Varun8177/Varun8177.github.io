@@ -4,39 +4,33 @@ import {
   MediumProjectCard,
   ProjectCards,
 } from "../components/Projects/ProjectCards";
-import shoperz1 from "../images/Shoperz_banner_1.png";
-import shoperz2 from "../images/Shoperz_banner_2.png";
-import inside_fashion_1 from "../images/inside_fashion_1.png";
-import inside_fashion_2 from "../images/inside_fashion_2.png";
-import inside_fashion_3 from "../images/inside_fashion_3.png";
-import inside_fashion_4 from "../images/inside_fashion_4.png";
-import chargify_1 from "../images/chargify_1.png";
-import chargify_2 from "../images/chargify_2.png";
-import chargify_3 from "../images/chargify_3.png";
-import chargify_4 from "../images/chargify_4.png";
-import healthPrime_1 from "../images/healthPrime_1.png";
-import healthPrime_2 from "../images/healthPrime_2.png";
-import healthPrime_3 from "../images/healthPrime_3.png";
-import healthPrime_4 from "../images/healthPrime_4.png";
-import healthPrime_5 from "../images/healthPrime_5.png";
-import healthPrime_6 from "../images/healthPrime_6.png";
+
 const Projects = () => {
-  const shoperz = [shoperz1, shoperz2];
+  const shoperz = [
+    "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/shoperz/m6tbnzeguplp6ul39fcc",
+    "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/shoperz/n15wkfmwfsn4itedmjab",
+  ];
   const insideFashion = [
-    inside_fashion_1,
-    inside_fashion_2,
-    inside_fashion_3,
-    inside_fashion_4,
+    "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/Inside%20Fashion/kmqqawbqwzfmbri8gjxr",
+    "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/Inside%20Fashion/kec35wlamdwuq1etohil",
+    "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/Inside%20Fashion/dx0qsj0ilvisywnndgoa",
+    "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/Inside%20Fashion/mhpnadrrcuqd1nogrcmg",
   ];
-  const chargify = [chargify_1, chargify_2, chargify_3, chargify_4];
+  const chargify = [
+    "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/chargify/vrx1cbpsi5p7kvbfeyf3",
+    "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/chargify/dynsev6owqr5sea74oej",
+    "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/chargify/evbhfeuhjayvffxzzq4t",
+    "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/chargify/zfdvgl7izrltu7ekii1t",
+  ];
   const HealthPrime = [
-    healthPrime_1,
-    healthPrime_2,
-    healthPrime_3,
-    healthPrime_4,
-    healthPrime_5,
-    healthPrime_6,
+    "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/HealthPrime/gj7zawyahtxeypd5u7sf",
+    "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/HealthPrime/vbulw9j8r4k84wu5xwnd",
+    "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/HealthPrime/i5wqzaapp8ab0oalbhxb",
+    "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/HealthPrime/atglhgpw4xc0wusuuuec",
+    "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/HealthPrime/fq8y9plvqim5pg2gf7lx",
+    "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/HealthPrime/iucx0xnkufyh1ggahpkk",
   ];
+
   return (
     <Box
       pl={{
