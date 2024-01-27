@@ -1,5 +1,7 @@
-import { Box, Image, Text, useColorMode } from "@chakra-ui/react";
+import { Box, Text, useColorMode } from "@chakra-ui/react";
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const SkillItem = ({ logo }) => {
   const { colorMode } = useColorMode();
@@ -30,8 +32,7 @@ const SkillItem = ({ logo }) => {
       alignItems="center"
       data-aos={"fade-up"}
     >
-      <Image
-        src={logo.src}
+      <Box
         objectFit={"contain"}
         w={{
           base: "80px",
@@ -42,8 +43,13 @@ const SkillItem = ({ logo }) => {
         }}
         m={"auto"}
         p={"5"}
-        className="skills-card-img"
-      />
+      >
+        <LazyLoadImage
+          src={logo.src}
+          className="skills-card-img"
+          effect="blur"
+        />
+      </Box>
       <Text
         className="skills-card-name"
         color={colorMode === "light" ? "black" : "white"}

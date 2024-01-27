@@ -26,30 +26,12 @@ function Home() {
 
   return (
     <Center
-      pl={{
+      px={{
         base: "10",
         sm: "15",
         md: "20",
-        lg: "20",
-        xl: "20",
-        "2xl": "20",
       }}
-      pr={{
-        base: "10",
-        sm: "15",
-        md: "20",
-        lg: "20",
-        xl: "20",
-        "2xl": "20",
-      }}
-      h={{
-        base: "100vh",
-        sm: "100vh",
-        md: "100vh",
-        lg: "100vh",
-        xl: "100vh",
-        "2xl": "100vh",
-      }}
+      h="100vh"
       id="home"
     >
       <Flex justifyContent={"space-evenly"} w="100%">
@@ -64,7 +46,6 @@ function Home() {
               mb={"20px"}
               fontSize={{
                 base: "30px",
-                sm: "30px",
                 md: "40px",
                 lg: "60px",
                 xl: "64px",
@@ -93,11 +74,7 @@ function Home() {
             id="user-detail-intro"
             w={{
               base: "80%",
-              sm: "80%",
               md: "55%",
-              lg: "55%",
-              xl: "55%",
-              "2xl": "55%",
             }}
           >
             Aspiring Full Stack Web Developer who loves solving problems and

@@ -1,16 +1,19 @@
 import { Box, Flex, Image, useColorMode } from "@chakra-ui/react";
-import React from "react";
-import DefaultNavbar from "./Navbar/DefaultNavbar";
-import MobileNavbar from "./Navbar/MobileNavbar";
+import React, { Suspense, lazy } from "react";
 import { NavLink } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
+
+const DefaultNavbar = lazy(() => import("./Navbar/DefaultNavbar"));
+const MobileNavbar = lazy(() => import("./Navbar/MobileNavbar"));
 
 function Navbar() {
   const { colorMode } = useColorMode();
-
+  const showDefaultNavbar = useMediaQuery({
+    query: "(max-width: 770px)",
+  });
   return (
     <Box
       zIndex={5}
-      // border={"1px solid black"}
       position={"sticky"}
       top={0}
       bgColor={colorMode === "light" ? "white" : "black"}
@@ -33,8 +36,15 @@ function Navbar() {
           />
         </NavLink>
 
-        <DefaultNavbar />
-        <MobileNavbar />
+        {!showDefaultNavbar ? (
+          <Suspense fallback={<div>loading...</div>}>
+            <DefaultNavbar />
+          </Suspense>
+        ) : (
+          <Suspense fallback={<div>loading...</div>}>
+            <MobileNavbar />
+          </Suspense>
+        )}
       </Flex>
     </Box>
   );

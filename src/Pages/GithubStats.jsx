@@ -29,7 +29,7 @@ const GithubStats = () => {
           w="100%"
           justifyContent="space-evenly"
           alignItems="center"
-          flexDir={{ base: "column", md: "column", lg: "row" }}
+          flexDir={{ base: "column", lg: "row" }}
         >
           {/* Stats Card */}
           <Box
