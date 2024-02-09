@@ -134,7 +134,7 @@ function DefaultNavbar() {
           id="resume-button-1"
           download="Varun_Ergurala_Resume.pdf"
           _hover={{
-            color: colorMode === "light" ? "black" : "white",
+            color: colorMode === "light" ? "white" : "black",
             cursor: "pointer",
           }}
           bgGradient={
@@ -142,9 +142,10 @@ function DefaultNavbar() {
               ? "linear(to-l,#3CAED7 100%, #40BAB6 100%)"
               : "none"
           }
-          color={colorMode === "light" ? "white" : "black"}
+          color={colorMode === "light" ? "black" : "white"}
           bgColor={colorMode === "dark" ? "red" : "none"}
-          borderRadius={"10px"}
+          display="flex"
+          alignItems="center"
           fontSize={["xs", "sm", "lg", "xl"]}
         >
           Resume

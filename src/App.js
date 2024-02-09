@@ -25,7 +25,6 @@ function App() {
           ? "linear-gradient(to left, #2980b9, #6dd5fa, #ffffff)"
           : "linear-gradient(to left, #000000, #434343)"
       }
-      overflow={"hidden"}
     >
       <Navbar />
       <Box

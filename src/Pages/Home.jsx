@@ -18,7 +18,7 @@ import { TfiDownload, TfiEmail } from "react-icons/tfi";
 import { FiPhoneCall } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-import Typical from "react-typical";
+import Typewriter from "typewriter-effect";
 
 function Home() {
   const { colorMode } = useColorMode();
@@ -52,10 +52,13 @@ function Home() {
                 "2xl": "72px",
               }}
             >
-              <Typical
-                steps={["Hello", 1000, "My name is Varun Ergurala", 2000]}
-                loop={Infinity}
-                wrapper="p"
+              <Typewriter
+                options={{
+                  strings: ["Hello", "My name is Varun Ergurala"],
+                  autoStart: true,
+                  loop: true,
+                  deleteSpeed: 50,
+                }}
               />
             </Heading>
           </motion.div>
@@ -100,7 +103,7 @@ function Home() {
                     to={"https://github.com/Varun8177"}
                     target={"_blank"}
                   >
-                    <Box id="contact-github">
+                    <Box id="contact-github" cursor="pointer">
                       <RxGithubLogo size="50px" border-radius="50%" />
                     </Box>
                   </NavLink>
@@ -115,7 +118,7 @@ function Home() {
                     to={"https://www.linkedin.com/in/varun8177"}
                     target={"_blank"}
                   >
-                    <Box id="contact-linkedin">
+                    <Box id="contact-linkedin" cursor="pointer">
                       <BsLinkedin size="50px" />
                     </Box>
                   </NavLink>
@@ -126,7 +129,7 @@ function Home() {
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.8 }}
                 >
-                  <Box id="contact-phone">
+                  <Box id="contact-phone" cursor="pointer">
                     <FiPhoneCall size="50px" />
                   </Box>
                 </motion.div>
@@ -142,6 +145,7 @@ function Home() {
                       window.location.href =
                         "mailto:varunergurala9999@gmail.com";
                     }}
+                    cursor="pointer"
                   >
                     <TfiEmail size="50px" />
                   </Box>
@@ -206,7 +210,7 @@ function Home() {
                 );
               }}
               _hover={{
-                color: colorMode === "light" ? "black" : "white",
+                color: colorMode === "light" ? "white" : "black",
                 cursor: "pointer",
               }}
               bgGradient={
@@ -214,9 +218,8 @@ function Home() {
                   ? "linear(to-l,#3CAED7 100%, #40BAB6 100%)"
                   : "none"
               }
-              color={colorMode === "light" ? "white" : "black"}
+              color={colorMode === "light" ? "black" : "white"}
               bgColor={colorMode === "dark" ? "red" : "none"}
-              borderRadius={"10px"}
               fontSize={["xs", "sm", "lg", "xl"]}
             >
               Resume

@@ -12,40 +12,37 @@ function Navbar() {
     query: "(max-width: 770px)",
   });
   return (
-    <Box
-      zIndex={5}
-      position={"sticky"}
-      top={0}
-      bgColor={colorMode === "light" ? "white" : "black"}
-    >
-      <Flex
-        h={"70px"}
-        justifyContent={"space-between"}
-        pl={["2", "2", "10"]}
-        // border={"1px solid red"}
-        alignItems={"center"}
-      >
-        <NavLink to={"https://varun8177.github.io/"}>
-          <Image
-            src={
-              colorMode === "light"
-                ? "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/logos/z8nblqi6l1xfpkunbw8u"
-                : "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/logos/qrocvi4gq4ecyjazkj7q"
-            }
-            w={"250px"}
-          />
-        </NavLink>
+    <Box pos="sticky" top={0} zIndex={5}>
+      <Box bgColor={colorMode === "light" ? "white" : "black"}>
+        <Flex
+          h={"70px"}
+          justifyContent={"space-between"}
+          pl={["2", "2", "10"]}
+          // border={"1px solid red"}
+          alignItems={"center"}
+        >
+          <NavLink to={"https://varun8177.github.io/"}>
+            <Image
+              src={
+                colorMode === "light"
+                  ? "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/logos/z8nblqi6l1xfpkunbw8u"
+                  : "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/logos/qrocvi4gq4ecyjazkj7q"
+              }
+              w={"250px"}
+            />
+          </NavLink>
 
-        {!showDefaultNavbar ? (
-          <Suspense fallback={<div>loading...</div>}>
-            <DefaultNavbar />
-          </Suspense>
-        ) : (
-          <Suspense fallback={<div>loading...</div>}>
-            <MobileNavbar />
-          </Suspense>
-        )}
-      </Flex>
+          {!showDefaultNavbar ? (
+            <Suspense fallback={<div>loading...</div>}>
+              <DefaultNavbar />
+            </Suspense>
+          ) : (
+            <Suspense fallback={<div>loading...</div>}>
+              <MobileNavbar />
+            </Suspense>
+          )}
+        </Flex>
+      </Box>
     </Box>
   );
 }
