@@ -37,12 +37,10 @@ const About = () => {
           borderRadius="full"
           boxShadow="2xl"
           className="home-img"
-          data-aos={"fade-right"}
         />
         <Box
           w={{ base: "80%", md: "50%" }}
           textAlign={{ base: "center", md: "left" }}
-          data-aos={"fade-left"}
         >
           <Heading fontSize={{ base: "xl", md: "2xl" }} mb={4}>
             Hello, my name is Varun Ergurala

@@ -29,11 +29,23 @@ const Contact = () => {
   const toast = useToast();
   const [load, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleToast = (title, description, success) => {
+    toast.closeAll();
+    toast({
+      title,
+      description,
+      status: success ? "success" : "error",
+      duration: 5000,
+      isClosable: true,
+    });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    emailjs
-      .send(
+
+    try {
+      await emailjs.send(
         process.env.REACT_APP_EMAILJS_SERVICE_ID,
         process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
         {
@@ -44,31 +56,21 @@ const Contact = () => {
           message: message,
         },
         process.env.REACT_APP_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          setLoading(false);
-          toast.closeAll();
-          toast({
-            title: "Thank you",
-            description: "I will get back to you as soon as possible.",
-            status: "success",
-            duration: 5000,
-            isClosable: true,
-          });
-        },
-        (error) => {
-          toast.closeAll();
-          setLoading(false);
-          toast({
-            title: "Error!",
-            description: "Ahh, something went wrong. Please try again.",
-            status: "error",
-            duration: 5000,
-            isClosable: true,
-          });
-        }
       );
+      handleToast(
+        "Thank you",
+        "I will get back to you as soon as possible.",
+        true
+      );
+    } catch (error) {
+      handleToast(
+        "something went wrong",
+        "Please try again in some time",
+        true
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

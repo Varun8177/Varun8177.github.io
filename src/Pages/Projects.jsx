@@ -14,20 +14,20 @@ const Projects = () => {
 
   const data = [
     {
-      deployedLink: "https://shoperz-co.netlify.app/",
+      deployedLink: "https://meesho-clone-frontend.vercel.app/",
       image: [
         "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/shoperz/m6tbnzeguplp6ul39fcc",
         "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/shoperz/n15wkfmwfsn4itedmjab",
       ],
       title: "Shoperz",
       subTitle: "Meesho Clone",
-      GithubLink: "https://github.com/Varun8177/hollow-idea-9446",
+      GithubLink: "https://github.com/Varun8177/Meesho-Clone",
       features: [
-        "API-based Sign in and Sign-up for users",
-        "Category and price-based filtering",
-        "User dashboard for managing orders",
-        "Admin panel for CRUD operations",
-        "User feedback system for reviews and ratings",
+        "User authentication (secured with email otp verification).",
+        "Filter by category and sort by price.",
+        "Search functionality on every page.",
+        "Cart page with options to update quantity and delete items.",
+        "Admin can edit , delete or add products to the platform.",
       ],
       description:
         "Online Shopping site to buy best quality Fashion, Electronics, Home & Kitchen products at lowest prices. I was given meesho.com as a project and I was able to succesfully to clone it in a period of 5 days",

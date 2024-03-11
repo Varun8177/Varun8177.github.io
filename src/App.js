@@ -11,6 +11,7 @@ import { BsArrowUpCircleFill } from "react-icons/bs";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import Experience from "./Pages/Experience";
 
 function App() {
   const { colorMode } = useColorMode();
@@ -54,6 +55,7 @@ function App() {
       <Home />
       <About />
       <Skills />
+      <Experience />
       <Projects />
       <GithubStats />
       <Contact />

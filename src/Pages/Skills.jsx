@@ -25,8 +25,8 @@ const Skills = () => {
       name: "Node",
     },
     {
-      src: "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/logos/oexxrmnw03piv8s5uvea",
-      name: "Next JS",
+      src: "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/logos/lbgrtokesajy3oacl2sr",
+      name: "Tailwind css",
     },
     {
       src: "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/logos/hqkng3uohcs6sdxmqvks",
