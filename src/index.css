@@ -1,15 +1,139 @@
-@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500&family=Poppins:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', "Poppins", "Clicker Script"
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Poppins", system-ui, sans-serif;
+  --font-display: "Syne", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+  }
+  body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  /* ── Navbar underline ── */
+  .hover-underline-animation {
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding-bottom: 2px;
+  }
+  .hover-underline-animation::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+  }
+  .hover-underline-animation:hover::after {
+    width: 100%;
+  }
+
+  /* ── Hero staggered reveal ── */
+  @keyframes hero-slide-up {
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-reveal {
+    opacity: 0;
+    animation: hero-slide-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .hero-d1 { animation-delay: 0.05s; }
+  .hero-d2 { animation-delay: 0.15s; }
+  .hero-d3 { animation-delay: 0.28s; }
+  .hero-d4 { animation-delay: 0.42s; }
+  .hero-d5 { animation-delay: 0.56s; }
+  .hero-d6 { animation-delay: 0.70s; }
+
+  /* ── Floating code card ── */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(-1deg); }
+    50%       { transform: translateY(-14px) rotate(-1deg); }
+  }
+  .float-card {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* ── Live badge pulse ── */
+  @keyframes live-pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+    50%       { opacity: 0.8; box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+  }
+  .live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    animation: live-pulse 2s ease-in-out infinite;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  /* ── Scrolling ticker ── */
+  @keyframes ticker-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .ticker-track {
+    display: flex;
+    width: max-content;
+    animation: ticker-scroll 28s linear infinite;
+  }
+  .ticker-wrap:hover .ticker-track {
+    animation-play-state: paused;
+  }
+
+  /* ── Social icon ring hover ── */
+  .social-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .social-icon:hover {
+    transform: translateY(-4px);
+  }
+
+  /* ── Dot grid background ── */
+  .dot-grid {
+    background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  /* ── Diagonal accent rule ── */
+  @keyframes rule-grow {
+    from { width: 0; }
+    to   { width: 100%; }
+  }
+  .accent-rule {
+    animation: rule-grow 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+  }
+
+  /* ── Old fade-in-down kept for backward compat ── */
+  @keyframes fade-in-down {
+    from { opacity: 0; transform: translateY(-30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in-down {
+    animation: fade-in-down 0.5s ease forwards;
+  }
 }

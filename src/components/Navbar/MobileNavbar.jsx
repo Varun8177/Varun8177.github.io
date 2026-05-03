@@ -1,121 +1,75 @@
-import {
-  IconButton,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  VStack,
-  Button,
-  Box,
-  useColorMode,
-} from "@chakra-ui/react";
+import { useState } from "react";
 import { TfiDownload } from "react-icons/tfi";
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { IoClose } from "react-icons/io5";
 import * as Scroll from "react-scroll";
+import { useDarkMode } from "../../context/DarkModeContext";
+import ColorModeToggle from "../Darkmode";
+
+const navLinks = [
+  { label: "Home", to: "home" },
+  { label: "About", to: "about" },
+  { label: "Skills", to: "skills" },
+  { label: "Experience", to: "experience" },
+  { label: "Projects", to: "projects" },
+  { label: "Contact", to: "contact" },
+];
 
 function MobileNavbar() {
-  const { colorMode } = useColorMode();
+  const { isDark } = useDarkMode();
+  const [open, setOpen] = useState(false);
+
   return (
-    <VStack>
-      <Menu>
-        <MenuButton
-          as={IconButton}
-          aria-label="Options"
-          icon={<HamburgerIcon />}
-          variant="outline"
-        />
-        <MenuList>
-          <MenuItem>
+    <div className="relative flex items-center gap-2">
+      <ColorModeToggle />
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className={`p-2 rounded-lg border transition-colors cursor-pointer ${
+          isDark ? "border-gray-600 text-white hover:bg-gray-800" : "border-gray-300 text-gray-900 hover:bg-gray-100"
+        }`}
+        aria-label="Menu"
+      >
+        {open ? <IoClose size={20} /> : <RxHamburgerMenu size={20} />}
+      </button>
+
+      {open && (
+        <div
+          className={`absolute top-14 right-0 w-52 rounded-xl shadow-xl border py-2 z-50 ${
+            isDark ? "bg-gray-900 border-gray-700" : "bg-white border-gray-200"
+          }`}
+        >
+          {navLinks.map((link) => (
             <Scroll.Link
-              to="home"
-              spy={true}
-              smooth={true}
+              key={link.to}
+              to={link.to}
+              spy
+              smooth
               offset={-100}
               duration={500}
-              className="nav-link home hover-underline-animation"
+              onClick={() => setOpen(false)}
+              className={`block px-4 py-3 text-sm font-medium cursor-pointer transition-colors ${
+                isDark ? "hover:bg-gray-800" : "hover:bg-gray-50"
+              }`}
             >
-              Home
+              {link.label}
             </Scroll.Link>
-          </MenuItem>
-          <MenuItem>
-            <Scroll.Link
-              activeClass="active"
-              to="about"
-              spy={true}
-              smooth={true}
-              offset={-100}
-              duration={500}
-              className="nav-link about hover-underline-animation"
-            >
-              Contact
-            </Scroll.Link>
-          </MenuItem>
-          <MenuItem>
-            <Scroll.Link
-              activeClass="active"
-              to="skills"
-              spy={true}
-              smooth={true}
-              offset={-100}
-              duration={500}
-              className="nav-link skills hover-underline-animation"
-            >
-              Skills
-            </Scroll.Link>
-          </MenuItem>
-          <MenuItem>
-            <Scroll.Link
-              activeClass="active"
-              to="projects"
-              spy={true}
-              smooth={true}
-              offset={-100}
-              duration={500}
-              className="nav-link projects hover-underline-animation"
-            >
-              Projects
-            </Scroll.Link>
-          </MenuItem>
-          <MenuItem as="span">
+          ))}
+          <div className={`border-t mt-1 pt-2 px-3 pb-1 ${isDark ? "border-gray-700" : "border-gray-200"}`}>
             <a
-              id="resume-link-1"
-              className="nav-link resume"
-              href={"Varun_Ergurala_Resume.pdf"}
+              href="Varun_Ergurala_Resume.pdf"
               download="Varun_Ergurala_Resume.pdf"
-              onClick={() => {
-                window.open(
-                  "https://drive.google.com/file/d/17cTzx5JO8LVlbzWnptj6L2Xp4sPyyx8_/view?usp=share_link"
-                );
-              }}
+              onClick={() => setOpen(false)}
+              className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-semibold ${
+                isDark ? "bg-white text-gray-900" : "bg-gray-900 text-white"
+              }`}
             >
-              <Button
-                id="resume-button-1"
-                _hover={{
-                  color: colorMode === "light" ? "black" : "white",
-                  cursor: "pointer",
-                }}
-                bgGradient={
-                  colorMode === "light"
-                    ? "linear(to-l,#3CAED7 100%, #40BAB6 100%)"
-                    : "none"
-                }
-                color={colorMode === "light" ? "white" : "black"}
-                bgColor={colorMode === "dark" ? "red" : "none"}
-                borderRadius={"10px"}
-                fontSize={["xs", "sm", "lg", "xl"]}
-                download="Varun_Ergurala_Resume.pdf"
-                // as="span"
-              >
-                Resume
-                <Box as={"span"} ml={"1"} fontSize={["xs", "sm", "lg", "xl"]}>
-                  {<TfiDownload />}
-                </Box>
-              </Button>
+              Resume <TfiDownload />
             </a>
-          </MenuItem>
-        </MenuList>
-      </Menu>
-    </VStack>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
+
 export default MobileNavbar;

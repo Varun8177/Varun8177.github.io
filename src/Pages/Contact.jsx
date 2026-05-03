@@ -1,305 +1,447 @@
 import { useState } from "react";
-import {
-  Box,
-  Flex,
-  Heading,
-  Input,
-  Textarea,
-  Button,
-  useToast,
-  Text,
-  Icon,
-  useColorMode,
-  FormControl,
-  FormLabel,
-  Link,
-  Show,
-} from "@chakra-ui/react";
-import { HiOutlineMail } from "react-icons/hi";
-import { AiFillGithub, AiFillLinkedin, AiTwotoneMail } from "react-icons/ai";
-import { IoMdCall } from "react-icons/io";
 import emailjs from "@emailjs/browser";
-import { motion } from "framer-motion";
+import { useDarkMode } from "../context/DarkModeContext";
+import { RxGithubLogo } from "react-icons/rx";
+import { BsLinkedin } from "react-icons/bs";
+import { TfiEmail } from "react-icons/tfi";
+import { FiPhoneCall } from "react-icons/fi";
+
+const contactLinks = [
+  {
+    icon: TfiEmail,
+    label: "Email",
+    value: "varunergurala9999@gmail.com",
+    href: "mailto:varunergurala9999@gmail.com",
+  },
+  {
+    icon: RxGithubLogo,
+    label: "GitHub",
+    value: "github.com/Varun8177",
+    href: "https://github.com/Varun8177",
+    external: true,
+  },
+  {
+    icon: BsLinkedin,
+    label: "LinkedIn",
+    value: "linkedin.com/in/varun8177",
+    href: "https://www.linkedin.com/in/varun8177",
+    external: true,
+  },
+  {
+    icon: FiPhoneCall,
+    label: "Phone",
+    value: "+91 8177 836 651",
+    href: "tel:+918177836651",
+  },
+];
 
 const Contact = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const { isDark } = useDarkMode();
+  const [name,    setName]    = useState("");
+  const [email,   setEmail]   = useState("");
   const [message, setMessage] = useState("");
-  const { colorMode } = useColorMode();
-  const toast = useToast();
-  const [load, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [toast,   setToast]   = useState(null);
+  const [focused, setFocused] = useState(null);
 
-  const handleToast = (title, description, success) => {
-    toast.closeAll();
-    toast({
-      title,
-      description,
-      status: success ? "success" : "error",
-      duration: 5000,
-      isClosable: true,
-    });
+  const accent      = isDark ? "#f87171" : "#2563eb";
+  const divider     = isDark ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.07)";
+  const panelBg     = isDark ? "rgba(255,255,255,0.025)" : "rgba(0,0,0,0.02)";
+  const panelBorder = isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)";
+  const inputBg     = isDark ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)";
+
+  const showToast = (msg, success) => {
+    setToast({ msg, success });
+    setTimeout(() => setToast(null), 4500);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
     try {
       await emailjs.send(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: name,
-          to_name: "Varun Ergurala",
-          from_email: email,
-          to_email: "varunergurala9999@gmail.com",
-          message: message,
-        },
-        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        { from_name: name, to_name: "Varun Ergurala", from_email: email, to_email: "varunergurala9999@gmail.com", message },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
-      handleToast(
-        "Thank you",
-        "I will get back to you as soon as possible.",
-        true
-      );
-    } catch (error) {
-      handleToast(
-        "something went wrong",
-        "Please try again in some time",
-        true
-      );
+      showToast("Message sent — I'll reply soon.", true);
+      setName(""); setEmail(""); setMessage("");
+    } catch {
+      showToast("Something went wrong. Please try again.", false);
     } finally {
       setLoading(false);
     }
   };
 
+  const inputStyle = (field) => ({
+    width: "100%",
+    padding: "13px 16px",
+    borderRadius: 10,
+    border: `1px solid ${focused === field ? accent : panelBorder}`,
+    background: focused === field
+      ? (isDark ? "rgba(96,165,250,0.06)" : "rgba(37,99,235,0.04)")
+      : inputBg,
+    fontFamily: "'Poppins', sans-serif",
+    fontSize: 13.5,
+    color: "inherit",
+    outline: "none",
+    transition: "border-color 0.2s, background 0.2s",
+    resize: "none",
+    boxSizing: "border-box",
+    boxShadow: focused === field ? `0 0 0 3px ${accent}18` : "none",
+  });
+
   return (
     <>
-      <Box id="contact" py="24">
-        <Heading textAlign="center" mb="8">
-          Contact Me
-        </Heading>
-        <Flex maxW="800px" mx="auto" direction={{ base: "column", lg: "row" }}>
-          <Show above="lg">
-            <Box
-              borderRadius={"10px"}
-              background={colorMode === "light" ? "white" : "black"}
-              boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px;"}
-              w={"100%"}
-              mb={"30px"}
-              p={"5"}
-              flex="1"
-              mr={{ md: "8" }}
-              bgColor={colorMode === "light" ? "white" : "black"}
-              alignItems={"center"}
-            >
-              <form onSubmit={handleSubmit}>
-                <FormControl isRequired>
-                  <FormLabel>Name</FormLabel>
-                  <Input
-                    type="text"
-                    placeholder="Enter your name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                </FormControl>
-                <FormControl mt={4} isRequired>
-                  <FormLabel>Email</FormLabel>
-                  <Input
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </FormControl>
-                <FormControl mt={4} isRequired>
-                  <FormLabel>Message</FormLabel>
-                  <Textarea
-                    placeholder="Enter your message"
-                    rows="6"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                  />
-                </FormControl>
-                <Button
-                  type="submit"
-                  mt="8"
-                  _hover={{
-                    color: colorMode === "light" ? "white" : "black",
-                    cursor: "pointer",
-                  }}
-                  bgGradient={
-                    colorMode === "light"
-                      ? "linear(to-l,#3CAED7 100%, #40BAB6 100%)"
-                      : "none"
-                  }
-                  color={colorMode === "light" ? "black" : "white"}
-                  bgColor={colorMode === "dark" ? "red" : "none"}
-                  fontSize={["xs", "sm", "lg", "xl"]}
-                  isLoading={load}
-                  leftIcon={<HiOutlineMail />}
-                >
-                  send
-                </Button>
-              </form>
-            </Box>
-          </Show>
-          <Show below="lg">
-            <Box
-              borderRadius={"10px"}
-              background={colorMode === "light" ? "white" : "black"}
-              boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px;"}
-              m={"auto"}
-              w={"95%"}
-              mb={"30px"}
-              p={"5"}
-              flex="1"
-              mr={{ md: "8" }}
-              bgColor={colorMode === "light" ? "white" : "black"}
-              alignItems={"center"}
-            >
-              <form onSubmit={handleSubmit}>
-                <FormControl isRequired>
-                  <FormLabel>Name</FormLabel>
-                  <Input
-                    type="text"
-                    placeholder="Enter your name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                </FormControl>
-                <FormControl mt={4} isRequired>
-                  <FormLabel>Email</FormLabel>
-                  <Input
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </FormControl>
-                <FormControl mt={4} isRequired>
-                  <FormLabel>Message</FormLabel>
-                  <Textarea
-                    placeholder="Enter your message"
-                    rows="6"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                  />
-                </FormControl>
-                <Button
-                  type="submit"
-                  mt="8"
-                  _hover={{
-                    color: colorMode === "light" ? "black" : "white",
-                    cursor: "pointer",
-                  }}
-                  bgGradient={
-                    colorMode === "light"
-                      ? "linear(to-l,#3CAED7 100%, #40BAB6 100%)"
-                      : "none"
-                  }
-                  color={colorMode === "light" ? "white" : "black"}
-                  bgColor={colorMode === "dark" ? "red" : "none"}
-                  borderRadius={"10px"}
-                  isLoading={load}
-                  leftIcon={<HiOutlineMail />}
-                >
-                  send
-                </Button>
-              </form>
-            </Box>
-          </Show>
-          <Box
-            borderRadius={"10px"}
-            background={colorMode === "light" ? "white" : "black"}
-            boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px;"}
-            w={{ base: "80%", lg: "fit-content" }}
-            mb={"30px"}
-            p={"5"}
-            m={"auto"}
-            overflow={"auto"}
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.5 }}
-              whileHover={{ scale: 1.03 }}
-            >
-              <Heading size="md" mb="4" fontWeight="bold">
-                Get in Touch
-              </Heading>
-              <Flex alignItems="center">
-                <Box as="span" mr="2">
-                  <Icon as={AiTwotoneMail} boxSize={8} />
-                </Box>
-                <Link
-                  href="mailto:varunergurala9999@mail.com"
-                  fontWeight="bold"
-                  ml="2"
-                  _hover={{ color: "blue.500" }}
-                >
-                  varunergurala9999@gmail.com
-                </Link>
-              </Flex>
-              <Flex alignItems="center" mt="4">
-                <Box as="span" mr="2">
-                  <Icon as={AiFillGithub} boxSize={8} />
-                </Box>
-                <Link
-                  href="https://github.com/Varun8177"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  fontWeight="bold"
-                  ml="2"
-                  _hover={{ color: "blue.500" }}
-                >
-                  Varun8177
-                </Link>
-              </Flex>
-              <Flex alignItems="center" mt="4">
-                <Box as="span" mr="2">
-                  <Icon as={AiFillLinkedin} boxSize={8} />
-                </Box>
-                <Link
-                  href="https://www.linkedin.com/in/varun-ergurala"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  fontWeight="bold"
-                  ml="2"
-                  _hover={{ color: "blue.500" }}
-                >
-                  varun-ergurala
-                </Link>
-              </Flex>
-              <Flex alignItems="center" mt="4">
-                <Box as="span" mr="2">
-                  <Icon as={IoMdCall} boxSize={8} />
-                </Box>
-                <Link
-                  href="tel:+918177836651"
-                  fontWeight="bold"
-                  ml="2"
-                  _hover={{ color: "blue.500" }}
-                >
-                  +91 8177836651
-                </Link>
-              </Flex>
-            </motion.div>
-          </Box>
-        </Flex>
-      </Box>
-      <Box
-        textAlign={"center"}
-        bgColor={colorMode === "light" ? "white" : "black"}
-        mt={{ base: 4, md: 0 }}
-        h={"50px"}
-        alignItems={"center"}
-        display={"flex"}
-        justifyContent={"center"}
+      {/* toast */}
+      {toast && (
+        <div style={{
+          position: "fixed", top: 24, right: 24, zIndex: 999,
+          display: "flex", alignItems: "center", gap: 10,
+          padding: "12px 20px", borderRadius: 12,
+          fontFamily: "'Poppins', sans-serif", fontSize: 13, fontWeight: 500,
+          background: toast.success ? "#22c55e" : "#ef4444",
+          color: "#fff",
+          boxShadow: toast.success ? "0 8px 28px rgba(34,197,94,0.35)" : "0 8px 28px rgba(239,68,68,0.35)",
+          animation: "toast-in 0.3s cubic-bezier(0.22,1,0.36,1) forwards",
+        }}>
+          <span style={{ fontSize: 16 }}>{toast.success ? "✓" : "✕"}</span>
+          {toast.msg}
+        </div>
+      )}
+
+      <section
+        id="contact"
+        style={{
+          position: "relative",
+          padding: "clamp(5rem, 10vw, 8rem) clamp(1.5rem, 6vw, 6rem)",
+          overflow: "hidden",
+        }}
       >
-        <Text>&copy; All Rights Reserved.</Text>
-      </Box>
+        {/* ghost background */}
+        <div aria-hidden style={{
+          position: "absolute", top: "50%", left: "50%",
+          transform: "translate(-50%, -50%)",
+          fontFamily: "'Syne', sans-serif", fontWeight: 800,
+          fontSize: "clamp(5rem, 18vw, 14rem)", letterSpacing: "-0.05em",
+          opacity: isDark ? 0.02 : 0.028,
+          pointerEvents: "none", userSelect: "none", whiteSpace: "nowrap", lineHeight: 1,
+        }}>
+          TALK
+        </div>
+
+        <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative" }}>
+
+          {/* section label */}
+          <div data-aos="fade-up" style={{
+            display: "flex", alignItems: "center", gap: 10,
+            marginBottom: "2.75rem",
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: 11, fontWeight: 500, letterSpacing: "0.12em",
+            textTransform: "uppercase", opacity: 0.45,
+          }}>
+            <span style={{ color: accent, opacity: 1 }}>// 06</span>
+            <span>·</span>
+            <span>Contact</span>
+            <div style={{ height: 1, background: divider, width: 64, flexShrink: 0 }} />
+          </div>
+
+          {/* headline */}
+          <div data-aos="fade-up" data-aos-delay="50" style={{ marginBottom: "3.5rem" }}>
+            <h2 style={{
+              fontFamily: "'Syne', sans-serif", fontWeight: 800,
+              fontSize: "clamp(2rem, 4.5vw, 3.25rem)",
+              lineHeight: 1.1, letterSpacing: "-0.03em",
+            }}>
+              Let's build something{" "}
+              <span style={{ color: accent }}>together.</span>
+            </h2>
+            <p style={{
+              fontFamily: "'Poppins', sans-serif",
+              fontSize: "clamp(0.875rem, 1.4vw, 1rem)",
+              lineHeight: 1.8, opacity: 0.55,
+              marginTop: "1rem", maxWidth: 520,
+            }}>
+              Open to full-time roles, freelance projects, or just a good conversation about frontend engineering.
+            </p>
+          </div>
+
+          {/* grid */}
+          <div className="contact-grid">
+
+            {/* form */}
+            <div
+              data-aos="fade-up"
+              data-aos-delay="80"
+              style={{
+                borderRadius: 18,
+                border: `1px solid ${panelBorder}`,
+                background: panelBg,
+                padding: "clamp(24px, 4vw, 36px)",
+              }}
+            >
+              <div style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 10, fontWeight: 500, letterSpacing: "0.12em",
+                textTransform: "uppercase", opacity: 0.35, marginBottom: 24,
+              }}>
+                Send a message
+              </div>
+
+              <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                <div>
+                  <label style={{
+                    display: "block", marginBottom: 7,
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: 10, fontWeight: 500,
+                    letterSpacing: "0.1em", textTransform: "uppercase", opacity: 0.45,
+                  }}>Name</label>
+                  <input
+                    required
+                    placeholder="Your name"
+                    value={name}
+                    onChange={e => setName(e.target.value)}
+                    onFocus={() => setFocused("name")}
+                    onBlur={() => setFocused(null)}
+                    style={inputStyle("name")}
+                  />
+                </div>
+
+                <div>
+                  <label style={{
+                    display: "block", marginBottom: 7,
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: 10, fontWeight: 500,
+                    letterSpacing: "0.1em", textTransform: "uppercase", opacity: 0.45,
+                  }}>Email</label>
+                  <input
+                    required
+                    type="email"
+                    placeholder="your@email.com"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    onFocus={() => setFocused("email")}
+                    onBlur={() => setFocused(null)}
+                    style={inputStyle("email")}
+                  />
+                </div>
+
+                <div>
+                  <label style={{
+                    display: "block", marginBottom: 7,
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: 10, fontWeight: 500,
+                    letterSpacing: "0.1em", textTransform: "uppercase", opacity: 0.45,
+                  }}>Message</label>
+                  <textarea
+                    required
+                    rows={5}
+                    placeholder="What's on your mind?"
+                    value={message}
+                    onChange={e => setMessage(e.target.value)}
+                    onFocus={() => setFocused("message")}
+                    onBlur={() => setFocused(null)}
+                    style={inputStyle("message")}
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  style={{
+                    alignSelf: "flex-start",
+                    display: "inline-flex", alignItems: "center", gap: 10,
+                    padding: "12px 28px", borderRadius: 10,
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: 13, fontWeight: 600, letterSpacing: "0.02em",
+                    background: loading ? (isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.08)") : accent,
+                    color: loading ? "inherit" : "#fff",
+                    border: "none", cursor: loading ? "not-allowed" : "pointer",
+                    opacity: loading ? 0.6 : 1,
+                    transition: "transform 0.2s, box-shadow 0.2s, opacity 0.2s",
+                    boxShadow: loading ? "none" : `0 4px 18px ${accent}45`,
+                  }}
+                  onMouseEnter={e => {
+                    if (!loading) {
+                      e.currentTarget.style.transform = "translateY(-2px)";
+                      e.currentTarget.style.boxShadow = `0 8px 28px ${accent}55`;
+                    }
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.transform = "";
+                    e.currentTarget.style.boxShadow = loading ? "none" : `0 4px 18px ${accent}45`;
+                  }}
+                >
+                  {loading ? (
+                    <>
+                      <span style={{
+                        width: 12, height: 12, borderRadius: "50%",
+                        border: "2px solid currentColor",
+                        borderTopColor: "transparent",
+                        animation: "spin 0.7s linear infinite",
+                        display: "inline-block",
+                      }} />
+                      Sending…
+                    </>
+                  ) : (
+                    <>
+                      Send message
+                      <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style={{ flexShrink: 0 }}>
+                        <path d="M1.5 6.5h10M7 2l4.5 4.5L7 11" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </>
+                  )}
+                </button>
+              </form>
+            </div>
+
+            {/* sidebar */}
+            <div data-aos="fade-up" data-aos-delay="140" style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+
+              {/* availability badge */}
+              <div style={{
+                borderRadius: 14,
+                border: `1px solid rgba(34,197,94,0.25)`,
+                background: "rgba(34,197,94,0.06)",
+                padding: "18px 22px",
+              }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
+                  <span style={{
+                    width: 7, height: 7, borderRadius: "50%",
+                    background: "#22c55e", display: "inline-block",
+                    animation: "live-pulse 2s ease-in-out infinite",
+                  }} />
+                  <span style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: 9.5, fontWeight: 500,
+                    letterSpacing: "0.12em", textTransform: "uppercase",
+                    color: "#22c55e",
+                  }}>
+                    Available
+                  </span>
+                </div>
+                <p style={{
+                  fontFamily: "'Poppins', sans-serif",
+                  fontSize: 13, lineHeight: 1.65,
+                  opacity: 0.65,
+                }}>
+                  Currently open to new opportunities — full-time or contract.
+                </p>
+              </div>
+
+              {/* contact links */}
+              <div style={{
+                borderRadius: 14,
+                border: `1px solid ${panelBorder}`,
+                background: panelBg,
+                overflow: "hidden",
+              }}>
+                {contactLinks.map(({ icon: Icon, label, value, href, external }, i) => (
+                  <a
+                    key={label}
+                    href={href}
+                    {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 14,
+                      padding: "16px 20px",
+                      borderBottom: i < contactLinks.length - 1 ? `1px solid ${divider}` : "none",
+                      textDecoration: "none",
+                      color: "inherit",
+                      transition: "background 0.15s",
+                    }}
+                    onMouseEnter={e => e.currentTarget.style.background = isDark ? "rgba(255,255,255,0.035)" : "rgba(0,0,0,0.025)"}
+                    onMouseLeave={e => e.currentTarget.style.background = "transparent"}
+                  >
+                    <div style={{
+                      width: 34, height: 34, borderRadius: 9, flexShrink: 0,
+                      background: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)",
+                      border: `1px solid ${panelBorder}`,
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                    }}>
+                      <Icon size={15} style={{ opacity: 0.7 }} />
+                    </div>
+                    <div style={{ minWidth: 0 }}>
+                      <div style={{
+                        fontFamily: "'JetBrains Mono', monospace",
+                        fontSize: 9.5, fontWeight: 500,
+                        letterSpacing: "0.1em", textTransform: "uppercase",
+                        opacity: 0.35, marginBottom: 2,
+                      }}>
+                        {label}
+                      </div>
+                      <div style={{
+                        fontFamily: "'Poppins', sans-serif",
+                        fontSize: 12.5, fontWeight: 500,
+                        opacity: 0.75,
+                        overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+                      }}>
+                        {value}
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+
+              {/* response time note */}
+              <div style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 10.5, letterSpacing: "0.04em",
+                opacity: 0.3, padding: "0 4px",
+                lineHeight: 1.7,
+              }}>
+                Avg. response time: &lt; 24h · Based in India (IST, UTC+5:30)
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* footer */}
+      <footer style={{
+        borderTop: `1px solid ${divider}`,
+        padding: "20px clamp(1.5rem, 6vw, 6rem)",
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+        flexWrap: "wrap", gap: 10,
+      }}>
+        <span style={{
+          fontFamily: "'Syne', sans-serif", fontWeight: 800,
+          fontSize: 18, letterSpacing: "-0.02em",
+        }}>
+          VE<span style={{ color: accent }}>.</span>
+        </span>
+        <span style={{
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: 10.5, letterSpacing: "0.06em",
+          opacity: 0.3, textTransform: "uppercase",
+        }}>
+          © {new Date().getFullYear()} Varun Ergurala · All rights reserved
+        </span>
+      </footer>
+
+      <style>{`
+        .contact-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+          align-items: start;
+        }
+        @media (min-width: 768px) {
+          .contact-grid {
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+          }
+        }
+        @keyframes toast-in {
+          from { opacity: 0; transform: translateY(-10px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes spin {
+          to { transform: rotate(360deg); }
+        }
+      `}</style>
     </>
   );
 };

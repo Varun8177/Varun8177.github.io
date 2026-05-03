@@ -1,134 +1,322 @@
-import { Box, Center, Heading } from "@chakra-ui/react";
-import React, { Suspense, lazy } from "react";
-import { useMediaQuery } from "react-responsive";
+import { useState } from "react";
+import { useDarkMode } from "../context/DarkModeContext";
 
-const ProjectCards = lazy(() => import("../components/Projects/ProjectCards"));
-const MediumProjectCard = lazy(() =>
-  import("../components/Projects/MediumProjectCard")
-);
+const projectData = [
+  {
+    index: "01",
+    title: "eSignPro by Protean",
+    subtitle: "Aadhaar-verified eSignature & eStamping platform",
+    status: "Live in Production",
+    live: true,
+    company: "MoneyMul Technologies · for Protean eGov",
+    description:
+      "Production-grade platform enabling secure Aadhaar-verified eSignatures and virtual stamping workflows for government-compliant document processing at scale.",
+    highlights: [
+      "Aadhaar-based eSign and virtual stamping workflows with end-to-end document lifecycle management.",
+      "Role-based authentication and route protection across complex multi-module flows.",
+      "Component-based architecture ensuring zero code duplication across reusable document components.",
+    ],
+    tech: ["React.js", "TypeScript", "Redux", "Socket.IO"],
+    domain: "Fintech · Government",
+    liveLink: null,
+  },
+  {
+    index: "02",
+    title: "PAN 2.0",
+    subtitle: "Government platform UI — wallet, billing & verification",
+    status: "Delivered",
+    live: false,
+    company: "MoneyMul Technologies · for Government of India",
+    description:
+      "Government platform UI modules for PAN 2.0 — wallet management, invoice systems, approval flows, and document verification for a nationwide rollout.",
+    highlights: [
+      "Role-based dashboards, approval flows, and wallet/billing systems with full auth and route protection.",
+      "SonarQube A grade: 5% duplicate code, 0% reliability issues, 0 security hotspots.",
+      "Delivered features in Agile sprints alongside backend and QA teams.",
+    ],
+    tech: ["React.js", "TypeScript", "Redux", "ESLint", "SonarQube"],
+    domain: "Government · Compliance",
+    liveLink: null,
+  },
+  {
+    index: "03",
+    title: "Wasalt",
+    subtitle: "AI-driven real estate platform with map-based discovery",
+    status: "Live in Production",
+    live: true,
+    company: "Quara AI Tech",
+    description:
+      "AI-driven real estate and property management platform with map-based property discovery, 10K+ listings analytics, and full multilingual RTL support.",
+    highlights: [
+      "Map-driven property discovery with real-time geolocation and advanced filtering across 10K+ listings.",
+      "Full multilingual support (English & Arabic RTL) for international markets.",
+      "Analytics dashboards with Highcharts visualizing property market insights for agents.",
+    ],
+    tech: ["Next.js", "TypeScript", "Mapbox GL", "Highcharts", "Tailwind CSS"],
+    domain: "Real Estate · Analytics",
+    liveLink: null,
+  },
+];
 
-const Projects = () => {
-  const showMediumProjectCards = useMediaQuery({
-    query: "(max-width: 993px)",
-  });
+function ProjectCard({ project, index, isDark, accent }) {
+  const [hovered, setHovered] = useState(false);
 
-  const data = [
-    {
-      deployedLink: "https://meesho-clone-frontend.vercel.app/",
-      image: [
-        "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/shoperz/m6tbnzeguplp6ul39fcc",
-        "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/shoperz/n15wkfmwfsn4itedmjab",
-      ],
-      title: "Shoperz",
-      subTitle: "Meesho Clone",
-      GithubLink: "https://github.com/Varun8177/Meesho-Clone",
-      features: [
-        "User authentication (secured with email otp verification).",
-        "Filter by category and sort by price.",
-        "Search functionality on every page.",
-        "Cart page with options to update quantity and delete items.",
-        "Admin can edit , delete or add products to the platform.",
-      ],
-      description:
-        "Online Shopping site to buy best quality Fashion, Electronics, Home & Kitchen products at lowest prices. I was given meesho.com as a project and I was able to succesfully to clone it in a period of 5 days",
-      techStack: ["React.js", "Chakra UI", "MockApi"],
-    },
-    {
-      deployedLink: "https://roasted-geese-6392-xh5g.vercel.app/",
-      image: [
-        "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/HealthPrime/gj7zawyahtxeypd5u7sf",
-        "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/HealthPrime/vbulw9j8r4k84wu5xwnd",
-        "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/HealthPrime/i5wqzaapp8ab0oalbhxb",
-        "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/HealthPrime/atglhgpw4xc0wusuuuec",
-        "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/HealthPrime/fq8y9plvqim5pg2gf7lx",
-        "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/HealthPrime/iucx0xnkufyh1ggahpkk",
-      ],
-      title: "Health Prime",
-      subTitle: "1mg Clone",
-      GithubLink: "https://github.com/Varun8177/roasted-geese-6392",
-      features: [
-        "Sign up or log in to add items to your cart and complete purchases",
-        "Each product has a dedicated page with a detailed description",
-        "View your cart details from the navbar section at any time",
-        "Sort, search, and filter to easily find the products you're looking for",
-      ],
-      description:
-        "Health Prime is an online platform that offers a wide range of healthcare products and medicines to users. With its user-friendly interface and competitive pricing, Health Prime makes it easy for users to find and purchase the products they need.",
-      techStack: ["Next.js", "Chakra UI", "FireBase", "Redux"],
-    },
-    {
-      deployedLink: "https://silly-sable-5035e4.netlify.app/",
-      image: [
-        "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/Inside%20Fashion/kmqqawbqwzfmbri8gjxr",
-        "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/Inside%20Fashion/kec35wlamdwuq1etohil",
-        "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/Inside%20Fashion/dx0qsj0ilvisywnndgoa",
-        "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/Inside%20Fashion/mhpnadrrcuqd1nogrcmg",
-      ],
-      title: "Inside Fashion",
-      subTitle: "Myntra Clone",
-      GithubLink: "https://github.com/Varun8177/unwritten-smash-7440",
-      features: [
-        "Sign in and Sign-up using API.",
-        "Filter by category and Sort by price",
-        "User Dashboard",
-        "Admin panel to perform CRUD operations.",
-        "User feedback system",
-      ],
-      description:
-        "Online Shopping site to buy the best quality Fashion, Electronics, Home & Kitchen products at the lowest prices. I was given meesho.com as a project, and I was able to successfully clone it in a period of 5 days",
-      techStack: ["HTML", "CSS", "JavaScript"],
-    },
-    {
-      deployedLink: "https://chargify.netlify.app/",
-      image: [
-        "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/chargify/vrx1cbpsi5p7kvbfeyf3",
-        "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/chargify/dynsev6owqr5sea74oej",
-        "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/chargify/evbhfeuhjayvffxzzq4t",
-        "https://res.cloudinary.com/megamart/image/upload/f_auto,q_auto/v1/varun%20portfolio/chargify/zfdvgl7izrltu7ekii1t",
-      ],
-      title: "Chargify",
-      subTitle: "Chargebee Clone",
-      GithubLink: "https://github.com/Varun8177/permissible-step-1626",
-      features: [
-        "API-based Sign in and Sign-up functionality for users",
-        "Category-based filtering and price-based sorting of products",
-        "User dashboard for managing personal information and orders",
-        "Admin panel for performing CRUD operations on products and user information",
-        "User feedback system for leaving reviews and ratings on products",
-      ],
-      description:
-        "A Chargify clone is a software platform that imitates the subscription management and billing features of Chargify. It automates subscription billing processes, manages customer accounts and payments, and offers flexible pricing options. Businesses can use it to streamline billing, enhance customer experience, and scale their subscription business.",
-      techStack: ["HTML", "CSS", "JavaScript"],
-    },
-  ];
+  const borderColor = hovered
+    ? isDark ? "rgba(255,255,255,0.14)" : "rgba(0,0,0,0.14)"
+    : isDark ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.07)";
+
+  const cardBg = hovered
+    ? isDark ? "rgba(255,255,255,0.025)" : "rgba(0,0,0,0.018)"
+    : "transparent";
+
+  const divider = isDark ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.07)";
+  const techBg   = isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)";
+  const techBorder = isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)";
 
   return (
-    <Box
-      px={{
-        base: "5",
-        lg: "10",
+    <div
+      data-aos="fade-up"
+      data-aos-delay={index * 80}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        borderRadius: 18,
+        border: `1px solid ${borderColor}`,
+        background: cardBg,
+        padding: "32px 36px",
+        transition: "background 0.25s ease, border-color 0.25s ease",
+        position: "relative",
+        overflow: "hidden",
+        cursor: "default",
       }}
-      id="projects"
     >
-      <Center>
-        <Heading mb={"40px"}>Projects</Heading>
-      </Center>
+      {/* large ghost index */}
+      <div aria-hidden style={{
+        position: "absolute",
+        right: 28,
+        top: 20,
+        fontFamily: "'Syne', sans-serif",
+        fontWeight: 800,
+        fontSize: "clamp(5rem, 10vw, 7.5rem)",
+        lineHeight: 1,
+        letterSpacing: "-0.05em",
+        opacity: isDark ? 0.03 : 0.04,
+        pointerEvents: "none",
+        userSelect: "none",
+        color: accent,
+      }}>
+        {project.index}
+      </div>
 
-      {showMediumProjectCards
-        ? data.map((item, i) => (
-            <Suspense key={i} fallback={<div>loading...</div>}>
-              <MediumProjectCard {...item} />
-            </Suspense>
-          ))
-        : data.map((item, i) => (
-            <Suspense fallback={<div>loading...</div>} key={i}>
-              <ProjectCards
-                direction={i % 2 === 0 ? "row" : "row-reverse"}
-                {...item}
-              />
-            </Suspense>
+      {/* top row */}
+      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", flexWrap: "wrap", gap: "8px 16px", marginBottom: 20 }}>
+        <div>
+          {/* index + domain */}
+          <div style={{
+            display: "flex", alignItems: "center", gap: 10, marginBottom: 10,
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: 10, fontWeight: 500, letterSpacing: "0.1em",
+            textTransform: "uppercase", opacity: 0.38,
+          }}>
+            <span style={{ color: accent, opacity: 1 }}>{project.index}</span>
+            <span>·</span>
+            <span>{project.domain}</span>
+          </div>
+
+          {/* title */}
+          <h3 style={{
+            fontFamily: "'Syne', sans-serif",
+            fontWeight: 800,
+            fontSize: "clamp(1.25rem, 2.5vw, 1.65rem)",
+            letterSpacing: "-0.03em",
+            lineHeight: 1.1,
+            marginBottom: 6,
+          }}>
+            {project.title}
+          </h3>
+
+          {/* subtitle */}
+          <p style={{
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: 11.5, fontWeight: 500,
+            letterSpacing: "0.03em",
+            color: accent,
+            opacity: 0.75,
+          }}>
+            {project.subtitle}
+          </p>
+        </div>
+
+        {/* status badge */}
+        <div style={{
+          display: "inline-flex", alignItems: "center", gap: 6,
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: 9.5, fontWeight: 500,
+          letterSpacing: "0.1em", textTransform: "uppercase",
+          color: project.live ? "#22c55e" : (isDark ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.45)"),
+          padding: "4px 12px",
+          borderRadius: 100,
+          border: `1px solid ${project.live ? "rgba(34,197,94,0.3)" : (isDark ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.12)")}`,
+          background: project.live ? "rgba(34,197,94,0.07)" : "transparent",
+          flexShrink: 0,
+          marginTop: 4,
+        }}>
+          {project.live && (
+            <span style={{
+              width: 5, height: 5, borderRadius: "50%",
+              background: "#22c55e", display: "inline-block", flexShrink: 0,
+              animation: "live-pulse 2s ease-in-out infinite",
+            }} />
+          )}
+          {project.status}
+        </div>
+      </div>
+
+      {/* company */}
+      <p style={{
+        fontFamily: "'JetBrains Mono', monospace",
+        fontSize: 10.5, letterSpacing: "0.06em",
+        opacity: 0.3, marginBottom: 16,
+        textTransform: "uppercase",
+      }}>
+        {project.company}
+      </p>
+
+      {/* divider */}
+      <div style={{ height: 1, background: divider, marginBottom: 18 }} />
+
+      {/* description */}
+      <p style={{
+        fontFamily: "'Poppins', sans-serif",
+        fontSize: 13.5, lineHeight: 1.75,
+        opacity: 0.65, marginBottom: 22,
+      }}>
+        {project.description}
+      </p>
+
+      {/* highlights */}
+      <ul style={{ listStyle: "none", padding: 0, margin: "0 0 26px", display: "flex", flexDirection: "column", gap: 9 }}>
+        {project.highlights.map((h, j) => (
+          <li key={j} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+            <span style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: 12, color: accent, opacity: 0.5, flexShrink: 0, marginTop: "0.15em",
+            }}>→</span>
+            <span style={{
+              fontFamily: "'Poppins', sans-serif",
+              fontSize: 13, lineHeight: 1.65, opacity: 0.68,
+            }}>{h}</span>
+          </li>
+        ))}
+      </ul>
+
+      {/* bottom row: tech + link */}
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+          {project.tech.map((t, ti) => (
+            <span key={ti} style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: 10, fontWeight: 500, letterSpacing: "0.06em",
+              padding: "4px 12px", borderRadius: 100,
+              border: `1px solid ${techBorder}`,
+              background: techBg, opacity: 0.85,
+            }}>
+              {t}
+            </span>
           ))}
-    </Box>
+        </div>
+
+        <span style={{
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: 9.5, opacity: 0.25, letterSpacing: "0.08em",
+          textTransform: "uppercase", fontStyle: "italic",
+        }}>
+          Confidential
+        </span>
+      </div>
+    </div>
+  );
+}
+
+const Projects = () => {
+  const { isDark } = useDarkMode();
+  const accent  = isDark ? "#f87171" : "#2563eb";
+  const divider = isDark ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.07)";
+
+  return (
+    <section
+      id="projects"
+      style={{
+        position: "relative",
+        padding: "clamp(5rem, 10vw, 8rem) clamp(1.5rem, 6vw, 6rem)",
+        overflow: "hidden",
+      }}
+    >
+      {/* ghost background */}
+      <div aria-hidden style={{
+        position: "absolute", top: "50%", left: "50%",
+        transform: "translate(-50%, -50%)",
+        fontFamily: "'Syne', sans-serif", fontWeight: 800,
+        fontSize: "clamp(5rem, 18vw, 14rem)", letterSpacing: "-0.05em",
+        opacity: isDark ? 0.02 : 0.028,
+        pointerEvents: "none", userSelect: "none", whiteSpace: "nowrap", lineHeight: 1,
+      }}>
+        BUILD
+      </div>
+
+      <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative" }}>
+
+        {/* section label */}
+        <div data-aos="fade-up" style={{
+          display: "flex", alignItems: "center", gap: 10,
+          marginBottom: "2.75rem",
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: 11, fontWeight: 500, letterSpacing: "0.12em",
+          textTransform: "uppercase", opacity: 0.45,
+        }}>
+          <span style={{ color: accent, opacity: 1 }}>// 04</span>
+          <span>·</span>
+          <span>Projects</span>
+          <div style={{ height: 1, background: divider, width: 64, flexShrink: 0 }} />
+        </div>
+
+        {/* headline */}
+        <div data-aos="fade-up" data-aos-delay="50" style={{ marginBottom: "3.5rem" }}>
+          <h2 style={{
+            fontFamily: "'Syne', sans-serif", fontWeight: 800,
+            fontSize: "clamp(2rem, 4.5vw, 3.25rem)",
+            lineHeight: 1.1, letterSpacing: "-0.03em",
+          }}>
+            Things I've{" "}
+            <span style={{ color: accent }}>built.</span>
+          </h2>
+        </div>
+
+        {/* cards */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+          {projectData.map((project, i) => (
+            <ProjectCard
+              key={i}
+              project={project}
+              index={i}
+              isDark={isDark}
+              accent={accent}
+            />
+          ))}
+        </div>
+
+        {/* footnote */}
+        <div data-aos="fade-up" style={{
+          marginTop: "3rem",
+          textAlign: "center",
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: 11, letterSpacing: "0.06em",
+          opacity: 0.3,
+        }}>
+          All listed projects are production deployments under NDA. Source code is confidential.
+        </div>
+      </div>
+    </section>
   );
 };
 
