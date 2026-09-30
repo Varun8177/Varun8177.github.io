@@ -28,7 +28,7 @@ const LINES = [
   { id: "fh", tokens: [{ c: T.blue, t: '"frontend"' }, { c: T.punct, t: ': {' }], indent: 1 },
 
   { id: "react", skill: "React.js",          cat: "frontend",
-    tokens: [{ c: T.key, t: '"react"' },      { c: T.punct, t: ':  ' }, { c: T.valStr, t: '"^18.2.0"' }, { c: T.punct, t: ',' }, { c: T.comment, t: '   // primary ⭐' }],
+    tokens: [{ c: T.key, t: '"react"' },      { c: T.punct, t: ':  ' }, { c: T.valStr, t: '"^19.0.0"' }, { c: T.punct, t: ',' }, { c: T.comment, t: '   // primary ⭐' }],
     indent: 2 },
   { id: "next",  skill: "Next.js",           cat: "frontend",
     tokens: [{ c: T.key, t: '"next"' },       { c: T.punct, t: ':   ' }, { c: T.valStr, t: '"^14.0.0"' }, { c: T.punct, t: ',' }],
@@ -55,6 +55,15 @@ const LINES = [
   /* ─ libraries ─ */
   { id: "lh", tokens: [{ c: T.violet, t: '"libraries"' }, { c: T.punct, t: ': {' }], indent: 1 },
 
+  { id: "zustand", skill: "Zustand",       cat: "libs",
+    tokens: [{ c: T.key, t: '"zustand"' },    { c: T.punct, t: ':     ' }, { c: T.valStr, t: '"^5.0.0"' }, { c: T.punct, t: ',' }],
+    indent: 2 },
+  { id: "slate",  skill: "Slate",           cat: "libs",
+    tokens: [{ c: T.key, t: '"slate"' },      { c: T.punct, t: ':       ' }, { c: T.valStr, t: '"^0.110.0"' }, { c: T.punct, t: ',' }],
+    indent: 2 },
+  { id: "xyflow", skill: "React Flow",      cat: "libs",
+    tokens: [{ c: T.key, t: '"@xyflow/react"' }, { c: T.punct, t: ':' }, { c: T.valStr, t: '"^12.0.0"' }, { c: T.punct, t: ',' }],
+    indent: 2 },
   { id: "redux",  skill: "Redux",           cat: "libs",
     tokens: [{ c: T.key, t: '"redux"' },      { c: T.punct, t: ':       ' }, { c: T.valStr, t: '"^4.2.0"' }, { c: T.punct, t: ',' }],
     indent: 2 },
@@ -92,8 +101,14 @@ const LINES = [
   { id: "sq",   skill: "SonarQube", cat: "tools",
     tokens: [{ c: T.key, t: '"sonarqube"' },{ c: T.punct, t: ':   ' }, { c: T.valStr, t: '"^10.0.0"' }, { c: T.punct, t: ',' }, { c: T.comment, t: ' // A grade 🏆' }],
     indent: 2 },
-  { id: "xo",   skill: "XO",        cat: "tools",
-    tokens: [{ c: T.key, t: '"xo"' },       { c: T.punct, t: ':          ' }, { c: T.valStr, t: '"^0.58.0"' }],
+  { id: "vite",   skill: "Vite",      cat: "tools",
+    tokens: [{ c: T.key, t: '"vite"' },     { c: T.punct, t: ':         ' }, { c: T.valStr, t: '"^6.0.0"' }, { c: T.punct, t: ',' }],
+    indent: 2 },
+  { id: "vitest", skill: "Vitest",    cat: "tools",
+    tokens: [{ c: T.key, t: '"vitest"' },   { c: T.punct, t: ':       ' }, { c: T.valStr, t: '"^3.0.0"' }, { c: T.punct, t: ',' }],
+    indent: 2 },
+  { id: "gha",    skill: "GitHub Actions", cat: "tools",
+    tokens: [{ c: T.key, t: '"github-actions"' }, { c: T.punct, t: ':' }, { c: T.valStr, t: '"*"' }],
     indent: 2 },
 
   { id: "dc", tokens: [{ c: T.punct, t: '}' }], indent: 1 },
@@ -255,7 +270,7 @@ const Skills = () => {
                 lineHeight: 1.85, opacity: 0.55,
                 marginBottom: "2rem", maxWidth: 360,
               }}>
-                Hover any line in the file to identify the skill. These are the tools I use daily in production across fintech and government platforms.
+                Hover any line in the file to identify the skill. These are the tools I use daily in production across fintech, government and AI platforms.
               </p>
 
               {/* legend */}

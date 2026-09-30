@@ -4,6 +4,42 @@ import { useDarkMode } from "../context/DarkModeContext";
 const projectData = [
   {
     index: "01",
+    title: "IndiSign",
+    subtitle: "E-signature platform with a print-accurate document editor",
+    status: "Currently Building",
+    live: true,
+    company: "Hapticware",
+    description:
+      "E-signature platform covering document drafting, approvals, wallet billing and signing. I own the frontend end to end.",
+    highlights: [
+      "Slate-based document editor with print-accurate PDF export.",
+      "4-state document lifecycle (Draft, Under Review, Approved, Rejected) across approvals, wallet billing and signing.",
+      "Ran IndiSign V2 release readiness and authored specs for wallet refunds, invoicing and permission models.",
+    ],
+    tech: ["Next.js", "TypeScript", "Slate", "Zustand", "Tailwind CSS"],
+    domain: "eSignature · Fintech",
+    liveLink: null,
+  },
+  {
+    index: "02",
+    title: "ExoQ",
+    subtitle: "AI workspace platform with agent and workflow canvases",
+    status: "Currently Building",
+    live: true,
+    company: "Hapticware",
+    description:
+      "AI workspace platform where teams build agents and workflows, manage knowledge and run business modules.",
+    highlights: [
+      "Built 6 AI surfaces: node-based agent canvas, workflow canvas, knowledge base, chat, notifications and the Forge module (CRM, CPQ, meeting routing).",
+      "Performance pass on the app shell: lazy-loaded heavy routes, deduplicated REST calls, extracted shared components.",
+      "Built on the Hapticware design system, 20+ accessible components shared across three apps.",
+    ],
+    tech: ["React", "TypeScript", "React Flow", "Zustand", "Vite", "Tailwind CSS"],
+    domain: "AI · Workflow Automation",
+    liveLink: null,
+  },
+  {
+    index: "03",
     title: "eSignPro by Protean",
     subtitle: "Aadhaar-verified eSignature & eStamping platform",
     status: "Live in Production",
@@ -21,14 +57,14 @@ const projectData = [
     liveLink: null,
   },
   {
-    index: "02",
+    index: "04",
     title: "PAN 2.0",
-    subtitle: "Government platform UI — wallet, billing & verification",
+    subtitle: "Government platform UI: wallet, billing & verification",
     status: "Delivered",
     live: false,
     company: "MoneyMul Technologies · for Government of India",
     description:
-      "Government platform UI modules for PAN 2.0 — wallet management, invoice systems, approval flows, and document verification for a nationwide rollout.",
+      "Government platform UI modules for PAN 2.0: wallet management, invoice systems, approval flows, and document verification for a nationwide rollout.",
     highlights: [
       "Role-based dashboards, approval flows, and wallet/billing systems with full auth and route protection.",
       "SonarQube A grade: 5% duplicate code, 0% reliability issues, 0 security hotspots.",
@@ -39,7 +75,7 @@ const projectData = [
     liveLink: null,
   },
   {
-    index: "03",
+    index: "05",
     title: "Wasalt",
     subtitle: "AI-driven real estate platform with map-based discovery",
     status: "Live in Production",

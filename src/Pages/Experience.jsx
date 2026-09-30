@@ -4,17 +4,21 @@ import { useDarkMode } from "../context/DarkModeContext";
 const experienceData = [
   {
     index: "01",
-    role: "Frontend Developer (AI Systems)",
+    role: "Frontend Engineer (AI Systems)",
     company: "Hapticware",
     location: "Pune",
     start: "Apr 2026",
     end: "Present",
     current: true,
-    description: "A fintech AI startup building intelligent document workflow automation and eSignature solutions.",
+    description: "Builds IndiSign, an e-signature platform, and ExoQ, an AI workspace platform.",
     works: [
-      "Contributing to IndiSign — an intelligent eSignature platform — using React.js and Next.js.",
-      "Building seamless, high-performance UI experiences for fintech users.",
-      "Focused on production-ready frontend delivery for document workflow automation.",
+      "Own IndiSign's frontend, including the Slate-based document editor with print-accurate PDF export, and the 4-state document lifecycle (Draft, Under Review, Approved, Rejected) across approvals, wallet billing and signing.",
+      "Own the Hapticware design system: 20+ reusable, accessible React components, tested and published as a versioned package consumed across three applications.",
+      "Built 6 ExoQ AI surfaces: node-based agent canvas, workflow canvas, knowledge base, chat, notifications and the Forge module (CRM, CPQ, meeting routing).",
+      "Delivered performance optimisation across the ExoQ application shell: lazy-loaded heavy routes, deduplicated redundant REST API calls and extracted shared components, cutting initial frontend load cost.",
+      "Own the frontend standards for both products: write the specs two engineers build from, publish the shared component catalogue, and review every change that ships, across 200+ merged PRs spanning five frontend codebases and 45+ peer reviews.",
+      "Ran release readiness for IndiSign V2, dev-testing every deliverable and owning the handoff checklist the team tracked the release against.",
+      "Gather requirements from business stakeholders and author the specs that follow: wallet refunds, invoicing and permission models.",
     ],
   },
   {
@@ -25,12 +29,11 @@ const experienceData = [
     start: "Sep 2025",
     end: "Dec 2025",
     current: false,
-    description: "AI-driven real estate and property management platform company.",
+    description: "AI-driven real estate platform company. Role eliminated in a company-wide restructuring.",
     works: [
-      "Developed Wasalt real estate platform using Next.js with map-based property discovery.",
-      "Built analytics dashboards visualizing 10K+ property listings using Highcharts.",
-      "Implemented multilingual support (English & Arabic RTL) for international users.",
-      "Collaborated with backend engineers to integrate REST APIs for property data and search.",
+      "Developed the Wasalt real estate platform in Next.js with map-based property discovery, real-time geolocation and advanced filtering over REST APIs.",
+      "Implemented multilingual support (English and Arabic) with full RTL layout compatibility.",
+      "Built analytics dashboards visualising 10K+ property listings using Highcharts, tuned for responsive performance across mobile and desktop breakpoints.",
     ],
   },
   {
@@ -43,12 +46,10 @@ const experienceData = [
     current: false,
     description: "A fintech company focused on digital payments and financial workflow solutions.",
     works: [
-      "Built and maintained a reusable React component library used across fintech modules.",
-      "Developed secure role-based dashboards for financial operations, billing, and payment workflows.",
-      "Implemented Aadhaar-based eSign and virtual stamping workflows for eSignPro by Protean.",
-      "Contributed to PAN 2.0 government platform UI — wallet, invoice systems, document verification.",
-      "Reduced duplicate code to 5% and achieved SonarQube A grade through code quality improvements.",
-      "Integrated real-time notifications using Socket.IO to enhance platform interactivity.",
+      "Implemented Aadhaar-based eSign and virtual stamping workflows for eSignPro by Protean eGov Technologies, a production government-compliant digital signature platform.",
+      "Built wallet management, invoicing and document-verification modules for the PAN 2.0 government platform, delivered for government review.",
+      "Developed secure role-based dashboards across 3 operational domains: financial operations, billing and payment workflows.",
+      "Maintained a shared React component library across fintech modules, cutting duplicate code to 5% and holding a SonarQube A grade.",
     ],
   },
   {
@@ -349,7 +350,7 @@ const Experience = () => {
           opacity: 0.28, textTransform: "uppercase",
         }}>
           <div style={{ height: 1, background: divider, width: 40, flexShrink: 0 }} />
-          2.5+ years · 4 companies · 3 domains
+          3+ years · 200+ merged PRs · fintech, government, AI
           <div style={{ height: 1, background: divider, flex: 1 }} />
         </div>
       </div>

@@ -13,9 +13,9 @@ const socials = [
 ];
 
 const ticker = [
-  "React.js", "Next.js", "TypeScript", "Redux", "Socket.IO",
-  "Mapbox GL", "Highcharts", "Tailwind CSS", "SonarQube", "Aadhaar eSign",
-  "REST APIs", "ESLint", "Git", "Agile / Scrum", "Fintech",
+  "React 19", "Next.js", "TypeScript", "Zustand", "Redux",
+  "React Query", "Vite", "Vitest", "Tailwind CSS", "Slate",
+  "React Flow", "Design Systems", "Aadhaar eSign", "GitHub Actions", "SonarQube",
 ];
 
 // Fake syntax-highlighted code representing Varun's actual work
@@ -38,12 +38,12 @@ function CodeWindow({ isDark }) {
     [{ t: "// varun.ts", c: "cmt" }],
     [],
     [{ t: "type ", c: "kw" }, { t: "Domain", c: "fn" }, { t: " =", c: "op" }],
-    [{ t: "  | ", c: "op" }, { t: "'Fintech'", c: "str" }, { t: " | ", c: "op" }, { t: "'Government'", c: "str" }, { t: " | ", c: "op" }, { t: "'Real Estate'", c: "str" }],
+    [{ t: "  | ", c: "op" }, { t: "'Fintech'", c: "str" }, { t: " | ", c: "op" }, { t: "'Government'", c: "str" }, { t: " | ", c: "op" }, { t: "'AI'", c: "str" }],
     [],
     [{ t: "const ", c: "kw" }, { t: "varun", c: "fn" }, { t: " = {", c: "def" }],
     [{ t: "  role:", c: "num" }, { t: "    ", c: "def" }, { t: "'Frontend Engineer'", c: "str" }, { t: ",", c: "def" }],
     [{ t: "  stack:", c: "num" }, { t: "   ", c: "def" }, { t: "['React'", c: "str" }, { t: ", ", c: "def" }, { t: "'Next.js'", c: "str" }, { t: ", ", c: "def" }, { t: "'TypeScript'", c: "str" }, { t: "],", c: "def" }],
-    [{ t: "  exp:", c: "num" }, { t: "     ", c: "def" }, { t: "'2.5 yrs · 4 companies'", c: "str" }, { t: ",", c: "def" }],
+    [{ t: "  exp:", c: "num" }, { t: "     ", c: "def" }, { t: "'3+ yrs · 200+ PRs'", c: "str" }, { t: ",", c: "def" }],
     [{ t: "  quality:", c: "num" }, { t: "  ", c: "def" }, { t: "'SonarQube A'", c: "str" }, { t: ",", c: "def" }],
     [{ t: "  available:", c: "num" }, { t: " ", c: "def" }, { t: "true", c: "kw" }, { t: ",", c: "def" }],
     [{ t: "}", c: "def" }],
@@ -130,7 +130,7 @@ function Home() {
           <div className="hero-reveal hero-d1 inline-flex items-center gap-2.5 mb-8 px-4 py-2 rounded-full text-xs font-medium tracking-wide"
             style={{ background: badgeBg, border: `1px solid ${badgeBorder}`, color: badgeText, fontFamily: "'JetBrains Mono', monospace" }}>
             <span className="live-dot" />
-            Currently building IndiSign · Hapticware
+            Currently building IndiSign & ExoQ · Hapticware
           </div>
 
           {/* Name — large Syne display */}
@@ -156,7 +156,7 @@ function Home() {
           >
             <Typewriter
               options={{
-                strings: ["Frontend Engineer", "React · Next.js · TypeScript", "Fintech · Govt · Real Estate"],
+                strings: ["Frontend Engineer", "React · Next.js · TypeScript", "Fintech · Govt · AI"],
                 autoStart: true,
                 loop: true,
                 deleteSpeed: 35,
@@ -167,8 +167,8 @@ function Home() {
 
           {/* Bio */}
           <p className="hero-reveal hero-d4 text-sm md:text-base leading-relaxed mb-8 max-w-lg" style={{ opacity: 0.7 }}>
-            2.5+ years shipping production-grade web apps across fintech, government,
-            and real estate. SonarQube A grade · eSign platforms · 10K+ listing dashboards.
+            3+ years building React and TypeScript products for fintech, government
+            and AI platforms. eSignature · design systems · AI agent canvases · 200+ merged PRs.
           </p>
 
           {/* Socials + CTA row */}

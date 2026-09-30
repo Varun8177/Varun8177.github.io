@@ -4,28 +4,28 @@ import { useDarkMode } from "../context/DarkModeContext";
 const highlights = [
   {
     label: "Performance",
-    detail: "High-perf fintech dashboards — optimized renders, lazy loading, strategic code splitting.",
+    detail: "Lazy-loaded heavy routes and deduplicated REST calls across the ExoQ app shell, cutting initial load cost.",
   },
   {
     label: "Code Quality",
-    detail: "SonarQube A grade: 5% duplicate code, 0 reliability issues, 0 security hotspots.",
+    detail: "Own frontend standards and review every change that ships across five codebases. SonarQube A grade, 5% duplicate code.",
   },
   {
     label: "Architecture",
-    detail: "Reusable component libraries deployed across complex multi-module production platforms.",
+    detail: "Own the Hapticware design system: 20+ accessible React components, published as a versioned package used by three apps.",
   },
   {
     label: "Delivery",
-    detail: "Agile/Scrum cadence — shipped features every sprint across 3 companies.",
+    detail: "Ran IndiSign V2 release readiness, and turn stakeholder requirements into the specs engineers build from.",
   },
 ];
 
-const domains = ["Fintech", "Government", "Real Estate", "eSign Platforms", "Geo & Maps", "Analytics"];
+const domains = ["Fintech", "Government", "AI Platforms", "eSignature", "Design Systems", "Analytics"];
 
 const stats = [
-  { number: "2.5+", label: "Years Exp" },
-  { number: "3",    label: "Companies" },
-  { number: "3",    label: "Live Apps" },
+  { number: "3+",   label: "Years Exp" },
+  { number: "200+", label: "Merged PRs" },
+  { number: "20+",  label: "DS Components" },
   { number: "A",    label: "SonarQube" },
 ];
 
@@ -129,13 +129,13 @@ const About = () => {
                   maxWidth: 560,
                 }}
               >
-                Frontend Software Engineer with 2.5+ years shipping production-grade
-                applications across{" "}
+                Frontend Software Engineer with 3+ years building React and TypeScript
+                products for{" "}
                 <strong style={{ opacity: 1, fontWeight: 600 }}>fintech</strong>,{" "}
-                <strong style={{ opacity: 1, fontWeight: 600 }}>government</strong>, and{" "}
-                <strong style={{ opacity: 1, fontWeight: 600 }}>real estate</strong> — with
-                React.js and Next.js as my tools of choice. I care about code that's
-                maintainable, performant, and a pleasure to work with.
+                <strong style={{ opacity: 1, fontWeight: 600 }}>government</strong> and{" "}
+                <strong style={{ opacity: 1, fontWeight: 600 }}>AI</strong> platforms. I work
+                best on complex, ambiguous problems where the details decide whether something
+                actually works, and I own delivery end to end, from spec through to production.
               </p>
             </div>
 
